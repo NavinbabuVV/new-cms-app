@@ -1,0 +1,89 @@
+<ion-header no-shadow>
+	<ion-toolbar class="header" color="primary">
+		<ion-buttons slot="start" >
+			<ion-back-button (click)="goToTestPage()" ></ion-back-button>
+		</ion-buttons>
+		<ion-title>Notifications</ion-title>
+		<!-- <ion-buttons slot="end">
+			<ion-button icon-only [routerLink]="['/global-search']">
+				<ion-icon name="search"></ion-icon>
+			</ion-button>
+		 </ion-buttons> -->
+		<ion-buttons slot="end">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="list-page grey-bg" *ngIf="datas">
+	<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+		<ion-refresher-content></ion-refresher-content>
+	</ion-refresher>
+	<div class="inner-content-wrapper">
+		<div class="block alert-block">
+			<!-- <ion-searchbar placeholder="Search"></ion-searchbar> -->
+			<ion-card class="card quatation-notification" *ngFor="let notification of notifications; let i = index" [attr.data-index]="i" (click)="updatenotify(notification['id'],notification['type']);">
+				<ion-card-content>
+					<ion-row>
+					<ion-col size="2">
+					<div class="{{notification.type}}-bg"><img style="padding: 5px;" src="assets/imgs/notify/{{notification.type}}.svg"></div>
+				</ion-col>
+				<ion-col size="10">
+					<!-- <div class="round-bg"></div> -->
+					<!-- <ion-badge color="primary">QT38908</ion-badge> &nbsp; <ion-badge color="warning">Cal4Care SG</ion-badge> -->
+					<p><strong>{{notification['type']}}</strong> </p>
+					<p>{{notification['message']}}</p>
+					<div class="goToArrow"><img src="assets/imgs/right-arrow.svg"></div>
+				</ion-col>
+			</ion-row>
+				</ion-card-content>
+			</ion-card>
+
+			<!-- <ion-card class="card pettycash-notification">
+				<ion-card-content>
+					<div class="round-bg">JN</div>
+					<ion-badge color="primary">QT38908</ion-badge> &nbsp; <ion-badge color="warning">Cal4Care SG</ion-badge>
+					<p><strong>Petty Cash</strong> Request From<strong>JN</strong></p>
+					<div class="goToArrow"><img src="assets/imgs/right-arrow.svg"></div>
+				</ion-card-content>
+			</ion-card> -->
+
+			<!-- <ion-card class="card invoice-notification">
+				<ion-card-content>
+					<div class="round-bg">JN</div>
+					<ion-badge color="primary">QT38908</ion-badge> &nbsp; <ion-badge color="warning">Cal4Care SG</ion-badge>
+					<p><strong>Invoice</strong> Request From <strong>JN</strong></p>
+					<div class="goToArrow"><img src="assets/imgs/right-arrow.svg"></div>
+				</ion-card-content>
+			</ion-card>
+
+			<ion-card class="card did-notification">
+				<ion-card-content>
+					<div class="round-bg">JN</div>
+					<ion-badge color="primary">QT38908</ion-badge> &nbsp;&nbsp;&nbsp; <ion-badge color="warning">Cal4Care SG</ion-badge>
+					<p><strong>DID No.</strong> Request From <strong>JN</strong></p>
+					<div class="goToArrow"><img src="assets/imgs/right-arrow.svg"></div>
+				</ion-card-content>
+			</ion-card>
+
+			<ion-card class="card product-notification">
+				<ion-card-content>
+					<div class="round-bg">JN</div>
+					<ion-badge color="primary">QT38908</ion-badge> &nbsp;&nbsp;&nbsp; <ion-badge color="warning">Cal4Care SG</ion-badge>
+					<p><strong>Product</strong> Request From <strong>JN</strong></p>
+					<div class="goToArrow"><img src="assets/imgs/right-arrow.svg"></div>
+				</ion-card-content>
+			</ion-card> -->
+
+
+		</div>
+	</div>
+
+</ion-content>
+
+<ion-content *ngIf="nodata">
+	<div  class="aligncenter no-notify">
+		<img src="assets/imgs/notify/no-not.gif">
+		<p>No Notification</p>
+	</div>
+</ion-content>

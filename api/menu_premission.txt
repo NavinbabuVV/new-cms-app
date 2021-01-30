@@ -1,0 +1,18 @@
+value   menu_enable
+102     Credit Note,
+        Prepaid Note
+
+103     Licence
+104     Projects
+105     Phones
+107     Leads
+131     Reseller Price List
+108     RMA
+109     Call History
+        Call History PBX
+        Call History VS PBX
+
+134     IDD Price List
+118     Buy 3CX
+138     Call4tel License
+157     Support Ticket   

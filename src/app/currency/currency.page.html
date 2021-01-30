@@ -1,0 +1,544 @@
+<ion-header no-shadow>
+  <ion-toolbar align-title="center" class="header" color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button (click)="goToTestPage()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Currency/Contact</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="backpagebg">
+  <!-- <div class="segmentsbtn">
+    <ion-grid>
+
+
+      <ion-segment scrollable color="dark" [(ngModel)]="select">
+
+        <ion-segment-button value="cur">
+          <ion-label>Currency ($)</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="con">
+          <ion-label>Singapore :+65 63401006</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="sg">
+          <ion-label>Cal4Care SG</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-grid>
+  </div> -->
+
+
+
+  <div >
+    <ion-list>
+      <ion-card class="cards" (click)="menuclicks('toc')">
+        <ion-item lines="none">
+          <ion-avatar slot="start">
+            <img src="../../assets/imgs/currency/dollar.svg">
+          </ion-avatar>
+          <ion-label>
+            <h2>Today Currency</h2>
+          </ion-label>
+        </ion-item>
+      </ion-card>
+      <ion-card class="cards" (click)="menuclicks('cou')">
+        <ion-item lines="none">
+          <ion-avatar slot="start">
+            <img src="../../assets/imgs/currency/email.svg">
+          </ion-avatar>
+          <ion-label>
+            <h2>Contact Us</h2>
+          </ion-label>
+        </ion-item>
+      </ion-card>
+      <ion-card class="cards" (click)="menuclicks('acm')">
+        <ion-item lines="none">
+          <ion-avatar slot="start">
+            <img src="../../assets/imgs/currency/google.svg">
+          </ion-avatar>
+          <ion-label>
+            <h2>My Account Manager</h2>
+          </ion-label>
+        </ion-item>
+      </ion-card>
+    </ion-list>
+  </div>
+
+  <div *ngIf="select == 'cur'" class="currencys">
+
+    <!-- <p [innerHTML]="currencytable"></p> -->
+
+    <div>
+      <ion-row *ngIf="curdate">
+        <ion-col size="12" class="bkc">
+          Currency Price on {{curdate}}
+        </ion-col>
+
+
+      </ion-row>
+
+
+      <ion-row *ngIf="currencytable && currencytable.EUR" class="bk">
+        <ion-col size="1.5">
+
+        </ion-col>
+        <ion-col size="1.5">
+          EUR
+        </ion-col>
+        <ion-col size="1.5">
+          INR
+        </ion-col>
+        <ion-col size="1.5">
+          JPY
+        </ion-col>
+        <ion-col size="1.5">
+          MYR
+        </ion-col>
+        <ion-col size="1.5">
+          SGD
+        </ion-col>
+        <ion-col size="1.5">
+          THB
+        </ion-col>
+        <ion-col size="1.5">
+          USD
+        </ion-col>
+
+      </ion-row>
+
+      <ion-row *ngIf="currencytable && currencytable.EUR">
+        <ion-col size="1.5" class="curbk">
+          EUR
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.EUR.EUR}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.EUR.INR}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.EUR.JPY}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.EUR.MYR}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.EUR.SGD}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.EUR.THB}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.EUR.USD}}
+        </ion-col>
+
+      </ion-row>
+
+      <ion-row *ngIf="currencytable && currencytable.INR">
+        <ion-col size="1.5" class="curbk">
+          INR
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.INR.EUR}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.INR.INR}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.INR.JPY}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.INR.MYR}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.INR.SGD}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.INR.THB}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.INR.USD}}
+        </ion-col>
+
+      </ion-row>
+
+      <ion-row *ngIf="currencytable && currencytable.JPY">
+        <ion-col size="1.5" class="curbk">
+          JPY
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.JPY.EUR}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.JPY.INR}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.JPY.JPY}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.JPY.MYR}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.JPY.SGD}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.JPY.THB}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.JPY.USD}}
+        </ion-col>
+
+      </ion-row>
+
+      <ion-row *ngIf="currencytable && currencytable.MYR">
+        <ion-col size="1.5" class="curbk">
+          MYR
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.MYR.EUR}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.MYR.INR}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.MYR.JPY}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.MYR.MYR}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.MYR.SGD}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.MYR.THB}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.MYR.USD}}
+        </ion-col>
+
+      </ion-row>
+
+
+      <ion-row *ngIf="currencytable && currencytable.SGD">
+        <ion-col size="1.5" class="curbk">
+          SGD
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.SGD.EUR}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.SGD.INR}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.SGD.JPY}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.SGD.MYR}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.SGD.SGD}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.SGD.THB}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.SGD.USD}}
+        </ion-col>
+
+      </ion-row>
+
+      <ion-row *ngIf="currencytable && currencytable.THB">
+        <ion-col size="1.5" class="curbk">
+          THB
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.THB.EUR}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.THB.INR}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.THB.JPY}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.THB.MYR}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.THB.SGD}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.THB.THB}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.THB.USD}}
+        </ion-col>
+
+      </ion-row>
+
+      <ion-row *ngIf="currencytable && currencytable.USD">
+        <ion-col size="1.5" class="curbk">
+          USD
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.USD.EUR}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.USD.INR}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.USD.JPY}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.USD.MYR}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.USD.SGD}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.USD.THB}}
+        </ion-col>
+        <ion-col size="1.5">
+          {{currencytable.USD.USD}}
+        </ion-col>
+
+      </ion-row>
+    </div>
+
+
+
+
+
+  </div>
+
+
+  <!-- 
+<div>
+
+<ion-row>
+	<ion-col size="4">
+<ion-card>
+	 
+    <ion-icon name="person" slot="start"></ion-icon>
+    <p slot="end">Currency</p>
+  
+</ion-card>
+	</ion-col>
+	<ion-col size="4">
+<ion-card>
+	  <ion-item  lines="none">
+    <ion-icon name="call" slot="start"></ion-icon>
+    <p>Singapore :+65 63401006</p>
+  </ion-item>
+</ion-card>
+	</ion-col>
+	<ion-col size="4">
+<ion-card>
+	  <ion-item  lines="none">
+    <ion-icon name="mail-open" slot="start"></ion-icon>
+    <p>Cal4Care SG</p>
+  </ion-item>
+</ion-card>
+	</ion-col>
+</ion-row>
+</div> -->
+
+  <div class="contact" *ngIf="select == 'acm'">
+    <ion-card>
+
+      <ion-card>
+        <ion-item lines="none">
+          <ion-icon name="person" slot="start"></ion-icon>
+          <ion-label>Account Manager Desk</ion-label>
+        </ion-item>
+      </ion-card>
+
+    </ion-card>
+    <ion-card>
+      <ion-card>
+        <ion-item lines="none">
+          <ion-icon name="person" slot="start"></ion-icon>
+          <ion-label>Support Desk</ion-label>
+        </ion-item>
+      </ion-card>
+      <ion-card>
+        <ion-item lines="none">
+          <ion-icon name="mail-open" slot="start"></ion-icon>
+          <ion-label><a href="mailto:support@cal4care.com.sg">support@cal4care.com.sg</a></ion-label>
+        </ion-item>
+      </ion-card>
+      <ion-card>
+        <ion-item lines="none">
+          <ion-icon name="help-buoy" slot="start"></ion-icon>
+          <ion-label>Support Portal : <a href="https://helpdesk.guru/"> Help Desk</a></ion-label>
+        </ion-item>
+      </ion-card>
+    </ion-card>
+
+  </div>
+
+
+  <div *ngIf="select == 'cou'" class="conclass">
+    <div *ngFor="let contact of contact_details">
+      <!-- <ion-card class="condetails">
+        <ion-item lines="none"> -->
+      <!-- <ion-icon name="medal" slot="start"></ion-icon> -->
+      <!-- <img slot="start" [src]="contact.flag_data" />
+          <ion-label>{{contact.country}} : <a href="tel:{{contact.phone_number}}">{{contact.phone_number}}</a>
+          </ion-label>
+        </ion-item>
+      </ion-card> -->
+
+
+
+
+
+    </div>
+    <!-- <ion-card>
+  <ion-item  lines="none">
+    <ion-icon name="medal" slot="start"></ion-icon>
+    <ion-label>India : +91 422 4387679</ion-label>
+  </ion-item>
+</ion-card> -->
+
+    <ion-list style="background-color: white !important;">
+      <ion-item *ngFor="let contact of contact_details" style="background-color: white !important;">
+        <img style="box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.19)" slot="start"
+          [src]="contact.flag_data" />
+        <ion-label>
+          <span style="display: block;text-align: left;">{{contact.country}} </span><b
+            style="font-size: 18px;text-align: left;display: block;">{{contact.phone_number}} </b>
+        </ion-label>
+        <img slot="end" style="width: 12% !important;" src="../../assets/imgs/telephone.svg" alt="call"
+          (click)="MyFunction(contact.phone_number)">
+
+      </ion-item>
+    </ion-list>
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+<!-- <ion-content padding>
+  <ion-list>
+    <ion-list-header>
+      Ionic 2 Accordion Example.
+    </ion-list-header>
+    <ion-item padding *ngFor="let d of data" (click)="toggleDetails(d)"><ion-icon color="primary" item-right [name]="d.icon"></ion-icon>
+      {{d.title}}
+      <div *ngIf="d.showDetails">{{d.details}}</div>
+    </ion-item>
+  </ion-list>
+</ion-content> -->
+
+
+<ion-list *ngIf="select == 'toc'">
+
+  <ion-item>
+    <ion-label position="fixed">Currency</ion-label>
+    <ion-select interface="popover">
+      <ion-select-option value="nes">EUR</ion-select-option>
+      <ion-select-option value="n64">INR</ion-select-option>
+      <ion-select-option value="ps">JPY</ion-select-option>
+      <ion-select-option value="genesis">JPY</ion-select-option>
+      <ion-select-option value="saturn">MYR</ion-select-option>
+      <ion-select-option value="snes">THB</ion-select-option>
+      <ion-select-option value="snes">SGD</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-card class="cards">
+    <ion-row>
+      <ion-col size="4">
+        <img class="imagess" src="https://restcountries.eu/data/sgp.svg" alt="">
+      </ion-col>
+      <ion-col class="currency-values" size="4">
+        EUR
+      </ion-col>
+      <ion-col class="currency-values" size="4">
+        1
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  <ion-card class="cards">
+    <ion-row>
+      <ion-col size="4">
+        <img class="imagess" src="https://restcountries.eu/data/sgp.svg" alt="">
+      </ion-col>
+      <ion-col class="currency-values" size="4">
+        INR
+      </ion-col>
+      <ion-col class="currency-values" size="4">
+        90.158
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-card class="cards">
+    <ion-row>
+      <ion-col size="4">
+        <img class="imagess" src="https://restcountries.eu/data/sgp.svg" alt="">
+      </ion-col>
+      <ion-col class="currency-values" size="4">
+        JPY
+      </ion-col>
+      <ion-col class="currency-values" size="4">
+        127.0075
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-card class="cards">
+    <ion-row>
+      <ion-col size="4">
+        <img class="imagess" src="https://restcountries.eu/data/sgp.svg" alt="">
+      </ion-col>
+      <ion-col class="currency-values" size="4">
+        MYR
+      </ion-col>
+      <ion-col class="currency-values" size="4">
+        4.9627
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-card class="cards">
+    <ion-row>
+      <ion-col size="4">
+        <img class="imagess" src="https://restcountries.eu/data/sgp.svg" alt="">
+      </ion-col>
+      <ion-col class="currency-values" size="4">
+        SGD
+      </ion-col>
+      <ion-col class="currency-values" size="4">
+        1.6448
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-card class="cards">
+    <ion-row>
+      <ion-col size="4">
+        <img class="imagess" src="https://restcountries.eu/data/sgp.svg" alt="">
+      </ion-col>
+      <ion-col class="currency-values" size="4">
+        THB
+      </ion-col>
+      <ion-col class="currency-values" size="4">
+        36.9191
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+</ion-list>
+
+</ion-content>

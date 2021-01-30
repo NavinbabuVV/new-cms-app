@@ -1,0 +1,100 @@
+<ion-header no-shadow>
+	<ion-toolbar class="header" color="primary">
+		<ion-buttons slot="start" >
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>Add to Cart</ion-title>
+		<ion-buttons slot="end">
+			<ion-button icon-only [routerLink]="['/global-search']">
+				<ion-icon name="search"></ion-icon>
+			</ion-button>
+		 </ion-buttons>
+		<ion-buttons slot="end">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+	</ion-toolbar>
+	<div class="block grey-bg">
+		<div class="header-widget">
+			<h6>3CX Reseller ID: <strong> 350505 </strong> <span class="header-arrow-icon"> <ion-icon name="create"></ion-icon></span></h6>
+		</div>
+	</div>
+</ion-header>
+<ion-content class="grey-bg">
+	<div class="inner-content-wrapper">
+		<div class="block">
+			<ion-card class="card">
+				<ion-card-content>
+					<ion-grid>
+						<ion-row>
+							<ion-col col-4><p>Code</p></ion-col>
+							<ion-col col-8><p><strong>3CXPS</strong></p></ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col col-4><p>Description</p></ion-col>
+							<ion-col col-8><p><strong>3CX Phone System Standard (16 Sim.calls) - 0 Year</strong></p></ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col col-4><p>Price</p></ion-col>
+							<ion-col col-8><p><strong>2000</strong></p></ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col col-4><p>Qty</p></ion-col>
+							<ion-col col-8><p><strong>1</strong></p></ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col col-4><p>Discount (SGD)</p></ion-col>
+							<ion-col col-8><p><strong>0.00 (0 %)</strong></p></ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col col-4><p>Amount (SGD)</p></ion-col>
+							<ion-col col-8><p><strong>3000</strong></p></ion-col>
+						</ion-row>
+					<div class="cart-footer">
+							<ion-row>
+								<ion-col class="close"><ion-icon name="trash"></ion-icon></ion-col>
+							</ion-row>
+						</div>
+					</ion-grid>
+				</ion-card-content>
+			</ion-card>
+
+
+			<ion-card class="card">
+				<ion-card-content>
+					<ion-grid>
+						<ion-row>
+							<ion-col col-4><p>Net Total (SGD)</p></ion-col>
+							<ion-col col-8><p><strong>6000</strong></p></ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col col-5><p>Tax (SGD)</p></ion-col>
+							<ion-col col-7><p><strong>400</strong></p></ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col col-5><p>Grand Total (SGD)</p></ion-col>
+							<ion-col col-7><p><strong>6400</strong></p></ion-col>
+						</ion-row>
+					</ion-grid>
+				</ion-card-content>
+			</ion-card>
+
+			<div class="btn-panel">
+				<ion-row>
+					<ion-col>
+						<ion-button class="btn"  href="\order-license" color="light" expand="full" shape="round"><ion-icon name="arrow-round-back"></ion-icon>
+						Back</ion-button>
+					</ion-col>
+					<ion-col>
+						<ion-button class="btn"  href="\order-license" color="success" expand="full" shape="round"><ion-icon name="add-circle"></ion-icon>
+						Add</ion-button>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col>
+						<ion-button class="btn" href="\order-success" color="primary" expand="full" shape="round"><ion-icon name="cash"></ion-icon> Proceed to Payment</ion-button>
+					</ion-col>
+				</ion-row>
+			</div>
+		</div>
+	</div>
+</ion-content>

@@ -1,0 +1,304 @@
+<ion-header no-shadow>
+	<ion-toolbar align-title="center" class="header" color="primary">
+		<ion-buttons slot="start">
+			<ion-back-button (click)="goToTestPage()"></ion-back-button>
+				</ion-buttons>
+		<ion-title>Referral Details</ion-title>
+		<ion-buttons slot="end">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+
+
+
+<ion-content class="backpagebg">
+
+	<div *ngIf="nodata" class="aligncenter">
+		<img src="../../assets/imgs/norecord-new.png">
+		<p>No Referral Data Found</p>
+	</div>
+
+	<ion-grid>
+		<ion-card class="cardbg" *ngFor="let rfl of referral_list">
+			<ion-card-content>
+				<!-- <div 	[ngClass]="{'table_green' : (rfl.InvStatus == 'Paid' && rfl.ReferalStatus == 'paid'), 'table_red':(rfl.InvStatus == 'Not Paid')}"> -->
+				<div [ngClass]="(rfl.InvStatus == 'Paid' && rfl.ReferalStatus == 'paid')?'table_green':'table_red'">
+					<ion-row class="table-row">
+						<ion-col class="table-col" size="6">
+							Invoice No
+						</ion-col>
+						<ion-col class="table_key" size="6">
+							{{rfl.Invoiceno}}
+						</ion-col>
+					</ion-row>
+
+					<ion-row class="table-row">
+						<ion-col class="table-col" size="6">
+							Comm Date
+						</ion-col>
+						<ion-col class="table_key" size="6">
+							{{rfl.Commdate}}
+						</ion-col>
+					</ion-row>
+
+					<ion-row class="table-row">
+						<ion-col class="table-col" size="6">
+							Invoice Date
+						</ion-col>
+						<ion-col class="table_key" size="6">
+							{{rfl.Invoicedate}}
+						</ion-col>
+					</ion-row>
+
+
+
+					<ion-row class="table-row">
+						<ion-col class="table-col" size="6">
+							Customer Name
+						</ion-col>
+						<ion-col class="table_key" size="6">
+							{{rfl.Customername}}
+						</ion-col>
+					</ion-row>
+
+					<ion-row class="table-row">
+						<ion-col class="table-col" size="6">
+							Referral Type
+						</ion-col>
+						<ion-col class="table_key" size="6">
+							{{rfl.Referraltype}}
+						</ion-col>
+					</ion-row>
+
+					<ion-row class="table-row">
+						<ion-col class="table-col" size="6">
+							Invoice Amt
+						</ion-col>
+						<ion-col class="table_key" size="6">
+							{{rfl.Invoiceamt}}
+						</ion-col>
+					</ion-row>
+
+					<ion-row class="table-row">
+						<ion-col class="table-col" size="6">
+							Invoice Date
+						</ion-col>
+						<ion-col class="table_key" size="6">
+							{{rfl.Invoicedate}}
+						</ion-col>
+					</ion-row>
+
+					<ion-row class="table-row">
+						<ion-col class="table-col" size="6">
+							Currency
+						</ion-col>
+						<ion-col class="table_key" size="6">
+							{{rfl.Currency}}
+						</ion-col>
+					</ion-row>
+
+					<ion-row class="table-row">
+						<ion-col class="table-col" size="6">
+							Referral Amount
+						</ion-col>
+						<ion-col class="table_key" size="6">
+							{{rfl.Refferalamount}}
+						</ion-col>
+					</ion-row>
+
+					<ion-row class="table-row">
+						<ion-col class="table-col" size="6">
+							Conv Amount
+						</ion-col>
+						<ion-col class="table_key" size="6">
+							{{rfl.Conversionamount}}
+						</ion-col>
+					</ion-row>
+
+					<ion-row
+						[ngClass]="{'row-color-change': (rfl.InvStatus == 'Paid' && rfl.ReferalStatus == 'notpaid') || (rfl.InvStatus == 'Not Paid' && rfl.ReferalStatus == 'paid') }">
+						<ion-col class="table-col" size="6">
+							Customer Paid
+						</ion-col>
+						<ion-col class="table_key" size="6">
+							{{rfl.InvStatus}}
+						</ion-col>
+					</ion-row>
+				</div>
+
+				<ion-row>
+					<ion-col size="6">
+					</ion-col>
+					<ion-col size="6" *ngIf="rfl.Attachment">
+						<div class="action" style="float: right;">
+							<ion-button class="actionbutton" (click)="openWithSystemBrowser(rfl.Attachment)" full>
+								<img src="assets/imgs/pdf.png" />
+								<span>Action</span>
+							</ion-button>
+						</div>
+					</ion-col>
+				</ion-row>
+			</ion-card-content>
+		</ion-card>
+	</ion-grid>
+
+
+
+
+
+	<ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+		<ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+		</ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+
+
+
+
+
+
+
+
+</ion-content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div *ngFor="let rfl of referral_list">
+	<ion-card class="cardbg">
+		<ion-card-content>
+			<ion-grid no-padding>
+
+				<ion-row>
+					<ion-col size="6">
+						<p>Invoice No:</p>
+
+
+					</ion-col>
+					<ion-col size="6">
+						<p><strong>{{rfl.Invoiceno}}</strong></p>
+					</ion-col>
+
+				</ion-row>
+
+				<ion-row>
+					<ion-col size="6">
+						<p>Comm Date:</p>
+						<p><strong>{{rfl.Commdate}}</strong></p>
+					</ion-col>
+					<ion-col size="6">
+						<p>Invoice Date:</p>
+						<p><strong>{{rfl.Invoicedate}}</strong></p>
+
+					</ion-col>
+				</ion-row>
+
+				<ion-row>
+					<ion-col size="6">
+						<p>Customer Name:</p>
+						<p><strong>{{rfl.Customername}}</strong></p>
+					</ion-col>
+					<ion-col size="6">
+						<p>Referral Type</p>
+						<p><strong>{{rfl.Referraltype}}</strong></p>
+
+					</ion-col>
+				</ion-row>
+
+				<ion-row>
+					<ion-col size="6">
+						<p>Invoice Amt:</p>
+						<p><strong>{{rfl.Invoiceamt}}</strong></p>
+					</ion-col>
+					<ion-col size="6">
+						<p>Currency:</p>
+						<p><strong>{{rfl.Currency}}</strong></p>
+
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col size="6">
+						<p>Referral Amount:</p>
+						<p><strong>{{rfl.Refferalamount}}</strong></p>
+					</ion-col>
+					<ion-col size="6">
+						<p>Conv Amount:</p>
+						<p><strong>{{rfl.Conversionamount}}</strong></p>
+
+					</ion-col>
+				</ion-row>
+
+
+
+				<ion-row>
+					<ion-col size="6">
+						<p>Customer Paid:</p>
+						<p><strong>{{rfl.Status}}</strong></p>
+					</ion-col>
+					<ion-col size="6" *ngIf="rfl.Attachment">
+						<p>Action:</p>
+						<div class="action">
+							<img (click)="openWithSystemBrowser(rfl.Attachment)" src="assets/imgs/pdf.png" />
+						</div>
+					</ion-col>
+				</ion-row> -->
+<!-- <ion-row>
+						<ion-col size="4"><p>Requester</p></ion-col>
+						<ion-col size="8"><figure class="user-icons"><img src="{{quotation['img_path']}}" /></figure></ion-col>
+						<ion-col size="4"><p></p></ion-col>
+						<ion-col size="8"><ion-badge color="warning">{{quotation['requesterName']}}</ion-badge></ion-col>
+					</ion-row> -->
+
+<!-- <div class="table">
+						<ion-row no-padding>
+							<ion-col no-padding><p class="text-left table-row"><span>Date</span><br /> <strong>{{quotation['transaction_entry_dt']}}</strong></p></ion-col>
+							<ion-col no-padding><p class="text-right table-row"><span>Priority</span><br /> <strong>{{quotation['priority']}}</strong></p>
+							</ion-col>
+						</ion-row>
+						<ion-row no-padding>
+							<ion-col no-padding><p class="text-left table-row"><span>Amount</span><br /> <strong>
+							{{quotation['amount']}}</strong></p>
+						</ion-col>
+						
+						</ion-row>
+					</div> -->
+
+
+<!-- </ion-grid>
+		</ion-card-content>
+	</ion-card>
+</div> -->

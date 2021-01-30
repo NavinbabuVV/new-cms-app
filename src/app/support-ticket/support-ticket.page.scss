@@ -1,0 +1,38 @@
+.table-head{
+    background: #1abb9c;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+.backpagebg{
+	--background : var(--ion-color-grey)  !important;
+}
+.row-data{
+    font-size:14px;
+    border-bottom: 1px grey solid;
+    padding: 10px;
+}
+
+.tno_align{
+    display: flex;
+    /* height: 30px; */
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color:brown;
+
+}
+.dept_align{
+    display: flex;
+    /* height: 30px; */
+    align-items: center;
+    justify-content: center;
+}
+
+.odd{
+    background: #ffffff;
+}
+  .even{
+    background: #ececec;
+  }

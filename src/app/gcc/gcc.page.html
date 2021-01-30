@@ -1,0 +1,71 @@
+<ion-header no-shadow>
+  <ion-toolbar align-title="center" class="header" color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button (click)="goToTestPage()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>IP Allow Rule</ion-title>
+    
+    
+    <ion-fab-button slot="end" class="create-gcc" (click)="popups()">
+      <ion-icon class="create-icons" name="add"></ion-icon>
+    </ion-fab-button>
+
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-grid>
+    <!-- <ion-list class="table-head">
+    </ion-list> -->
+
+    <ion-row class="rows-green" *ngFor="let gcc of listing_gcc">
+      <ion-col size="10">
+        <span><strong>Jayakumar </strong></span>
+        <div style="margin-top: 3px;">
+          <span style="color: #d62828;font-weight: 900;">{{gcc.master_ip}}</span>
+          <span style="margin-left: 10px;">
+            <span style="font-weight: 900;" class="in">-></span>
+            <span style="margin-left: 10px;color: #f77f00;font-weight: 900;" class="out">{{gcc.allowed_ip}}</span>
+          </span>
+          <div style="margin-top: 3px;">
+            <span>
+              <ion-badge *ngIf="gcc.type == 'allow'">{{gcc.type}}</ion-badge>
+              <ion-badge style="--background:red" *ngIf="gcc.type == 'block'">{{gcc.type}}</ion-badge>
+            </span>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col size="2" *ngIf="gcc.type == 'allow'">
+        <img *ngIf="gcc.auto_renew == 0" class="phone" src="../../assets/imgs/timer/days{{gcc.days + 1}}.png" alt="" (click)="clickactions(gcc.auto_renew,gcc.master_ip,gcc.ip_child_id)">
+        <img *ngIf="gcc.auto_renew == 1" class="phone" src="../../assets/imgs/timer/auto.svg" alt="" (click)="clickactions(gcc.auto_renew,gcc.master_ip,gcc.ip_child_id)">
+      </ion-col>
+
+    </ion-row>
+
+
+    <!-- <ion-button (click)="popups()">create</ion-button> -->
+
+
+    <!-- <ion-row *ngFor="let rn of renewals; let i = index;" [ngClass]="(i % 2 == 0) ? 'odd row-data' : 'even row-data'">
+      <ion-col class="tno_align" size="3">
+        {{rn.expiry_dt}}
+      </ion-col>
+      <ion-col size="6">
+        {{rn.license}}
+      </ion-col>
+      <ion-col class="dept_align" size="3">
+        {{rn.enduser}}
+      </ion-col>
+    </ion-row> -->
+  </ion-grid>
+  <!-- <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button style="width: 35px;height: 35px;" (click)="popups()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab> -->
+</ion-content>

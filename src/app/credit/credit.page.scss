@@ -1,0 +1,46 @@
+.backpagebg{
+	--background : var(--ion-color-grey)  !important;
+}
+.cardbg{
+	background-color: white;
+
+}
+.action{
+	img{
+			/*width: 10% !important;*/
+			/*margin-right:10px !important;*/
+
+			 width: 15% !important;
+    
+    height: 15% !important;
+    padding-right: 10px !important;
+		}
+}
+
+
+.table-row{
+	border-bottom: 1px white solid;
+}
+.table-col{
+	padding: 8px;
+    border-right: 1px white solid;
+    color: white;
+    // font-weight: 600;
+	font-size: 13px;
+	background: #6777ef;
+}
+.table_key{
+	color:grey;
+	padding:8px;	
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.badges{
+	background: #54ca68;
+	padding: 10px;
+}
+.badges-red{
+	background: #f783ac;
+	padding: 10px;
+}

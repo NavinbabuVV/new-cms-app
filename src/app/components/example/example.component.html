@@ -1,0 +1,146 @@
+<ion-fab horizontal="end" vertical="top"  class="fab-align">
+  <ion-fab-button class="fab-style" color="success" size="small" (click)="hello()">
+    <ion-icon  name="call"></ion-icon>
+
+  </ion-fab-button>
+
+  <ion-fab-list side="bottom" id="slidedown" style="position: absolute;right: 0px;">
+    <ion-card style="background: white;width: 180px;margin: 0;padding: 10px;">
+      <div class="rows" style="cursor: pointer;">
+        <div class="sub-div" (click)="webMakeCall(601)"> <span><img class="dropdown-img"
+              src="../../assets/imgs/callus/money-blue.svg" alt=""></span>
+          <span style="margin-left: 10px;"><strong>Finance Support</strong></span>
+        </div>
+      </div>
+      <div class="rows" style="cursor: pointer;">
+        <div class="sub-div"><span> <img class="dropdown-img" src="../../assets/imgs/sale.svg" alt=""></span>
+          <span style="margin-left: 10px;"><strong>Sales</strong></span>
+        </div>
+      </div>
+      <div class="rows" style="cursor: pointer;">
+        <div class="sub-div"><span> <img class="dropdown-img" src="../../assets/imgs/callus/phone-call.svg" alt=""></span>
+          <span style="margin-left: 10px;"><strong>License Support</strong></span>
+        </div>
+      </div>
+
+      <div class="rows" style="cursor: pointer;">
+        <div class="sub-div"><span class="image-new"> <img class="dropdown-img" src="../../assets/imgs/cloud-pbx-w.svg" alt=""></span>
+          <span style="margin-left: 10px;"><strong>Cloud PBX/ SIP Trunk</strong></span>
+        </div>
+      </div>
+
+
+      <div class="rows" id="showWhenInCall" style="display: none;">
+      
+      <div class="sub-div" style="cursor: pointer;" (click)="outgoingCallEnd()"><span class="image-new" style="    background: transparent;padding: 5px;"> <img class="dropdown-img" style="width: 15px;" src="assets/imgs/end-call-red.svg" alt=""></span>
+        <span style="margin-left: 10px;"><strong>Hang up</strong></span>
+      </div>
+      </div>
+
+ 
+
+    </ion-card>
+
+
+
+  </ion-fab-list>
+</ion-fab>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <ion-row class="rows">
+    <div class="sub-div"><span> <img class="dropdown-img" src="../../assets/imgs/callus/phone-call.svg"
+          alt=""></span>
+          <div class="helpdesk-label">
+      <span class="triangle-right"><strong>License Support</strong></span>
+    </div>
+    </div>
+  </ion-row> -->
+
+
+
+
+
+
+
+
+<input type="hidden" id="call_history_id" value="0">
+<input type="hidden" id="call_customer_key" value="0">
+<input type="hidden" id="call_incoming_number" value="">
+<input type="hidden" id="outgoing_call_end_trigger" (click)="outgoingCallEnd()">
+<input type="hidden" autocomplete="off" id="html5vid">
+<input type="hidden" autocomplete="off" id="transferto">
+<input type="hidden" autocomplete="off" id="jsepjsep">
+<input type="hidden" autocomplete="off" id="incResutl">
+<input type="hidden" id="endCallByJs" (click)="outgoingCallEnd()">
+<input type="hidden" id="newCallNMumberCamp">
+<input type="hidden" autocomplete="off" id="sip_urld">
+<input type="hidden" autocomplete="off" id="outcall_number">
+<audio id='incommingCalltone' src='assets/imgs/audio/incomingcall.mp3'></audio>
+<audio id='ringingTone' src='assets/imgs/audio/ringbacktone.mp3'></audio>
+<div id="accept_calls" style="display: none;"></div>
+
+<div class="container" style="display: none;">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="page-header">
+        <h1>
+        </h1>
+      </div>
+      <div class="container" id="details">
+        <div class="row">
+          <div class="col-md-12">
+
+          </div>
+        </div>
+      </div>
+      <div class="container hide" id="sipcall">
+        <div class="row">
+          <div class="col-md-12">
+
+          </div>
+          <div class="col-md-6 container hide" id="phone">
+            <div class="input-group margin-bottom-sm">
+              <span class="input-group-addon"><i class="fa fa-phone fa-fw"></i></span>
+              <input class="form-control" type="hidden" autocomplete="off" id="peer"
+                onkeypress="return checkEnter(this, event);" />
+            </div>
+          </div>
+        </div>
+
+        <div id="videos" class="hide">
+          <div class="col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">You</h3>
+              </div>
+              <div class="panel-body" id="videoleft"></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Remote UA</h3>
+              </div>
+              <div class="panel-body" id="videoright"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+  <div class="footer">
+  </div>
+</div>

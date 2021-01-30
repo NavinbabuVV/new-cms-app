@@ -1,0 +1,28 @@
+<ion-header no-shadow>
+  <ion-toolbar align-title="center" class="header" color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button (click)="goToTestPage()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Contact Us</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="backpagebg">
+  <div class="conclass">
+    <ion-list style="background-color: white !important;">
+      <ion-item *ngFor="let contact of contact_details" style="background-color: white !important;">
+        <img style="box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.19)" slot="start"
+          [src]="contact.flag_data" />
+        <ion-label>
+          <span style="display: block;text-align: left;">{{contact.country}} </span><b
+            style="font-size: 18px;text-align: left;display: block;">{{contact.phone_number}} </b>
+        </ion-label>
+      <img slot="end" style="width: 12% !important;" src="../../assets/imgs/telephone.svg" alt="call" (click)="myfunction(contact.phone_number)">
+
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

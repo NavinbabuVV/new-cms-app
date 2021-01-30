@@ -1,0 +1,74 @@
+<ion-header no-shadow>
+  <ion-toolbar align-title="center" class="header" color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button (click)="goToTestPage()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Support Tickets</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="font-size: 14px;">
+
+
+  <ion-segment color="primary" (ionChange)="segmentChanged($event)" value="open">
+    <ion-segment-button value="open">
+      <ion-label>Open</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="closed">
+      <ion-label>Closed</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div *ngIf="nodata" class="aligncenter">
+    <img src="../../assets/imgs/norecord-new.png">
+    <p>No Invoice Found</p>
+  </div>
+
+  <div *ngIf="isdata">
+    <ion-grid>
+      <ion-row class="table-head">
+        <ion-col>
+          Ticket No
+        </ion-col>
+        <ion-col>
+          Date
+        </ion-col>
+        <ion-col>
+          Department
+        </ion-col>
+        <ion-col>
+          Action
+        </ion-col>
+      </ion-row>
+
+
+      <!-- <ion-row class="row-data" *ngFor="let tk of tickets"> -->
+      <ion-row *ngFor="let tk of tickets; let i = index;" [ngClass]="(i % 2 == 0) ? 'odd row-data' : 'even row-data'">
+        <ion-col class="tno_align">
+          #{{tk.ticketnumber}}
+        </ion-col>
+        <ion-col>
+          {{tk.dates}}
+        </ion-col>
+        <ion-col class="dept_align">
+          {{tk.dept}}
+        </ion-col>
+        <ion-col>
+          <ion-button expand="block" size="small" fill="outline" (click)="viewtickets(tk.ticketnumber)">View</ion-button>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="sendto()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

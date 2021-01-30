@@ -1,0 +1,123 @@
+<ion-header no-shadow>
+	<ion-toolbar align-title="center" class="header" color="primary">
+		<ion-buttons slot="start" >
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>Global Search</ion-title>
+		<ion-buttons slot="end">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="inner-page grey-bg">
+	<div class="inner-content-wrapper">
+		<div class="block">
+			<ion-card class="card" >
+				<ion-card-content>
+					<div class="form">	
+						<ion-grid no-padding>
+							<ion-row>
+								<ion-col no-padding>
+									<div class="form-group">
+										<div class="small-title">Select Pages</div>
+										<ion-item>
+											<ion-label>Select Pages</ion-label>
+											<ion-select placeholder="Select Pages">
+												<ion-select-option value="customer-new" selected>Customer New</ion-select-option>
+												<ion-select-option value="invoice">Invoice</ion-select-option>
+												<ion-select-option value="license-key-ew">License Key New</ion-select-option>
+											</ion-select>
+										</ion-item>
+									</div>
+								</ion-col>
+							</ion-row>
+
+							<ion-row>
+								<ion-col>	
+									<div class="form-group">	
+										<div class="small-title">Customer Code</div>
+										<ion-item>
+											<ion-searchbar name="searchCode" value="{{s_code}}" placeholder="Customer Code" (ionChange)="getItemsC($event)" ></ion-searchbar>
+										</ion-item>
+										<ion-list *ngIf="isItemAvailableC">
+											<ion-item *ngFor="let item of itemC" (click)="searchC(item.customerCode)">{{ item.customerCode }}</ion-item>
+										</ion-list>
+									</div>
+								</ion-col>
+							</ion-row>
+
+							<ion-row>
+								<ion-col>	
+									<div class="form-group">	
+										<div class="small-title">Customer Name</div>
+										<ion-item>
+											<ion-searchbar name="searchString" value="{{s_name}}" placeholder="Customer Name" (ionChange)="getItems($event)"></ion-searchbar>
+										</ion-item>
+										<ion-list *ngIf="isItemAvailable">
+											<ion-item *ngFor="let item of items" (click)="searchLK(item.customerName)">{{ item.customerName }}</ion-item>
+										</ion-list>
+									</div>
+								</ion-col>
+							</ion-row>
+
+							<!-- <ion-row>
+								<ion-col text-center>
+									<p><strong>-- OR --</strong></p>
+								</ion-col>
+							</ion-row>
+
+							<ion-row>
+								<ion-col>	
+									<div class="form-group">	
+										<div class="small-title">DID Number</div>
+										<ion-item>
+											<ion-input type="text" clearInput value=""></ion-input>
+										</ion-item>
+									</div>
+								</ion-col>
+							</ion-row>
+
+							<ion-row>
+								<ion-col text-center>
+									<p><strong>-- OR --</strong></p>
+								</ion-col>
+							</ion-row>
+
+							<ion-row>
+								<ion-col>	
+									<div class="form-group">	
+										<div class="small-title">License Number</div>
+										<ion-item>
+											<ion-input type="text" clearInput value=""></ion-input>
+										</ion-item>
+									</div>
+								</ion-col>
+							</ion-row> -->
+
+					<!-- 	<ion-row>
+							<ion-col>
+								<div class="form form-group">			
+									<div class="small-title"></div>
+									<ion-item>
+										<ion-input placeholder="Customer Code" class="form-control" clearInput value="clear me"></ion-input>
+									</ion-item>
+								</div>
+							</ion-col>
+						</ion-row> -->
+						
+						<ion-row>
+							<ion-col>
+								<div class="btn-panel">
+									<ion-button class="btn" color="primary"  expand="full" shape="round" (click)="Globalsearch()"><ion-icon name="search"></ion-icon> Search</ion-button>
+								</div> 
+							</ion-col>
+						</ion-row>
+					</ion-grid>
+				</div>
+			</ion-card-content>
+		</ion-card>
+
+	</div>
+</div>
+</ion-content>

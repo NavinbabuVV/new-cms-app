@@ -1,0 +1,162 @@
+.backpagebg{
+	--background : var(--ion-color-grey)  !important;
+}
+
+.card_style{
+    --background: white;
+    border-top: red solid 2px;
+}
+
+.card1_style{
+    --background: white;
+    border-top:  #1cb4aa solid 2px;
+}
+
+.blue_card_style{
+    --background: white;
+    border-top: #f783ac solid 2px;
+}
+
+.chat_card_style{
+    --background: white;
+    border-top: #f783ac solid 2px;
+    margin-top:1px;
+    overflow: visible;
+}
+
+.chat-label{
+    font-size: 15px;
+}
+
+.ticket-header{
+    font-weight: bold;
+}
+
+.profile-images{
+    max-width: 30px;
+}
+
+.round-send{
+    background:red;
+}
+
+.chat-title{
+    font-weight: bold;
+}
+
+.blue-heading-col{
+    font-size: 12px;
+    background: #f783ac !important;
+    color:white;
+    padding: 7px 20px;
+    border-bottom:white solid 1px;
+}
+
+.card-one-heading-col{
+    font-size: 12px;
+    background: #1cb4aa !important;
+    color:white;
+    border-bottom:white solid 1px;
+    padding: 7px 20px;
+}
+
+.value_col{
+    font-size:14px;
+    font-weight: 600;
+    padding:7px 20px;
+}
+.card-one-values-col{
+    font-size:14px;
+    font-weight: 600;
+    padding:7px 20px;
+}
+
+.badge{
+    background: #fc544b;
+}
+
+.chat-whole-div{
+    display: flex;
+}
+
+.card-div{
+    flex: 0 0 91.666667%;
+    max-width: 91.666667%;
+}
+
+// .chat_card_style::before {
+//     position: absolute;
+//     content: "";
+//     width: 0;
+//     height: 0;
+//     top: -12px;
+//     left: 0;
+//     right: 0;
+//     margin: 0 auto;
+//     border-left: 12px solid transparent;
+//     border-right: 12px solid transparent;
+//     border-bottom: 12px solid #0596d4;
+// }
+.profile-div{
+    padding-left:10px;
+    flex: 0 0 8.333333%;
+    max-width: 8.333333%;
+}
+
+.profile-div-right{
+    padding-right:10px;
+    flex: 0 0 8.333333%;
+    max-width: 8.333333%;
+}
+
+.card-body{
+    overflow: hidden;
+}
+
+
+.inputfile {
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: 1;
+    width: 50px;
+    height: 50px;
+}
+.inputfile + label {
+    font-size: 1.25rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    overflow: hidden;
+    width: 50px;
+    height: 50px;
+    pointer-events: none;
+    cursor: pointer;
+    line-height: 50px;
+    text-align: center;
+}
+.inputfile + label svg {
+    fill: #fff;
+}
+
+
+.iconss{
+    font-size: 24px;
+    color: white;
+    margin: 3px;
+  }
+
+  .inner {
+    background-color: #1abb9c;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;    
+    position: absolute;
+    /* bottom: 0; */
+    top: 20px;
+    right: 44px;
+  }
+  
+  .inner:hover {
+    background-color: #5555ff;
+  }

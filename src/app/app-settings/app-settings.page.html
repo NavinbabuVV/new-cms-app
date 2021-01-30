@@ -1,0 +1,43 @@
+<ion-header no-shadow>
+  <ion-toolbar align-title="center" class="header" color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button (click)="goToTestPage()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>App settings</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <div style="margin-top: 20px;">
+    <span class="headings">USE FACE ID / FINGERPRINT FOR</span>
+  </div>
+  <ion-item>
+    <ion-label>Account Login</ion-label>
+    <ion-toggle slot="end" name="blackberry" color="success" [(ngModel)]="checksum"
+      (ionChange)="updatesettings($event,'al')"></ion-toggle>
+  </ion-item>
+
+  <div *ngIf="reseller_view">
+    <div style="margin-top: 20px;">
+      <span class="headings">RESELLER DASHBOARD</span>
+    </div>
+    <ion-item>
+      <ion-checkbox color="dark" checked slot="end" [(ngModel)]="reseller_dash"  (ionChange)="updatecheck($event,'rd')"></ion-checkbox>
+      <ion-label>Enable/Disable</ion-label>
+    </ion-item>
+  </div>
+  <ion-item (click)="logout()" style="margin: 20px 0;">
+    <!-- <img src="../../assets/imgs/menu/exit.svg"> -->
+    <!-- <div class="testicon">
+      <img class="images" src="../../assets/imgs/new_menu/logout.png">
+    </div> -->
+    <ion-label>
+      Logout for the users
+    </ion-label>
+  </ion-item>
+</ion-content>

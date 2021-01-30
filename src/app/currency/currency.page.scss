@@ -1,0 +1,88 @@
+.contact{
+	ion-label{
+		font-size: 14px !important;
+	}
+	ion-card{
+		margin:18px 16px 18px 16px !important;
+	}
+
+}
+	.segmentsbtn{
+		/*ion-segment-button{
+padding: 7px !important;
+		}*/
+	ion-label{
+			/*padding: 5px !important;*/
+			font-size: 12px !important;
+		}
+	}
+	.conclass{
+		ion-label{
+			font-size: 12px !important;
+		}
+		ion-item{
+			--background: #ffffff !important;
+			// --background: #ffffff !important;
+		}
+		img{
+			width: 14% !important;
+    height: auto !important;
+    max-width: 14% !important
+}
+		}
+	
+	.backpagebg{
+	--background : var(--ion-color-grey)  !important;
+}
+.currencys{
+ion-col{
+	border: 1px solid !important;
+    padding: 0px !important;
+    font-size: 10px;
+    text-align: center;
+
+}
+.bkc{
+	    background: antiquewhite !important;
+}
+.bk{
+	ion-col{
+		background: palevioletred !important;
+	}
+
+
+}
+	.curbk{
+	background: palevioletred !important;
+}
+
+}
+
+
+.cards{
+    margin: 0;
+    box-shadow: none;
+    border-radius: 0;
+    border-bottom: 2px solid #ceced9;
+    margin-bottom: 5px;
+    padding: 10px;
+    background: white;
+
+	h2{
+		color: black;
+	}
+}
+
+
+.imagess{
+	box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.19);
+	width: 50px;
+}
+
+.currency-values{
+	font-size: 16px;
+    display: flex;
+    font-weight: 900;
+    justify-content: center;
+    align-items: center;
+}

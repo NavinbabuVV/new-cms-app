@@ -1,0 +1,152 @@
+<ion-header no-shadow>
+	<ion-toolbar class="header" color="primary">
+		<ion-buttons slot="start" >
+			<ion-back-button defaultHref="/"></ion-back-button>
+		</ion-buttons>
+		<ion-title>Quotation</ion-title>
+		<ion-buttons slot="end" style="margin: 0px 10px;">
+			<ion-button icon-only [routerLink]="['/global-search']">
+				<ion-icon name="search"></ion-icon>
+			</ion-button>
+		 </ion-buttons>
+		<ion-buttons slot="end">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+	</ion-toolbar>
+
+</ion-header>
+
+<ion-content class="list-page grey-bg">
+	<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+		<ion-refresher-content></ion-refresher-content>
+	</ion-refresher>
+	<div class="inner-content-wrapper">
+		<div class="block" *ngIf="isTransaction">
+			<!-- <ion-searchbar placeholder="Search"></ion-searchbar> -->
+			<ion-card [ngClass]="(quotation['approval_staus']=='1')?'card approved':'card'"   *ngFor="let quotation of quotations; let i = index" [attr.data-index]="i"   >
+				<ion-card-content>
+					<ion-grid no-padding>
+						<ion-row>
+							<ion-col no-padding><ion-badge color="primary">{{quotation['tic_no']}}</ion-badge> &nbsp;&nbsp;&nbsp; <ion-badge color="warning" [ngStyle]="{'background-color': quotation['colorcode']}">{{quotation['billsercode']}}</ion-badge></ion-col>
+						</ion-row>
+
+						<ion-row>
+							<ion-col size="4"><p>Cust. Name: </p></ion-col>
+							<ion-col size="8"><p><strong>{{quotation['customerName']}}</strong></p></ion-col>
+						</ion-row>
+
+						<ion-row>
+							<ion-col size="4"><p>Quotation:</p></ion-col>
+							<ion-col size="8">
+								<p class="has-attachment"><strong>
+									<button ion-button (click)="openWithInAppBrowser(quotation['attachment_str'])">{{quotation['quotation_no']}}</button>
+								</strong></p>
+							</ion-col>
+						</ion-row>
+
+						<ion-row>
+							<ion-col size="4"><p>Requester</p></ion-col>
+							<ion-col size="8"><figure class="user-icons"><img src="{{quotation['img_path']}}" /></figure></ion-col>
+							<ion-col size="4"><p></p></ion-col>
+							<ion-col size="8"><ion-badge color="warning">{{quotation['requesterName']}}</ion-badge></ion-col>
+						</ion-row>
+						
+						<div class="table">
+							<ion-row no-padding>
+								<ion-col no-padding><p class="text-left table-row"><span>Date</span><br /> <strong>{{quotation['transaction_entry_dt']}}</strong></p></ion-col>
+								<ion-col no-padding><p class="text-right table-row"><span>Priority</span><br /> <strong>{{quotation['priority']}}</strong></p>
+								</ion-col>
+							</ion-row>
+							<ion-row no-padding>
+								<ion-col no-padding><p class="text-left table-row"><span>Amount</span><br /> <strong>
+								{{quotation['amount']}}</strong></p>
+							</ion-col>
+							
+							</ion-row>
+						</div>
+
+
+						<div class="cart-footer">
+							<ion-row>
+								<ion-col class="view" (click)="viewQuotation(quotation['transaction_approval_id'])"><ion-icon name="search"></ion-icon></ion-col>
+								<ion-col class="note" (click)="enquiryCommand(quotation['transaction_approval_id'])"><ion-icon name="help-circle-outline" [ngStyle]="{'background-color': quotation['comments_color']}"></ion-icon></ion-col>
+								<ion-col class="approve" (click)="approve(quotation['transaction_approval_id'])"><ion-icon name="checkmark"></ion-icon></ion-col>
+								<ion-col class="note" (click)="actualCost(quotation['link_approval_id'])" ><ion-icon name="cash" ></ion-icon></ion-col>
+								<ion-col class="view" (click)="openWithInAppBrowser(quotation['edit_url'])"><ion-icon name="create"></ion-icon></ion-col>
+								<ion-col class="close" (click)="reject(quotation['transaction_approval_id'])"><ion-icon name="close"></ion-icon></ion-col>
+								<ion-col class="close" (click)="deleteQuote(quotation['transaction_approval_id'])"><ion-icon name="trash"></ion-icon></ion-col>
+							</ion-row>	
+						</div>	
+					</ion-grid>
+				</ion-card-content>
+			</ion-card>
+		</div>
+
+		<div class="block">
+			<div class="accord">
+				<ion-card class="card" (click)="oldQutation(this.isOldQuotation)">
+					<ion-card-content>
+					<p><strong>Show Approved Records</strong></p>
+					 <ion-icon name="arrow-{{this.isAccord}}"></ion-icon>
+				</ion-card-content>
+				</ion-card>
+			</div>
+			<div *ngIf="isOldQuotation" >
+				<ion-card [ngClass]="(quotation['approval_staus']=='1')?'card approved':'card hide'" *ngFor="let quotation of quotations_approved; let i = index" [attr.data-index]="i"   >
+					<ion-card-content >
+						<ion-grid no-padding>
+							<ion-row>
+								<ion-col no-padding><ion-badge color="primary">{{quotation['tic_no']}}</ion-badge> &nbsp;&nbsp;&nbsp; <ion-badge color="warning" [ngStyle]="{'background-color': quotation['colorcode']}">{{quotation['billsercode']}}</ion-badge></ion-col>
+							</ion-row>
+	
+							<ion-row>
+								<ion-col size="4"><p>Cust. Name: </p></ion-col>
+								<ion-col size="8"><p><strong>{{quotation['customerName']}}</strong></p></ion-col>
+							</ion-row>
+	
+							<ion-row>
+								<ion-col size="4"><p>Quotation:</p></ion-col>
+								<ion-col size="8">
+									<p class="has-attachment"><strong>
+										<button ion-button (click)="openWithInAppBrowser(quotation['attachment_str'])">{{quotation['quotation_no']}}</button>
+									</strong></p>
+								</ion-col>
+							</ion-row>
+							<ion-row>
+								<ion-col size="4"><p>Requester</p></ion-col>
+								<ion-col size="8"><figure class="user-icons"><img src="{{quotation['img_path']}}" /></figure></ion-col>
+								<ion-col size="4"><p></p></ion-col>
+								<ion-col size="8"><ion-badge color="warning">{{quotation['requesterName']}}</ion-badge></ion-col>
+							</ion-row>
+							<div class="table">
+								<ion-row no-padding>
+									<ion-col no-padding><p class="text-left table-row"><span>Date</span><br /> <strong>{{quotation['transaction_entry_dt']}}</strong></p></ion-col>
+									<ion-col no-padding><p class="text-right table-row"><span>Priority</span><br /> <strong>{{quotation['priority']}}</strong></p>
+									</ion-col>
+								</ion-row>
+								<ion-row no-padding>
+									<ion-col no-padding><p class="text-left table-row"><span>Amount</span><br /> <strong>
+									{{quotation['amount']}}</strong></p>
+								</ion-col>
+								<ion-col no-padding><p class="text-right table-row"><span></span><br /> <strong>
+									<ion-badge color="warning"></ion-badge></strong></p></ion-col>
+	
+								</ion-row>
+							</div>
+	
+	
+							<div class="cart-footer">
+								<ion-row>
+									<ion-col class="view" (click)="viewQuotation(quotation['transaction_approval_id'])"><ion-icon name="search"></ion-icon></ion-col>
+									<ion-col class="note" (click)="enquiryCommand(quotation['transaction_approval_id'])"><ion-icon name="help-circle-outline" [ngStyle]="{'background-color': quotation['comments_color']}"></ion-icon></ion-col>
+									<ion-col class="close" (click)="deleteQuote(quotation['transaction_approval_id'])"><ion-icon name="trash"></ion-icon></ion-col>
+								</ion-row>	
+							</div>
+						</ion-grid>
+					</ion-card-content>
+				</ion-card>
+		</div>
+		</div>
+
+	</div>
+</ion-content>

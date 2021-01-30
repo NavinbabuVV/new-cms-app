@@ -1,0 +1,215 @@
+<ion-header no-shadow>
+	<ion-toolbar class="header" color="primary">
+		<ion-title>Your Cart</ion-title>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+
+		<ion-buttons slot="end">
+			<!-- <ion-button icon-only [routerLink]="['/global-search']"> -->
+			<!-- <ion-icon name="search"></ion-icon> -->
+			<!-- </ion-button> -->
+		</ion-buttons>
+		<ion-buttons slot="end">
+			<ion-button (click)="removecart()">
+				Delete All
+				<ion-icon name="trash"></ion-icon>
+				<!-- <ion-menu-button></ion-menu-button> -->
+			</ion-button>
+		</ion-buttons>
+	</ion-toolbar>
+	<!-- <div class="block grey-bg">
+		<div class="header-widget">
+					<ion-row>
+				<ion-col size="10">
+					<h6>3CX Reseller ID: <strong> {{reseller_id}} 16564566 </strong></h6>
+				</ion-col>
+				<ion-col size="2">
+					<ion-icon name="create"></ion-icon>
+				</ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col>
+					<ion-input></ion-input>
+				</ion-col>
+				<ion-col>
+					<ion-icon name="save"></ion-icon>
+				</ion-col>
+			</ion-row>
+
+		</div>
+	</div> -->
+</ion-header>
+<ion-content class="grey-bg">
+	<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+		<ion-refresher-content></ion-refresher-content>
+	</ion-refresher>
+
+	<ion-card style="background: white;padding: 0;margin: 0;">
+		<ion-card-content style="padding: 0;padding-top: 10px;padding-bottom: 10px;">
+			<div>
+				<div style="display: flex;justify-content: center;">
+					<div style="display: flex;">
+						<span>3CX Reseller ID: <strong> {{reseller_id}} </strong></span>
+						<ion-icon name="create" style="border-radius: 5px;
+						color: var(--ion-color-light);
+						padding: 4px;
+						font-weight: var(--ion-bold-font-weight);
+						box-shadow: 5px 5px 5px #d6d6d6;
+						background: #e63946;
+						margin-left: 15px;" (click)="editing()"></ion-icon>
+					</div>
+				</div>
+				<div style="" *ngIf="viewinput">
+					<ion-row style="padding-left: 65px;
+					/* padding-right: 35px; */
+					margin: 10px auto;">
+						<ion-col>
+							<ion-input [(ngModel)]="edit_reseller" style="border-bottom: 2px solid;"></ion-input>
+						</ion-col>
+						<ion-col>
+							<ion-icon name="save" style="border-radius: 5px;
+							color: var(--ion-color-light);
+							padding: 4px;
+							font-weight: var(--ion-bold-font-weight);
+							box-shadow: 5px 5px 5px #d6d6d6;
+							background: #2a9d8f;
+							margin-left: 15px;" (click)="editresellerid()"></ion-icon>
+							<ion-icon name="close" style="border-radius: 5px;
+							color: var(--ion-color-light);
+							padding: 4px;
+							font-weight: var(--ion-bold-font-weight);
+							box-shadow: 5px 5px 5px #d6d6d6;
+							background: #1d3557;
+							margin-left: 15px;" (click)="cancelinput()"></ion-icon>
+						</ion-col>
+					</ion-row>
+				</div>
+			</div>
+		</ion-card-content>
+	</ion-card>
+
+	<div class="inner-content-wrapper">
+		<div class="block">
+			<ion-card class="card" *ngFor="let item of cartItems">
+				<ion-card-content>
+					<ion-grid>
+						<ion-row>
+							<ion-col col-4>
+								<p>Code</p>
+							</ion-col>
+							<ion-col col-8>
+								<p><strong>{{item.edition_key}}</strong></p>
+							</ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col col-4>
+								<p>Description</p>
+							</ion-col>
+							<ion-col col-8>
+								<p><strong>{{item.product_desc}}</strong></p>
+							</ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col col-4>
+								<p>Price</p>
+							</ion-col>
+							<ion-col col-8>
+								<p><strong>{{item.actual_price}}</strong></p>
+							</ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col col-4>
+								<p>Qty</p>
+							</ion-col>
+							<ion-col col-8>
+								<p><strong>{{item.quantity}}</strong></p>
+							</ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col col-4>
+								<p>Discount ({{currency_code}})</p>
+							</ion-col>
+							<ion-col col-8>
+								<p><strong>{{item.discount}}</strong></p>
+							</ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col col-4>
+								<p>Amount ({{currency_code}})</p>
+							</ion-col>
+							<ion-col col-8>
+								<p><strong>{{item.sub_total}}</strong></p>
+							</ion-col>
+						</ion-row>
+						<div class="cart-footer">
+							<ion-row>
+								<ion-col class="close">
+									<ion-icon name="trash" (click)="removesCart(item.cart_details_id)"></ion-icon>
+								</ion-col>
+							</ion-row>
+						</div>
+					</ion-grid>
+				</ion-card-content>
+			</ion-card>
+
+
+			<ion-card class="card">
+				<ion-card-content>
+					<ion-grid>
+						<ion-row>
+							<ion-col col-4>
+								<p>Net Total</p>
+							</ion-col>
+							<ion-col col-8>
+								<p><strong>{{net_total}}</strong></p>
+							</ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col col-5>
+								<p>Tax <span *ngIf="tax_value != '0.00' ">({{tax_discount}}%)</span></p>
+							</ion-col>
+							<ion-col col-7>
+								<p><strong>{{tax_value}}</strong></p>
+							</ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col col-5>
+								<p>Grand Total</p>
+							</ion-col>
+							<ion-col col-7>
+								<p><strong>{{grand_total}}</strong></p>
+							</ion-col>
+						</ion-row>
+					</ion-grid>
+				</ion-card-content>
+			</ion-card>
+
+			<div class="btn-panel">
+				<ion-row>
+					<!-- <ion-col>
+		
+					</ion-col>
+					<ion-col>
+
+					</ion-col> -->
+				</ion-row>
+
+				<ion-button class="btn-proceed" (click)="goforward()" expand="full" shape="round">
+					<ion-icon name="add-circle"></ion-icon>
+					Proceed
+				</ion-button>
+
+				<ion-button class="btns" (click)="goback()" expand="full" shape="round">
+					<ion-icon name="arrow-round-back"></ion-icon>
+					Back
+				</ion-button>
+				<!-- <ion-row>
+					<ion-col>
+						<ion-button class="btn" href="\order-success" color="primary" expand="full" shape="round"><ion-icon name="cash"></ion-icon> Proceed to Payment</ion-button>
+					</ion-col>
+				</ion-row> -->
+			</div>
+		</div>
+	</div>
+</ion-content>

@@ -1,0 +1,336 @@
+<ion-header no-shadow>
+  <ion-toolbar align-title="center" class="header" color="primary">
+    <!-- 	<ion-buttons slot="start" >
+			<ion-back-button></ion-back-button>
+    </ion-buttons> -->
+
+
+    <div class="colorlogo">
+      <ion-icon slot="start" *ngIf="newone2" style="font-size: 28px;" (click)="passwordpage()" name="arrow-back"></ion-icon>
+      <!-- <ion-icon *ngIf="filtercardlist" (click)="filterpageback()" name="arrow-back"></ion-icon> -->
+    </div>
+
+    <div class="colorlogo">
+      <ion-icon slot="start" *ngIf="nodata" (click)="filteringpage()" name="arrow-back"></ion-icon>
+      <!-- <ion-icon *ngIf="filtercardlist" (click)="filterpageback()" name="arrow-back"></ion-icon> -->
+    </div>
+
+    <ion-title>Call History</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="newone2" class="backpagebg">
+
+
+  <div>
+    <ion-header style="position: fixed;">
+      <ion-toolbar align-title="center">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="4" style="text-align: center;">
+              <p class="head-paragraph"> Customer Id </p>
+              <p class="paragraph"><strong>1289</strong></p>
+              <!-- <p><strong>{{c.Docnumber}} {{c.BillerCode}}</strong></p> -->
+            </ion-col>
+            <ion-col size="4" style="text-align: center;">
+              <p class="head-paragraph">Total Call Duration:</p>
+              <p class="paragraph"> <strong>{{total_call_details.call_duration}} </strong></p>
+              <!-- <p><strong>{{c.Date}}</strong></p> -->
+            </ion-col>
+            <ion-col size="4" style="text-align: center;">
+              <p class="head-paragraph">Total Call Cost:</p>
+              <p class="paragraph"><strong>{{total_call_details.total_cost}}</strong></p>
+              <!-- <p><strong>{{c.Date}}</strong></p> -->
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+      </ion-toolbar>
+    </ion-header>
+    <!-- <div *ngFor="let c of creditnote"> -->
+    <div style="position: absolute; top: 52px;width: 100%;">
+      <!-- <div *ngFor="let c of list_call_history"> -->
+      <!-- <ion-card class="cardbg" *ngFor="let c of list_call_history"> -->
+      <ion-card class="cardbg" *ngFor="let c of list_call_history">
+        <ion-card-content>
+          <!-- <ion-grid class="table_green"> -->
+          <!-- <ion-row>
+              <ion-col size="6">
+                <p>Caller Id: </p>
+              </ion-col>
+              <ion-col size="6">
+                <p>Called Number:</p>
+              </ion-col>
+            </ion-row> -->
+
+          <ion-row class="">
+            <ion-col class="table-col" size="5">
+              Caller Id:
+            </ion-col>
+            <ion-col class="table_key" size="6">
+              <strong>{{c.caller_id}}</strong>
+            </ion-col>
+          </ion-row>
+
+          <ion-row class="">
+            <ion-col class="table-col" size="5">
+              Called Number:
+            </ion-col>
+            <ion-col class="table_key" size="6">
+              <strong>{{c.called_number}}</strong>
+            </ion-col>
+          </ion-row>
+
+
+          <ion-row class="">
+            <ion-col class="table-col" size="5">
+              Call start:
+            </ion-col>
+            <ion-col class="table_key" size="6">
+              <strong>{{c.call_start_show}}</strong>
+            </ion-col>
+          </ion-row>
+
+          <ion-row class="">
+            <ion-col class="table-col" size="5">
+              Call End:
+            </ion-col>
+            <ion-col class="table_key" size="6">
+              <strong>{{c.call_end_show}}</strong>
+            </ion-col>
+          </ion-row>
+
+
+          <ion-row class="">
+            <ion-col class="table-col" size="5">
+              Call Duration:
+            </ion-col>
+            <ion-col class="table_key" size="6">
+              <!-- <strong>{{c.duration}}</strong> -->
+              <strong>{{c.call_duration}}</strong>
+            </ion-col>
+          </ion-row>
+
+          <ion-row class="">
+            <ion-col class="table-col" size="5">
+              Call Cost:
+            </ion-col>
+            <ion-col class="table_key" size="6">
+              <!-- <strong>{{c.cost}}</strong> -->
+              <strong>{{c.call_cost}}</strong>
+            </ion-col>
+          </ion-row>
+
+          <ion-row class="">
+            <ion-col class="table-col" size="5">
+              Client ID:
+            </ion-col>
+            <ion-col class="table_key" size="6">
+              <!-- <strong>{{c.id_client}}</strong> -->
+              <strong>{{c.client_id}}</strong>
+            </ion-col>
+          </ion-row>
+
+          <ion-row class="">
+            <ion-col class="table-col" size="5">
+              Destination Country:
+            </ion-col>
+            <ion-col class="table_key" size="6">
+              <!-- <strong>{{c.tariffdesc}}</strong> -->
+              <strong>{{c.destination_country}}</strong>
+            </ion-col>
+          </ion-row>
+
+
+
+
+          <!-- <ion-row>
+              <ion-col size="12">
+                <p>Call start:</p>
+              </ion-col>
+
+            </ion-row> -->
+
+          <!-- <ion-row>
+              <ion-col size="12">
+                <p>Call End:</p>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6">
+                <p>Call Duration</p>
+              </ion-col>
+              <ion-col size="6">
+                <p>Call Cost</p>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col size="6">
+                <p>Client ID</p>
+
+              </ion-col>
+              <ion-col size="6">
+                <p>Destination Country</p>
+              </ion-col>
+            </ion-row> -->
+
+          <!-- </ion-grid> -->
+
+
+        </ion-card-content>
+
+      </ion-card>
+
+      
+	<ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+		<ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+		</ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+
+    </div>
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="attach"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button color="light" (click)="generateexcel()" download>
+        <!-- <ion-icon name="logo-facebook"></ion-icon> -->
+        <img src="/assets/imgs/excel (1).png" alt="" style="width: 25px;">
+      </ion-fab-button>
+      <ion-fab-button color="light" (click)="generatepdf()" download>
+        <!-- <ion-icon name="logo-twitter"></ion-icon> -->
+        <img src="/assets/imgs/pdf.png" alt="" style="width: 25px;">
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+  <!-- <ion-fab horizontal="start" vertical="bottom" slot="fixed">
+    <ion-fab-button color="dark">
+      <ion-icon md="caret-up" ios="chevron-up-circle-outline"></ion-icon>
+    </ion-fab-button>
+   
+  </ion-fab> -->
+
+</ion-content>
+
+
+
+<ion-content *ngIf="newone" class="grey-bg">
+  <div class="block">
+
+    <ion-card style="background-color: white;" *ngIf="resellerselection">
+      <ion-item color="white" style="width: 95%;">
+        <ion-label style="font-size: 18px;font-weight: 600;"> Search call history </ion-label>
+      </ion-item>
+      <ion-card-content style="background-color: white;">
+        <ion-item>
+          <ion-label style="color: black !important">Select Reseller Customer</ion-label>
+          <ion-select placeholder="Select Reseller ID" [(ngModel)]="order_type"
+            (ionChange)="resellerfilter(order_type)">
+            <ion-select-option *ngFor="let rb of reseller_billcode" value="{{rb.customer_bill_code_id}}">
+              {{rb.customer_bill_code_id}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card style="background-color: white;" *ngIf="filtercardlist">
+
+      <ion-item color="white" style="width: 95%;">
+        <ion-label style="font-size: 18px;font-weight: 600;"> Search call history </ion-label>
+      </ion-item>
+      <ion-card-content>
+        <!-- <ion-item>
+          <ion-label>Filter by</ion-label>
+          <ion-select value="brown" okText="Okay" [(ngModel)]="filter" (ionChange)="filters(filter)"
+            cancelText="Dismiss">
+            <ion-select-option value="dates">Date Range</ion-select-option>
+            <ion-select-option value="months">Last Three Month</ion-select-option>
+          </ion-select>
+        </ion-item> -->
+
+        <ion-button color="success" expand="full" (click)="extension()">
+          Extension name
+        </ion-button>
+
+        <ion-label style="font-weight :600;font-size:15px">Filter By</ion-label>
+        <ion-list>
+          <ion-radio-group value="dates" [(ngModel)]="filter" (ionChange)="filters(filter)">
+            <ion-item lines="none">
+              <ion-label>Date Range</ion-label>
+              <ion-radio slot="start" value="dates"></ion-radio>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-label>Last Three Month</ion-label>
+              <ion-radio slot="start" value="months"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+
+        <div *ngIf="dates">
+          <div style="margin-top:20px;">
+            <ion-label style="font-weight :600;font-size:15px;">From Date</ion-label>
+            <ion-item>
+              <ion-input  [(ngModel)]="fromdate" style="top:0" type="date"></ion-input>
+              </ion-item>
+          </div>
+          <div style="margin-top: 20px;">
+            <ion-label style="font-weight :600;font-size:15px;">To Date</ion-label>
+            <ion-item>
+              <ion-input [(ngModel)]="todate" style="top:0" type="date"></ion-input>
+            </ion-item>
+          </div>
+        </div>
+
+
+        <div class="form-group" *ngIf="months" style="background-color: white;margin-top: 20px;">
+          <ion-label style="font-weight :600;font-size:15px;">Choose Month</ion-label>
+          <ion-item>
+            <ion-label style="color: black !important">Choose a Month</ion-label>
+            <ion-select placeholder="Month" [(ngModel)]="month_type_value" (ionChange)="month_type()">
+              <ion-select-option *ngFor="let mn of month" value="{{ mn.month_val }}-{{mn.month_year}}">{{mn.month_name}}
+              </ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <!-- <ion-item style="margin-top: 20px;">
+            <ion-label style="color: black !important">Host Type</ion-label>
+            <ion-select placeholder="Host Type" [(ngModel)]="order_type" (ionChange)="orderType(order_type)">
+              <ion-select-option value="hostA">Host A</ion-select-option>
+              <ion-select-option value="hostC">Host C</ion-select-option>
+            </ion-select>
+          </ion-item> -->
+        </div>
+      </ion-card-content>
+
+    </ion-card>
+
+
+
+
+
+    <ion-button class="btn" color="primary" expand="full" shape="round" (click)="submit()" *ngIf="filtercardlist">
+      Submit
+    </ion-button>
+
+    <ion-button *ngIf="resellerselection" class="btn" color="primary" expand="full" shape="round"
+      (click)="reselleridsubmit()">
+      Submit Reseller ID
+    </ion-button>
+  </div>
+</ion-content>
+
+
+<ion-content *ngIf="nodata">
+
+  <div class="aligncenter">
+    <img src="../../assets/imgs/norecord-new.png">
+    <p>No Call Record</p>
+  </div>
+
+</ion-content>

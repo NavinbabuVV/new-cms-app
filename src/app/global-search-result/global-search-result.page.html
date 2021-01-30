@@ -1,0 +1,94 @@
+<ion-header no-shadow>
+	<ion-toolbar align-title="center" class="header" color="primary">
+		<ion-buttons slot="start" >
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>Global Search</ion-title>
+
+		<ion-buttons slot="end">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="inner-page grey-bg">
+	<div class="inner-content-wrapper">
+		<div class="block">
+			<ion-card class="card" *ngFor="let item of items">
+				<ion-card-content>
+					<div class="form">	
+						<ion-grid no-padding>
+							<ion-row>
+								<ion-col no-padding><ion-badge color="primary">{{item['biller_name']}}</ion-badge> &nbsp;&nbsp;&nbsp; <ion-badge color="warning"></ion-badge></ion-col>
+							</ion-row>
+							<ion-row>
+								<ion-col size="4">	
+									<div class="small-title">Company</div>
+								</ion-col>
+								<ion-col size="8">	
+									<p>{{item['company_name']}}</p>
+								</ion-col>
+							</ion-row>
+							<ion-row>
+								<ion-col size="4">	
+									<div class="small-title">Address</div>
+								</ion-col>
+								<ion-col size="8">	
+									<p>{{item['address']}}</p>
+								</ion-col>
+							</ion-row>
+							
+							<ion-row>
+								<ion-col size="4">	
+									<div class="small-title">Email</div>
+								</ion-col>
+								<ion-col size="8">	
+									<p>{{item['email']}}</p>
+								</ion-col>
+							</ion-row>  
+
+							<ion-row>
+								<ion-col size="4">	
+									<div class="small-title">Fin Email</div>
+								</ion-col>
+								<ion-col size="8">	
+									<p>{{item['finance_email']}}</p>
+								</ion-col>
+							</ion-row>
+
+							<ion-row>
+								<ion-col size="4">	
+									<div class="small-title">3cx Partner ID</div>
+								</ion-col>
+								<ion-col size="8">	
+									<p>{{item['reseller_id']}}</p>
+								</ion-col>
+							</ion-row>
+
+							<div class="table">
+								<ion-row no-padding>
+									<ion-col no-padding><p class="text-left table-row"><span>Contact Person</span><br /> 
+										<strong>{{item['contact_person']}}</strong></p></ion-col>
+										<ion-col no-padding><p class="text-right table-row"><span>Generated</span><br /> <strong>{{item['generated_by']}}</strong></p>
+										</ion-col>
+									</ion-row>
+									<ion-row no-padding>
+										<ion-col no-padding><p class="text-left table-row"><span>Phone</span><br />
+											<strong>{{item['phone']}}</strong></p></ion-col>
+											<ion-col no-padding><p class="text-right table-row"><span>Classify</span><br /> <strong>{{item['classify']}}</strong></p>
+											</ion-col>
+										</ion-row>
+									</div> 
+									<div class="cart-footer">
+										<ion-row>
+											<ion-col (click)="specialEdit(item['customer_id'])" class="view"><ion-icon name="create"></ion-icon></ion-col>
+											<!-- <ion-col class="note"><ion-icon name="checkmark-circle"></ion-icon></ion-col> -->
+										</ion-row>	
+									</div>
+								</ion-grid>
+							</div>
+						</ion-card-content>
+					</ion-card>
+				</div>
+			</div>
+		</ion-content>

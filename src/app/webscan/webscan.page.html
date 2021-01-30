@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Scan QR</ion-title>
+<ion-buttons slot="end">
+    <ion-button (click)="backClicked()">Close</ion-button>  
+    <ion-button (click)="loginqr()">scan</ion-button> 
+    <!-- <ion-button (click)="loginqrs()">check</ion-button>  -->
+
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content style="--background: transparent;">
+
+<div style="height: 30%;background-color: #ededed;opacity: 0.5">
+
+
+	</div>
+
+
+
+
+<div style="height: 40%;">
+
+
+	<ion-row style="height: 100%">
+		<ion-col size="2"  style="background-color: #ededed;opacity: 0.5">
+
+
+		</ion-col >
+
+			<ion-col size="8" *ngIf="open" style="border: 1px solid #fff;border-radius: 1px;">
+
+		</ion-col >
+
+<ion-col size="8" *ngIf="!open" style="background-color: #ededed;opacity: 0.5">
+
+		</ion-col>
+
+			<ion-col size="2" style="background-color: #ededed;opacity: 0.5">
+		</ion-col>
+	</ion-row>
+
+</div>
+
+
+
+
+
+<div  style="height: 10%;" >
+
+
+	<ion-row style="height: 100%">
+		<ion-col size="2"  style="background-color: #ededed;opacity: 0.5">
+
+
+		</ion-col >
+
+			<ion-col size="8" *ngIf="open" style="border: 1px solid #fff;">
+
+<p style="color: #fff !important;text-align: center;">Scan the Cal4care QR code</p>
+
+		</ion-col >
+
+<ion-col size="8" *ngIf="!open" style="background-color: #ededed;opacity: 0.5">
+
+		</ion-col>
+
+			<ion-col size="2" style="background-color: #ededed;opacity: 0.5">
+		</ion-col>
+
+
+	</ion-row>
+
+
+	</div>
+
+
+
+
+	<div  style="height: 20%;background-color: #ededed;opacity: 0.5" >
+
+
+	</div>
+
+
+
+
+</ion-content>

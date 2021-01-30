@@ -1,0 +1,189 @@
+<ion-header no-shadow>
+	<ion-toolbar class="header" color="primary">
+		<ion-buttons slot="start" >
+			<ion-back-button defaultHref="/dashboard"></ion-back-button>
+		</ion-buttons>
+		<ion-title>Reseller Management</ion-title>
+		<ion-buttons slot="end">
+			<ion-button icon-only [routerLink]="['/global-search']">
+				<ion-icon name="search"></ion-icon>
+			</ion-button>
+		 </ion-buttons>
+		<ion-buttons slot="end">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+	</ion-toolbar>
+
+</ion-header>
+
+<ion-content class="list-page grey-bg">
+	<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+		<ion-refresher-content></ion-refresher-content>
+	</ion-refresher>
+	<div class="inner-content-wrapper">
+		<div class="block">
+			<!-- <ion-searchbar placeholder="Search"></ion-searchbar> -->
+			<ion-card class="card" *ngFor="let enquiry of enquires; let i = index" [attr.data-index]="i" >
+				<ion-card-content>
+					<ion-grid no-padding>
+						<ion-row>
+							<ion-col><ion-badge color="primary">{{enquiry['enq_no']}}</ion-badge> &nbsp;&nbsp;&nbsp; <ion-badge [ngStyle]="{'background-color': enquiry['colorCodes']}">{{enquiry['billerCode']}}</ion-badge></ion-col>
+						</ion-row>
+					
+
+						<ion-row>
+							<ion-col size="4"><p>Company</p></ion-col>
+							<ion-col size="8"><p><strong>{{enquiry['company']}}</strong></p></ion-col>
+						</ion-row>
+
+						<ion-row>
+							<ion-col size="4"><p>Email</p></ion-col>
+							<ion-col size="8"><p><strong>{{enquiry['email']}}</strong></p></ion-col>
+						</ion-row>
+					
+						<ion-row>
+							<ion-col size="4"><p>Enq flw</p></ion-col>
+							<ion-col size="8"><figure class="user-icons"><img src="{{enquiry['enq_flw']}}" /></figure></ion-col>
+							<ion-col size="8"><p><strong>{{enquiry['user_firstName']}}</strong></p></ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col size="4"><p>Enquiry Date</p></ion-col>
+							<ion-col size="8"><p><strong>{{enquiry['enq_date']}}</strong></p></ion-col>
+						</ion-row>
+						<div class="table">
+							<ion-row no-padding>
+								<ion-col no-padding><p class="text-left table-row"><span>Phone</span><br /> <strong>{{enquiry['phonenumber']}}</strong></p></ion-col>
+								<ion-col no-padding><p class="text-right table-row"><span>Product</span><br /> <strong (click)="showComments(enquiry['enq_id'])"> {{enquiry['enquiry_message'] | slice:0:15}} ...</strong></p>
+								</ion-col>
+							</ion-row>
+							<ion-row no-padding>
+								<ion-col no-padding><p class="text-left table-row"><span>Country</span><br /> <strong>{{enquiry['country']}}</strong></p></ion-col>
+								<ion-col no-padding><p class="text-right table-row"><span>Qty</span><br /> <strong>
+									<ion-badge color="warning">{{enquiry['product_qty']}}</ion-badge></strong></p>
+								</ion-col>
+							</ion-row>
+						</div>
+						<div class="cart-footer">
+							<ion-row>
+								<ion-col (click)="assignEquiry(enquiry['enq_no'], enquiry['company'])" class="note" ><ion-icon name="people"></ion-icon></ion-col>
+							</ion-row>
+						</div>
+					</ion-grid>
+				</ion-card-content>
+			</ion-card>
+		</div>
+
+		<div class="block">
+			<div class="accord">
+				<ion-card class="card" (click)="oldEnquires(this.oldEnquiry)">
+					<ion-card-content>
+						<p><strong>Show Approved Records</strong></p>
+						<ion-icon name="arrow-{{this.isAccord}}"></ion-icon>
+					</ion-card-content>
+				</ion-card>
+			</div>
+
+			<ng-container *ngIf="oldEnquiry">
+			<!-- <ion-card class="card approved">
+				<div class="total-count">15</div>
+				<ion-card-content>
+					<ion-grid no-padding>
+						<ion-row>
+							<ion-col><ion-badge color="light">TH-298989</ion-badge> &nbsp;&nbsp;&nbsp; <ion-badge color="light">19/02/2020</ion-badge></ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col size="4"><p>Contact Info</p></ion-col>
+							<ion-col size="8"><p><strong>John Smith</strong></p></ion-col>
+						</ion-row>
+
+						<ion-row>
+							<ion-col size="4"><p>Company</p></ion-col>
+							<ion-col size="8"><p><strong>Aryan Search Pvt Ltd.</strong></p></ion-col>
+						</ion-row>
+
+						<ion-row>
+							<ion-col size="4"><p>Email</p></ion-col>
+							<ion-col size="8"><p><strong>johnsmith@gmail.com</strong></p></ion-col>
+						</ion-row>
+						<div class="table">
+							<ion-row no-padding>
+								<ion-col no-padding><p class="text-left table-row"><span>Phone</span><br /> <strong>9444440123</strong></p></ion-col>
+								<ion-col no-padding><p class="text-right table-row"><span>Product</span><br /> <strong>SIP TRUNK</strong></p>
+								</ion-col>
+							</ion-row>
+							<ion-row no-padding>
+								<ion-col no-padding><p class="text-left table-row"><span>Country</span><br /> <strong>Singapore</strong></p></ion-col>
+								<ion-col no-padding><p class="text-right table-row"><span>Qty</span><br /> <strong>
+									<ion-badge color="warning">1</ion-badge></strong></p>
+								</ion-col>
+							</ion-row>
+						</div>
+						<div class="cart-footer">
+							<ion-row>
+								<ion-col class="note"><ion-icon name="people"></ion-icon></ion-col>
+							</ion-row>
+						</div>
+					</ion-grid>
+					
+				</ion-card-content>
+			</ion-card> -->
+
+
+
+			<ion-card class="card approved" *ngFor="let enquiry of enquiry_assigned; let i = index" [attr.data-index]="i" >
+				<ion-card-content>
+					<ion-grid no-padding>
+						<ion-row>
+							<ion-col><ion-badge color="light">{{enquiry['enq_no']}}</ion-badge>&nbsp;&nbsp;&nbsp; <ion-badge [ngStyle]="{'background-color': enquiry['colorCodes']}">{{enquiry['billerCode']}}</ion-badge></ion-col>
+						</ion-row>
+					
+
+						<ion-row>
+							<ion-col size="4"><p>Company</p></ion-col>
+							<ion-col size="8"><p><strong>{{enquiry['company']}}</strong></p></ion-col>
+						</ion-row>
+
+						<ion-row>
+							<ion-col size="4"><p>Email</p></ion-col>
+							<ion-col size="8"><p><strong>{{enquiry['email']}}</strong></p></ion-col>
+						</ion-row>
+					
+						<ion-row>
+							<ion-col size="4"><p>Enq flw</p></ion-col>
+							<ion-col size="8"><figure class="user-icons"><img src="{{enquiry['enq_flw']}}" /></figure></ion-col>
+							<ion-col size="4"></ion-col>
+							<ion-col size="8"><p><strong>{{enquiry['user_firstName']}}</strong></p></ion-col>
+							
+						</ion-row>
+						<ion-row>
+							<ion-col size="4"><p>Enquiry Date</p></ion-col>
+							<ion-col size="8"><p><strong>{{enquiry['enq_date']}}</strong></p></ion-col>
+						</ion-row>
+						<div class="table">
+							<ion-row no-padding>
+								<ion-col no-padding><p class="text-left table-row"><span>Phone</span><br /> <strong>{{enquiry['phonenumber']}}</strong></p></ion-col>
+								<ion-col no-padding><p class="text-right table-row"><span>Product</span><br /> <strong (click)="showComments(enquiry['enq_id'])"> {{enquiry['enquiry_message'] | slice:0:15}} ...</strong></p>
+								</ion-col>
+							</ion-row>
+							<ion-row no-padding>
+								<ion-col no-padding><p class="text-left table-row"><span>Country</span><br /> <strong>{{enquiry['country']}}</strong></p></ion-col>
+								<ion-col no-padding><p class="text-right table-row"><span>Qty</span><br /> <strong>
+									<ion-badge color="warning">{{enquiry['product_qty']}}</ion-badge></strong></p>
+								</ion-col>
+							</ion-row>
+						</div>
+						<div class="cart-footer">
+							<!-- <ion-row>
+								//<ion-col (click)="assignEquiry(enquiry['enq_no'])" class="note" ><ion-icon name="people"></ion-icon></ion-col>
+							</ion-row> -->
+						</div>
+					</ion-grid>
+				</ion-card-content>
+			</ion-card>
+		</ng-container>
+		</div>
+
+
+
+	</div>
+</ion-content>

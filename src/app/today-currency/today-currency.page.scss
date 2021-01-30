@@ -1,0 +1,33 @@
+.backpagebg{
+	--background : var(--ion-color-grey)  !important;
+}
+
+
+.cards{
+    margin: 0;
+    box-shadow: none;
+    border-radius: 0;
+    border-bottom: 2px solid #ceced9;
+    margin-bottom: 5px;
+    padding: 10px;
+    background: white;
+
+	h2{
+		color: black;
+	}
+}
+
+
+
+.imagess{
+	box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.19);
+	width: 50px;
+}
+
+.currency-values{
+	font-size: 16px;
+    display: flex;
+    font-weight: 900;
+    justify-content: center;
+    align-items: center;
+}

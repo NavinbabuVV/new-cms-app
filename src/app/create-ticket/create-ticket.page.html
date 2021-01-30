@@ -1,0 +1,66 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>create-ticket</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-header no-shadow>
+  <ion-toolbar align-title="center" class="header" color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Create Ticket</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="backpagebg">
+
+  <ion-card class="card_style">
+    <ion-card-content>
+      <ion-item >
+        <ion-label class="label_input" position="stacked">From</ion-label>
+        <!-- <ion-input [(ngModel)]="userData.from"></ion-input> -->
+        
+        <ion-input [(ngModel)]="userData.from" readonly>{{userData.customerName}}</ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="label_input" position="stacked">Department</ion-label>
+        <!-- <ion-input ></ion-input> -->
+        <ion-input value="Readonly" [(ngModel)]="userData.dept" readonly>Support_SG</ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="label_input" position="stacked">Subject</ion-label>
+        <ion-input [(ngModel)]="userData.subject"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="label_input" position="stacked">Message</ion-label>
+        <ion-textarea rows="4" [(ngModel)]="userData.message"></ion-textarea>
+      </ion-item>
+      <div class="input_spacing"> 
+        <input id="fuDocument" type="file" multiple="multiple" />
+
+        <!-- <ion-input id="fuDocument" class="input-file" type="file" multiple (change)="handleFileInput($event.target.files)"></ion-input> -->
+      </div>
+
+      <ion-button shape="round" expand="full">
+        Cancel
+      </ion-button> 
+
+        <ion-button shape="round" expand="full" color="success" (click)="createticket()">
+          Submit
+        </ion-button>
+
+    </ion-card-content>
+  </ion-card>
+
+
+  
+<input type="hidden" id="test" (click)="success()">
+  <!-- </div> -->
+</ion-content>

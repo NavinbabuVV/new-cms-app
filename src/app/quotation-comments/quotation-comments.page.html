@@ -1,0 +1,64 @@
+<ion-header no-shadow>
+	<ion-toolbar class="header" color="primary">
+		<ion-buttons slot="start" >
+			<ion-back-button (click)="goBack()"></ion-back-button>
+		</ion-buttons>
+		<ion-title>Quotation Comments</ion-title>
+		<ion-buttons slot="end">
+			<ion-button icon-only [routerLink]="['/global-search']">
+				<ion-icon name="search"></ion-icon>
+			</ion-button>
+		 </ion-buttons>
+		<ion-buttons slot="end">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="list-page grey-bg">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+		<ion-refresher-content></ion-refresher-content>
+	  </ion-refresher>
+	<div class="inner-content-wrapper">
+		<div class="block">
+			<!-- <ion-searchbar placeholder="Search"></ion-searchbar> -->
+		<ion-card class="card"  *ngFor="let quotation of comments; let i = index" [attr.data-index]="i"   >
+				<ion-card-content>
+					<ion-grid no-padding>
+						<ion-row>
+							<ion-col><p><strong>{{quotation}}</strong></p></ion-col>
+						</ion-row>
+					</ion-grid>
+				</ion-card-content>
+			</ion-card>
+    </div>
+  </div>
+  <div class="inner-content-wrapper">
+      <div class="block">
+
+
+<ion-card class="card" style="padding:5px;margin:0px">
+  <ion-card-content>
+  <ion-grid no-padding>       
+    <ion-item style="margin: 5px 0px 15px;">
+      <ion-textarea [(ngModel)]="comment" placeholder="Enter more information here..."></ion-textarea>
+    </ion-item>
+  
+	<div class="btn-panel">
+    <ion-row>
+      <ion-col>
+        <ion-button class="btn"  (click)="goBack()" color="light" expand="full" shape="round"><ion-icon name="arrow-round-back"></ion-icon>
+        Back</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button class="btn" (click)="addComment(this.quotation)" color="success" expand="full" shape="round"><ion-icon name="add-circle"></ion-icon>
+        Add</ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-grid>
+</ion-card-content>
+</ion-card>
+</div>
+	</div>
+</ion-content>

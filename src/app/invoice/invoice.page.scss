@@ -1,0 +1,51 @@
+.backpagebg{
+	// --background : var(--ion-color-grey)  !important;
+}
+
+
+.color-red{
+	// background:linear-gradient(0deg, #ff695f, #d14141);
+	// background:linear-gradient(0deg, #ed6258, #e04444);
+	background:linear-gradient(0deg, #f7918cfc, #ff4e4e);
+	color:white;
+}
+
+.color-green{
+	// background:linear-gradient(0deg, #a1cba9, #00ac89);
+	background:linear-gradient(0deg, #5ea66c, #00ac89);
+	color:white;
+}
+
+.payment_color{
+	--background: #ffa426;
+}
+
+ion-button div {
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+  }
+
+.cardbg{
+	/*ion-card{*/
+	background: #ffffff !important;
+		
+	/*}*/
+
+		.action{
+		display:flex !important;
+		img{
+			/*width: 10% !important;*/
+			/*margin-right:10px !important;*/
+    // width: 15% !important;
+    
+    // height: 15% !important;
+	// padding-right: 10px !important;
+	width: 11% !important;
+    height: 10% !important;
+    /* padding-right: 10px !important; */
+    margin-right: 10px;
+
+		}
+	}
+}

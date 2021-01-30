@@ -1,0 +1,15 @@
+.top-section{
+    display: inline-block;
+    width: 100%;
+    margin-top: 12px;
+    margin-bottom:10px;
+}
+
+.profile-images{
+    border-radius: 50% !important;
+    width: 40px !important;
+    margin-right: 15px !important;
+    float: left !important;
+    height: 40px !important;
+    object-fit: cover !important;
+}

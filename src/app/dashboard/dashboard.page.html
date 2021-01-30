@@ -1,0 +1,554 @@
+<ion-header no-shadow no-border>
+	<ion-toolbar align-title="center" class="header" color="primary">
+
+		<ion-title>dashboard</ion-title>
+
+
+
+		<!-- <ion-buttons slot="end" style="margin: 0px 10px;">
+			<ion-button icon-only>
+				<ion-icon name="search"></ion-icon>
+			</ion-button>
+		 </ion-buttons> -->
+		<ion-buttons slot="start">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+
+		<!-- <ion-buttons slot="end" [routerLink]="['/dialler']">
+			<div class="">
+				<img class="scansize" src="../../assets/imgs/phone-ringing.svg">
+			</div>
+		</ion-buttons> -->
+		<!-- <app-example slot="end"></app-example> -->
+		<ion-buttons slot="end" [routerLink]="['/webscan']">
+			<div class="">
+				<img class="scansize" src="../../assets/imgs/qr-code-scan.svg">
+			</div>
+		</ion-buttons>
+		<ion-buttons slot="end" [routerLink]="['/notifications']">
+			<div class="">
+				<img class="bellicons test" src="../../assets/imgs/bell.svg">
+				<span class="bellcounts">{{bells}}</span>
+			</div>
+		</ion-buttons>
+
+	</ion-toolbar>
+
+</ion-header>
+
+
+
+<ion-content class="grey-dark">
+
+	<app-example slot="fixed"></app-example>
+
+
+	<!-- <ion-fab vertical="start" horizontal="start" edge slot="fixed">
+		
+		<ion-fab-list side="bottom" id="slidedown">
+			<ion-card style="background: white;width: 180px;margin: 0;padding: 10px;">
+				<div class="rows">
+					<div class="sub-div"> <span><img class="dropdown-img" src="../../assets/imgs/callus/money-blue.svg"
+								alt=""></span>
+						<span style="margin-left: 10px;"><strong>Finance Support</strong></span>
+					</div>
+				</div>
+				<div class="rows">
+					<div class="sub-div"><span> <img class="dropdown-img" src="../../assets/imgs/sale.svg"
+								alt=""></span>
+						<span style="margin-left: 10px;"><strong>Sales</strong></span>
+					</div>
+				</div>
+				<div class="rows">
+					<div class="sub-div"><span> <img class="dropdown-img" src="../../assets/imgs/callus/phone-call.svg"
+								alt=""></span>
+						<span style="margin-left: 10px;"><strong>License Support</strong></span>
+					</div>
+				</div>
+			</ion-card>
+
+
+	
+		</ion-fab-list>
+	</ion-fab> -->
+
+	<!-- <script src="../../assets/js/chat.js"></script> -->
+	<div class="colordiv">
+
+
+
+		<!-- <div class="newcolordiv">
+
+	</div> -->
+
+
+
+
+
+		<ion-row class="orderbutton">
+			<!-- <div text-center class="logowhite"> -->
+
+			<!-- </div> -->
+
+			<!-- <ion-col size="12">
+				<ion-button *ngIf="cxbuy == 1" routerLink="/order-license" shape="round">Order 3CX License</ion-button>
+
+			</ion-col> -->
+		</ion-row>
+		<div class="alignments">
+			<figure class="figure">
+				<img src="../../assets/imgs/logo-white.png">
+			</figure>
+		</div>
+
+
+	<!-- </div> -->
+
+	<!-- =============================NEW CODE 3 & 2 CARD LIST================================= -->
+
+	<!-- <div class="carddiv">
+		<ion-row>
+			<ion-col class="colvalues">
+				<ion-card class="cardalign" *ngIf='invoice == 1' [routerLink]="['/invoice']" detail="false" mode='md'>
+					<img class="imgcenter" src="../../assets/imgs/invoicenew.png">
+					<ion-card-header class="ion_header_align">
+						<ion-card-subtitle style="text-align: center;">Invoice</ion-card-subtitle>
+						<ion-card-subtitle class="values" *ngIf="dashboard_count && dashboard_count.invoice_cnt">
+							{{dashboard_count.invoice_cnt}}</ion-card-subtitle>
+
+					</ion-card-header>
+
+				</ion-card>
+			</ion-col>
+			<ion-col class="colvalues">
+				<ion-card class="cardalign" *ngIf="credit == 1" [routerLink]="['/credit']" detail="false" mode='md'>
+					<img class="imgcenter" src="../../assets/imgs/dashboard/quatation.svg">
+					<ion-card-header class="ion_header_align">
+						<ion-card-subtitle style="text-align: center;">Credit Note</ion-card-subtitle>
+						<ion-card-subtitle class="values" *ngIf="dashboard_count && dashboard_count.credit_note_cnt">
+							{{dashboard_count.credit_note_cnt}}</ion-card-subtitle>
+					</ion-card-header>
+
+				</ion-card>
+			</ion-col>
+
+			<ion-col class="colvalues">
+				<ion-card class="cardalign" *ngIf="credit == 1" [routerLink]="['/credit']" detail="false" mode='md'>
+					<img class="imgcenter" src="../../assets/imgs/dashboard/quatation.svg">
+					<ion-card-header class="ion_header_align">
+						<ion-card-subtitle style="text-align: center;">Credit Note</ion-card-subtitle>
+						<ion-card-subtitle class="values" *ngIf="dashboard_count && dashboard_count.credit_note_cnt">
+							{{dashboard_count.credit_note_cnt}}</ion-card-subtitle>
+					</ion-card-header>
+
+				</ion-card>
+			</ion-col>
+		</ion-row>
+
+
+		<ion-row>
+			<ion-col class="colvalues">
+				<ion-card class="cardalign" *ngIf="cxbuy == 1" [routerLink]="['/credit']" detail="false" mode='md'>
+					<img class="imgcenter" src="../../assets/imgs/dashboard/money.svg">
+					<ion-card-header class="ion_header_align">
+						<ion-card-subtitle style="text-align: center;">Call Balance</ion-card-subtitle>
+						<ion-card-subtitle class="subtitle_new" *ngIf="call_balance_count">
+							{{call_balance_count.server_name1}}:
+							{{call_balance_count.main_balance_pbx1}}/{{call_balance_count.last_credit1}}
+						</ion-card-subtitle>
+						<ion-card-subtitle class="subtitle_new" *ngIf="call_balance_count">
+							{{call_balance_count.server_name2}}:
+							{{call_balance_count.main_balance_pbx2}}/{{call_balance_count.last_credit2}}
+						</ion-card-subtitle>
+					</ion-card-header>
+
+				</ion-card>
+			</ion-col>
+
+			<ion-col class="colvalues">
+				<ion-card class="cardalign" *ngIf="cxbuy == 1" [routerLink]="['/order-license']" detail="false"
+					mode='md'>
+					<img class="imgcenter" src="../../assets/imgs/dashboard/ip.svg">
+					<ion-card-header class="ion_header_align">
+						<ion-card-subtitle style="text-align: center;">Terms</ion-card-subtitle>
+						<ion-card-subtitle class="subtitle_new"
+							*ngIf="dashboard_count && dashboard_count.customer_credit_amt">
+							Allocated: {{dashboard_count.customer_credit_amt}}/{{dashboard_count.customer_terms_days}}
+						</ion-card-subtitle>
+						<ion-card-subtitle class="subtitle_new"
+							*ngIf="dashboard_count && dashboard_count.customer_credit_amt">
+							Balance:{{dashboard_count.customer_available_credit}}/{{dashboard_count.customer_available_terms}}
+						</ion-card-subtitle>
+
+					</ion-card-header>
+
+				</ion-card>
+			</ion-col>
+		</ion-row>
+
+		<ion-row>
+			<ion-col class="colvalues">
+				<ion-card class="cardalign" *ngIf="cxbuy == 1" [routerLink]="['/credit']" detail="false" mode='md'>
+					<img class="imgcenter" src="../../assets/imgs/dashboard/money.svg">
+					<ion-card-header class="ion_header_align">
+						<ion-card-subtitle style="text-align: center;">Call Balance</ion-card-subtitle>
+						<ion-card-subtitle class="subtitle_new" *ngIf="call_balance_count">
+							{{call_balance_count.server_name1}}:
+							{{call_balance_count.main_balance_pbx1}}/{{call_balance_count.last_credit1}}
+						</ion-card-subtitle>
+						<ion-card-subtitle class="subtitle_new" *ngIf="call_balance_count">
+							{{call_balance_count.server_name2}}:
+							{{call_balance_count.main_balance_pbx2}}/{{call_balance_count.last_credit2}}
+						</ion-card-subtitle>
+					</ion-card-header>
+
+				</ion-card>
+			</ion-col>
+
+			<ion-col class="colvalues">
+				<ion-card class="cardalign" *ngIf="cxbuy == 1" [routerLink]="['/order-license']" detail="false"
+					mode='md'>
+					<img class="imgcenter" src="../../assets/imgs/dashboard/ip.svg">
+					<ion-card-header class="ion_header_align">
+						<ion-card-subtitle style="text-align: center;">Terms</ion-card-subtitle>
+						<ion-card-subtitle class="subtitle_new"
+							*ngIf="dashboard_count && dashboard_count.customer_credit_amt">
+							Allocated: {{dashboard_count.customer_credit_amt}}/{{dashboard_count.customer_terms_days}}
+						</ion-card-subtitle>
+						<ion-card-subtitle class="subtitle_new"
+							*ngIf="dashboard_count && dashboard_count.customer_credit_amt">
+							Balance:{{dashboard_count.customer_available_credit}}/{{dashboard_count.customer_available_terms}}
+						</ion-card-subtitle>
+
+					</ion-card-header>
+
+				</ion-card>
+			</ion-col>
+		</ion-row>
+	</div> -->
+
+	<!-- ============================= END 3 & 2 CARD LIST================================= -->
+
+
+	<!-- <div class="carddiv">
+
+		<ion-card>
+
+
+			<ion-item *ngIf='invoice == 1' [routerLink]="['/invoice']" detail="false" mode='md'>
+				<div slot="start"><img class="iconss" src="../../assets/imgs/invoicenew.png"></div>
+
+
+				<ion-label>Invoice</ion-label>
+				<p slot="end" *ngIf="dashboard_count && dashboard_count.invoice_cnt">{{dashboard_count.invoice_cnt}}</p>
+
+			</ion-item>
+
+			<ion-item *ngIf="credit == 1" class="ion-activated" [routerLink]="['/credit']" detail="false" mode='md'>
+				<div slot="start"><img class="iconss" src="../../assets/imgs/dashboard/quatation.svg"></div>
+
+
+				<ion-label>Credit Note</ion-label>
+				<p slot="end" *ngIf="dashboard_count && dashboard_count.credit_note_cnt">
+					{{dashboard_count.credit_note_cnt}}</p>
+
+			</ion-item>
+
+			<ion-item *ngIf="license == 1" [routerLink]="['/license']" detail="false" mode='md'>
+				<div slot="start"><img class="iconss" src="../../assets/imgs/licenses.png"></div>
+
+
+				<ion-label>Licence</ion-label>
+				<p slot="end" *ngIf="dashboard_count && dashboard_count.license_detail_cnt">
+					{{dashboard_count.license_detail_cnt}}</p>
+
+			</ion-item>
+
+			<ion-item *ngIf="cxbuy == 1" [routerLink]="['/order-license']" detail="false" mode='md'>
+				<div slot="start"><img class="iconss" src="../../assets/imgs/dashboard/quatation.svg"></div>
+
+				<ion-label>Partner Id</ion-label>
+				<p slot="end" *ngIf="dashboard_count && dashboard_count.customer_reseller_id">
+					{{dashboard_count.customer_reseller_id}}</p>
+
+			</ion-item>
+
+			<ion-item *ngIf="cxbuy == 1" [routerLink]="['/credit']" detail="false" mode='md'>
+				<div slot="start"><img class="iconss" src="../../assets/imgs/dashboard/money.svg"></div>
+
+				<ion-label style="max-width: 50%;">Call Balance</ion-label>
+				<div *ngIf="call_balance_count">
+					<p slot="end"
+						style="font-size: 12px !important;margin-block-start: 0;margin-block-end: 0;margin-top: 5px;">
+						{{call_balance_count.server_name1}}:
+						{{call_balance_count.main_balance_pbx1}}/{{call_balance_count.last_credit1}}</p>
+
+					<p slot="end"
+						style="font-size: 12px !important;margin-block-start: 0;margin-block-end: 0;margin-top: 5px;">
+						{{call_balance_count.server_name2}}:
+						{{call_balance_count.main_balance_pbx2}}/{{call_balance_count.last_credit2}}</p>
+
+				</div>
+			</ion-item>
+
+			<ion-item *ngIf="cxbuy == 1" [routerLink]="['/order-license']" detail="false" mode='md'>
+				<div slot="start"><img class="iconss" src="../../assets/imgs/discountnew.png"></div>
+
+				<ion-label>3CX Discount</ion-label>
+
+			</ion-item>
+
+			<ion-item *ngIf="cxbuy == 1" [routerLink]="['/order-license']" detail="false" mode='md'>
+				<div slot="start"><img class="iconss" src="../../assets/imgs/dashboard/ip.svg"></div>
+
+				<ion-label>Terms</ion-label>
+				<div *ngIf="dashboard_count && dashboard_count.customer_credit_amt">
+					<p slot="end"
+						style="font-size: 12px !important;margin-block-start: 0;margin-block-end: 0;margin-top: 5px;">
+						Allocated: {{dashboard_count.customer_credit_amt}}/{{dashboard_count.customer_terms_days}}
+					</p>
+					<p slot="end"
+						style="font-size: 12px !important;margin-block-start: 0;margin-block-end: 0;margin-top: 5px;">
+						Balance:{{dashboard_count.customer_available_credit}}/{{dashboard_count.customer_available_terms}}
+					</p>
+				</div>
+			</ion-item>
+
+		</ion-card>
+	</div> -->
+
+	<!-- =============================NEW CODE 2 CARD LIST================================= -->
+
+	<div class="newcolordiv">
+
+
+		<!-- <div class="carddiv"> -->
+		<ion-row [ngClass]="{'holerows':counts_cards < 4 }">
+			<ion-col class="colvalues" size="6" *ngIf='invoice == 1'>
+				<ion-card class="cardalign colors-1" [routerLink]="['/invoice']" detail="false" mode='md'>
+					<img class="imgcenter" src="../../assets/imgs/new_invoice_icon.svg">
+					<ion-card-header class="ion_header_align">
+						<ion-card-subtitle class="card-subtitles">Invoice</ion-card-subtitle>
+						<ion-card-subtitle class="values" *ngIf="dashboard_count && dashboard_count.invoice_cnt">
+							<ion-badge> {{dashboard_count.invoice_cnt}} </ion-badge>
+						</ion-card-subtitle>
+					</ion-card-header>
+
+				</ion-card>
+			</ion-col>
+			<ion-col class="colvalues" size="6" *ngIf="credit == 1">
+				<ion-card class="cardalign color-8" [routerLink]="['/credit']" detail="false" mode='md'>
+					<img class="imgcenter" src="../../assets/imgs/dashboard/quatation.svg">
+					<ion-card-header class="ion_header_align">
+						<ion-card-subtitle class="card-subtitles">Credit Note</ion-card-subtitle>
+						<ion-card-subtitle class="values" *ngIf="dashboard_count && dashboard_count.credit_note_cnt">
+							<ion-badge> {{dashboard_count.credit_note_cnt}} </ion-badge>
+						</ion-card-subtitle>
+					</ion-card-header>
+
+				</ion-card>
+			</ion-col>
+			<!-- </ion-row> -->
+
+			<!-- <ion-row> -->
+			<ion-col class="colvalues" size="6" *ngIf="license == 1">
+				<ion-card class="cardalign color-5" [routerLink]="['/license']" detail="false" mode='md'>
+					<img class="imgcenter" src="../../assets/imgs/new_license.svg">
+					<ion-card-header class="ion_header_align">
+						<ion-card-subtitle class="card-subtitles">Licence</ion-card-subtitle>
+						<ion-card-subtitle class="values" *ngIf="dashboard_count && dashboard_count.license_detail_cnt">
+							<ion-badge> {{dashboard_count.license_detail_cnt}} </ion-badge>
+						</ion-card-subtitle>
+					</ion-card-header>
+
+				</ion-card>
+			</ion-col>
+			<ion-col class="colvalues" size="6" *ngIf="partnerid == 1">
+				<ion-card class="cardalign color-6" [routerLink]="['/order-license']" detail="false" mode='md'>
+					<img class="imgcenter" src="../../assets/imgs/new_partner_id.svg">
+					<ion-card-header class="ion_header_align">
+						<ion-card-subtitle class="card-subtitles"> </ion-card-subtitle>
+						<ion-card-subtitle class="card-subtitles"><span style="color:#1690cb">3</span><span
+								style="color:#353535">CX</span> Partner Id</ion-card-subtitle>
+						<ion-card-subtitle class="values"
+							*ngIf="dashboard_count && dashboard_count.customer_reseller_id">
+							<ion-badge> {{dashboard_count.customer_reseller_id}} </ion-badge>
+						</ion-card-subtitle>
+
+					</ion-card-header>
+
+				</ion-card>
+			</ion-col>
+			<!-- </ion-row> -->
+
+			<!-- <ion-row> -->
+			<ion-col class="colvalues" size="6" *ngIf="callbal == 1">
+				<ion-card class="cardalign color-3" [routerLink]="['/credit']" detail="false" mode='md'>
+					<img class="imgcenter" src="../../assets/imgs/dashboard/money.svg">
+					<ion-card-header class="ion_header_align">
+						<ion-card-subtitle class="card-subtitles">Call Balance</ion-card-subtitle>
+						<ion-card-subtitle class="subtitle_new" *ngIf="call_balance_count">
+							<ion-badge class="badge">
+								{{call_balance_count.server_name1}}:
+								{{call_balance_count.main_balance_pbx1}}/{{call_balance_count.last_credit1}}
+							</ion-badge>
+						</ion-card-subtitle>
+						<ion-card-subtitle class="subtitle_new" *ngIf="call_balance_count">
+							<ion-badge class="badge">
+								{{call_balance_count.server_name2}}:
+								{{call_balance_count.main_balance_pbx2}}/{{call_balance_count.last_credit2}}
+							</ion-badge>
+						</ion-card-subtitle>
+					</ion-card-header>
+
+				</ion-card>
+			</ion-col>
+
+			<ion-col class="colvalues" size="6" *ngIf="termss == 1">
+				<ion-card class="cardalign color-7" [routerLink]="['/order-license']" detail="false" mode='md'>
+					<img class="imgcenter" src="../../assets/imgs/dollar.svg">
+					<ion-card-header class="ion_header_align">
+						<ion-card-subtitle class="card-subtitles">Terms</ion-card-subtitle>
+						<ion-card-subtitle class="subtitle_new"
+							*ngIf="dashboard_count && dashboard_count.customer_credit_amt">
+							<ion-badge class="badge">
+								<span style="color:#3cb379">Allocated:</span>
+								{{dashboard_count.customer_credit_amt}}/{{dashboard_count.customer_terms_days}}
+							</ion-badge>
+						</ion-card-subtitle>
+
+						<ion-card-subtitle class="subtitle_new"
+							*ngIf="dashboard_count && dashboard_count.customer_credit_amt">
+							<ion-badge class="badge">
+								<span style="color:#3cb379">Balance:
+								</span>{{dashboard_count.customer_available_credit}}/{{dashboard_count.customer_available_terms}}
+							</ion-badge>
+						</ion-card-subtitle>
+
+					</ion-card-header>
+
+				</ion-card>
+			</ion-col>
+			<!-- </ion-row> -->
+
+			<!-- <ion-row> -->
+			<ion-col class="colvalues" size="6" *ngIf="cxdisc == 1">
+				<ion-card class="cardalign color-4" [routerLink]="['/order-license']" detail="false" mode='md'>
+					<img class="imgcenter" src="../../assets/imgs/new-3cx-discount.svg">
+					<ion-card-header class="ion_header_align">
+						<ion-card-subtitle class="card-subtitles">3CX Discount</ion-card-subtitle>
+						<ion-card-subtitle class="values"
+							*ngIf="dashboard_count && dashboard_count.discount_percentage">
+							<ion-badge> {{dashboard_count.discount_percentage}} </ion-badge>
+						</ion-card-subtitle>
+					</ion-card-header>
+
+				</ion-card>
+			</ion-col>
+			<ion-col class="colvalues" size="6" *ngIf="cxbuy == 1">
+				<ion-card class="cardalign color-2" [routerLink]="['/support-ticket']" detail="false" mode='md'>
+					<img class="imgcenter" src="../../assets/imgs/support.png">
+					<ion-card-header class="ion_header_align">
+						<ion-card-subtitle class="card-subtitles">Support Ticket</ion-card-subtitle>
+						<ion-card-subtitle class="values"
+							*ngIf="dashboard_count && dashboard_count.discount_percentage">
+							<!-- <ion-badge> {{dashboard_count.discount_percentage}} </ion-badge> -->
+						</ion-card-subtitle>
+					</ion-card-header>
+
+				</ion-card>
+			</ion-col>
+		</ion-row>
+
+		<!-- </div> -->
+		
+
+	</div>
+	<!-- =============================END 2 CARD LIST================================= -->
+
+	<!-- <div class="carddiv">
+		<ion-row>
+			<ion-card style="background-color: white;width: 100%;">
+				<ion-item *ngIf='invoice == 1' [routerLink]="['/invoice']" detail="false" mode='md'>
+					<div><img class="iconss" src="../../assets/imgs/invoicenew.png"></div>
+					<div>
+						<ion-label>Invoice</ion-label>
+						<p *ngIf="dashboard_count && dashboard_count.invoice_cnt">
+							{{dashboard_count.invoice_cnt}}
+						</p>
+					</div>
+				</ion-item>
+
+			</ion-card>
+		</ion-row>
+	</div> -->
+
+	<div style="margin-top: 20px;">
+		<span class="headings">NEWS</span>
+	</div>
+	<div class="scrolling-wrapper-flexbox">
+
+		<div class="cards" *ngFor="let c of blogs;let j = index;">
+
+			<ion-card (click)="gointernal()"
+				style="height: 260px;padding-right: 0px;padding-left: 0px;margin-right: 10px;margin-left: 10px;border-radius: 5%;background: white;">
+
+				<ion-card-content style="padding: 10px 15px 10px 15px">
+
+					<ion-row class="heading">
+						<div>
+							<p class="wrap" style="color: #0596d4;font-weight: 500;">
+								{{c.service_name}}
+							</p>
+						</div>
+
+					</ion-row>
+					<figure style="height: 100px;">
+						<img style="height: 100%;object-fit: contain;" src="{{c.service_image_name_str}}" />
+					</figure>
+					<ion-row>
+						<!-- <ion-col size="4">
+							<ion-avatar>
+								<img src="{{c.profile_image}}"
+									style="width: 75% !important;height: 75% !important; margin-left: 25%;">
+							</ion-avatar>
+						</ion-col>
+
+						<ion-col size="7">
+							<p style="font-size: 16px;text-transform:capitalize">
+								<strong>{{c.firstName}}</strong>
+							</p>
+							<p>
+								<strong>Posted on </strong>{{c.created_dt}}
+							</p>
+						</ion-col>
+						<ion-col size="1">
+						</ion-col> -->
+						<div class="top-section">
+							<img class="profile-images" src="{{c.profile_image}}" alt="">
+							<ion-card-subtitle>{{c.firstName}}</ion-card-subtitle>
+							<ion-card-subtitle>{{c.created_dt}}</ion-card-subtitle>
+						</div>
+					</ion-row>
+					<ion-row class="contents" *ngIf="c.description != ''">
+
+					</ion-row>
+				</ion-card-content>
+			</ion-card>
+		</div>
+
+		<div class="cards">
+			<ion-card
+				style="height: 260px;padding-right: 0px;padding-left: 0px;margin-right: 10px;margin-left: 10px;width: 130px;background: white;">
+
+				<h5 (click)="gointernal()" style="position: absolute;top: 35%;right: 20px;color: #e22b83;">Read
+					More</h5>
+			</ion-card>
+		</div>
+
+	</div>
+
+</div>
+
+
+</ion-content>

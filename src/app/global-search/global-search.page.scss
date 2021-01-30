@@ -1,0 +1,17 @@
+.sc-ion-searchbar-ios-h {
+    --clear-button-color: var(--ion-color-step-600,#666);
+    --cancel-button-color: var(--ion-color-primary,#3880ff);
+    --color: var(--ion-text-color,#000);
+    --icon-color: var(--ion-color-step-600,#666);
+    --background: rgba(var(--ion-text-color-rgb,0,0,0),0.07);
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    height: auto;
+    contain: strict;
+}
+.form ion-item ion-select {
+    height: auto;
+    padding: 10px;
+}

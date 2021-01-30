@@ -1,0 +1,47 @@
+<ion-header no-shadow>
+  <ion-toolbar align-title="center" class="header" color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button [routerLink]="['/newsevents']"></ion-back-button>
+    </ion-buttons>
+    <ion-title>News Feeds</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <!-- cms_view_state: "reseller"
+  created_by: "53"
+  created_dt: "May 16, 2020"
+  external_to_internal_id: "0"
+  feature_show_state: ""
+  firstName: "NV CBE"
+  modified_dt: "2020-09-30 13:27:40"
+  mrvoip_other_service_id: "43"
+  profile_image: "12020032019125214.jpg"
+  publish_state: ",2,3,4,5,6,7,8,9,17,18,"
+  service_description: "<p class="min-description">Now CalnCall&trade; sip"
+  service_dt: "2020-05-16 00:00:00"
+  service_image_name: "54116052020131601.png"
+  service_name: "Now Calncall Siptrunks Supports Microsoft Teams"
+  short_service_description: ""
+  site_url_name: "Now-Calncall-Siptrunks-Supports-Microsoft-Teams"
+  userId: "53"
+  status: "true" -->
+
+  <ion-grid style="margin: auto 10px;margin-bottom: 20px;">
+    <div>
+      <h1 style="font-size: 24px;font-weight: 600;">{{newsdata.service_name}}</h1>
+      <!-- <img style="height: 100%;object-fit: contain;" src="{{newsdata.service_image_name}}" /> -->
+      <div class="top-section">
+        <img class="profile-images" src="{{newsdata.profile_image}}" alt="">
+        <ion-card-subtitle>{{newsdata.firstName}}</ion-card-subtitle>
+        <ion-card-subtitle>{{newsdata.created_dt}}</ion-card-subtitle>
+      </div>
+      <div [innerHTML]="newsdata.service_description"></div>
+    </div>
+  </ion-grid>
+
+</ion-content>

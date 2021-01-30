@@ -1,0 +1,172 @@
+<ion-header no-shadow>
+	<ion-toolbar align-title="center" class="header" color="primary">
+		<ion-buttons slot="start">
+			<ion-back-button (click)="goToTestPage()"></ion-back-button>
+		</ion-buttons>
+		<ion-title>News Events</ion-title>
+		<ion-buttons slot="end">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+
+<!-- <ion-content class="backpagebg">
+	<div class="cardbg">
+
+		<ion-card *ngIf="news">
+
+			<ion-card-content>
+
+				<ion-row class="heading">
+					<ion-col size="7">
+						<p class="wrap">
+							<strong>{{news.service_name}}
+							</strong>
+						</p>
+					</ion-col>
+					<ion-col size="5">
+
+						<img [src]="news.service_image_name">
+					</ion-col>
+				</ion-row>
+
+				<ion-row class="contents">
+					<ion-col size="12">
+						<p class="wrap" [innerHTML]="news.service_description">
+
+						</p>
+
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col size="12">
+						<p>
+							<strong>Posted on :</strong>{{news.created_dt}}
+						</p>
+					</ion-col>
+				</ion-row>
+
+			</ion-card-content>
+		</ion-card> -->
+
+
+
+
+
+<!-- 	<ion-card>
+	
+		<ion-card-content>
+					
+					<ion-row class="heading">
+						<ion-col size="7">
+							<p class="wrap">
+								<strong>Important Announcement to Valued Business Partners and customers ( As usual during "Circuit Breaker")
+								</strong>
+							</p>
+						</ion-col>
+						<ion-col size="5">	
+					
+		<img  src="assets/imgs/news2.jpg">
+</ion-col>
+						</ion-row>	
+
+<ion-row class="contents">
+						<ion-col size="12">
+							<p class="wrap">
+								Dear Business Partners and Customers, Good day and I hope that you are keeping well.
+In pursuant to the suspension of business activities imposed by the government on non-essential services during the COVID-19 situation, Cal4care Pte Ltd has obtained Exemption From Suspension of Activities 
+							</p>
+						
+						</ion-col>
+					</ion-row>	
+	<ion-row>
+		<ion-col size="12">
+			<p>
+				<strong>Posted on :</strong> May 16, 2020
+			</p>
+		</ion-col>
+	</ion-row>
+					
+				</ion-card-content>
+			</ion-card> 
+
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+	</div>
+
+
+
+
+
+</ion-content> -->
+
+
+<ion-content class="backpagebg" fullscreen>
+	<div class="cardbg" *ngFor="let new of news">
+		<ion-card *ngIf="news" id="{{new.mrvoip_other_service_id}}">
+			<figure style="    height: 200px;">
+				<img style="height: 100%;object-fit: contain;" src="{{new.service_image_name_str}}" />
+			</figure>
+			<ion-card-header>
+				<ion-card-title style="font-size: 24px;font-weight: 600;">{{new.service_name}}</ion-card-title>
+				<div class="top-section">
+					<img class="profile-images" src="{{new.profile_image}}" alt="">
+					<ion-card-subtitle>{{new.firstName}}</ion-card-subtitle>
+					<ion-card-subtitle>{{new.created_dt}}</ion-card-subtitle>
+				</div>
+			</ion-card-header>
+			<ion-card-content style="padding-top: 0;">
+				<div style="height: 90px;overflow: hidden;" *ngIf="new.service_description != false">
+					{{new.service_description}}
+				</div>
+				<div style="display: inline-block;width: 100%;">
+					<ion-button style="float: right;" color="success" size="small" (click)="readmore(new.mrvoip_other_service_id)">Read More
+					</ion-button>
+				</div>
+			</ion-card-content>
+
+			<!-- new.mrvoip_other_service_id -->
+		</ion-card>
+	</div>
+
+	<!-- 
+	<div class="cardbg" *ngFor="let new of news">
+		<ion-card *ngIf="news" id="{{new.mrvoip_other_service_id}}">
+				
+			<ion-card-header>
+				<figure style="width: 200px;margin: 0 auto;">
+					<img class="imgicon" src="{{new.service_image_name_str}}" />
+				</figure>
+				<ion-card-title class="texttitle">{{new.service_name}}</ion-card-title>
+				
+			</ion-card-header>
+			<ion-card-content>
+				<ion-card-subtitle>{{new.created_dt}}</ion-card-subtitle>
+				{{new.service_description}}
+			</ion-card-content>
+		</ion-card>
+	</div> -->
+
+
+
+	<ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+		<ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+		</ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+
+
+
+</ion-content>

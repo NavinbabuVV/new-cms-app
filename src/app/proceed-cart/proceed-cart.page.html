@@ -1,0 +1,289 @@
+<ion-header no-shadow no-border>
+  <ion-toolbar align-title="center" class="header" color="primary">
+    <!-- <ion-buttons slot="start" >
+			<ion-back-button></ion-back-button>
+    </ion-buttons> -->
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Payment Details</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="backpagebg">
+
+  <ion-card class="cards-top" *ngIf="addcarts">
+    <ion-card-content style="padding:10px;font-size: 14px;">
+      <ion-row>
+        <ion-col>
+          <span>
+            <strong>{{c_datas_name}}</strong>
+          </span>
+        </ion-col>
+        <ion-col size="3">
+          <span>
+            {{order_date}}
+          </span>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="9" style="font-size: 13px;">
+          {{c_datas_address1}},{{c_datas_city}},{{c_datas_state}},{{c_datas_country}}
+        </ion-col>
+        <ion-col size="3">
+          <strong> {{c_datas_reseller_id}}</strong>
+        </ion-col>
+      </ion-row>
+
+    </ion-card-content>
+  </ion-card>
+
+  <div *ngIf="addcarts">
+    <ion-card class="cards" *ngFor="let option of options_cart">
+      <ion-card-content>
+        <h1 class="head1">{{option.product_desc}}</h1>
+
+        <h3 class="sub-head">{{option.edition_key}}</h3>
+
+
+        <ion-row class="product-detail">
+          <ion-col size="6">
+            Price ({{c_datas_currency}})
+          </ion-col>
+          <ion-col class="values" size="6">
+            {{option.actual_price}}
+          </ion-col>
+          <ion-col size="6">
+            Qty
+          </ion-col>
+          <ion-col class="values" size="6">
+            {{option.quantity}}
+          </ion-col>
+          <ion-col size="6">
+            Discount ({{c_datas_currency}})
+          </ion-col>
+          <ion-col class="values-discount" size="6">
+            {{option.discount}}
+          </ion-col>
+          <ion-col size="6">
+            Total ({{c_datas_currency}})
+          </ion-col>
+          <ion-col class="values-total" size="6">
+            {{option.sub_total}}
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <ion-card class="cards" *ngIf="paynows">
+    <ion-card-content>
+
+      <ion-list>
+        <ion-radio-group [(ngModel)]="new_radio" (ionChange)="getvalues()">
+          <ion-list-header>
+            <ion-label class="pay-list-head">Payment Method</ion-label>
+          </ion-list-header>
+
+          <ion-item>
+            <ion-label class="labels">Credit or Debit Card(PayPal)</ion-label>
+            <ion-radio slot="start" value="payment_type_paypal_checkout"></ion-radio>
+            <figure class="img-figure">
+              <img src="../../assets/payment/paypal2.png" alt="PayPal">
+            </figure>
+          </ion-item>
+
+          <ion-item>
+            <ion-label class="labels">Credit or Debit Card</ion-label>
+            <ion-radio slot="start" value="payment_type_ocbc_sg_payment"></ion-radio>
+            <figure class="img-figure">
+              <img src="../../assets/payment/new-visa-mastercard-logo.png" alt="Debit">
+            </figure>
+          </ion-item>
+
+          <ion-item>
+            <ion-label class="labels">Stripe</ion-label>
+            <ion-radio slot="start" value="payment_type_stripe_pay"></ion-radio>
+            <figure class="img-figure">
+              <img src="../../assets/payment/stripe-payment.png" alt="Stripe">
+            </figure>
+          </ion-item>
+
+          <ion-item>
+            <ion-label class="labels">Offline Payment</ion-label>
+            <ion-radio slot="start" value="payment_type_offline"></ion-radio>
+            <figure style="width: 85px;margin:0">
+              <img src="../../assets/payment/offline.png" alt="Offline">
+            </figure>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="cards" *ngIf="paynows">
+    <ion-card-content>
+      <div class="dividers">
+        <ion-label><strong>ADD COUPON CODE</strong></ion-label>
+      </div>
+      <ion-item>
+        <ion-label position="floating">Payment Terms</ion-label>
+        <ion-input value="{{c_terms_condition}}" readonly></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Coupon Code</ion-label>
+        <ion-input [(ngModel)]="couponcodes"></ion-input>
+      </ion-item>
+      <ion-button color="success" expand="block" fill="outline" (click)="verifycoupon()">Verify</ion-button>
+    </ion-card-content>
+
+    <form method='post' name='stripePay_frm' id='stripePay_frm'
+      action='https://erp.cal4care.com/erp/payment_transaction.php'>
+      <!-- <a    class="btn btn-success" (click)="submitpaymentangular()">Sasdasubmit</a> -->
+      <input name='transaction_data' value='stripe_pay' type='hidden'>
+      <input name='currency_code' value='{{datalist.Customer_data.currency_name}}' type='hidden'>
+      <input type='hidden' name='order_id' class='invoice_id' value='{{invoice_id}}'>
+      <input type='hidden' name='credit_data' class='credit_data' value='{{credit_data}}'>
+      <input type='hidden' name='payment_from' value='portal_license_key'>
+    </form>
+    <!-- Stripe Payment Gateway end -->
+
+    <!-- Paypal Payment Gateway -->
+
+
+    <!-- {"transaction_data":"paypal_payment","credit_data":"","business":"","item_number":"1","no_shipping":"0","currency_code":"SGD","custom":"36515","first_name":"DCARE TECHNOLOGIES PTE LTD","last_name":"","address1":"","city":"","state":"","zip":"","country":"Singapore","H_PhoneNumber":"","return":"","cancel_return":"","payment_from":"portal_license_key"} *
+    -->
+
+
+    <form method='post' name='payPaylPayment' id='payPaylPayment'
+      action='https://erp.cal4care.com/erp/payment_transaction.php'>
+      <input name='transaction_data' value='paypal_payment' type='hidden'>
+      <input type='hidden' name='credit_data' class='credit_data' value='{{credit_data}}'>
+      <input name='business' value='' type='hidden'>
+      <input name='item_number' value='{{item_number}}' type='hidden'>
+      <input name='no_shipping' value='0' type='hidden'>
+      <input name='currency_code' value='{{datalist.Customer_data.currency_name}}' type='hidden'>
+      <input type='hidden' name='custom' id='custom' class='invoice_id' value='{{invoice_id}}'>
+      <input type='hidden' name='first_name' value='{{datalist.Customer_data.customerName}}'>
+      <input type='hidden' name='last_name' value=''>
+      <input type='hidden' name='address1' value='{{datalist.Customer_data.customerAddress1}}'>
+      <input type='hidden' name='city' value='{{datalist.Customer_data.city}}'>
+      <input type='hidden' name='state' value='{{datalist.Customer_data.state}}'>
+      <input type='hidden' name='zip' value='{{datalist.Customer_data.zipCode}}'>
+      <input type='hidden' name='country' value='{{datalist.Customer_data.country}}'>
+      <input type='hidden' name='H_PhoneNumber' value='{{datalist.Customer_data.mobilePhone}}'>
+      <input name='return' value='' type='hidden'>
+      <input name='cancel_return' value='' type='hidden'>
+      <input type='hidden' name='payment_from' value='portal_license_key'>
+    </form>
+
+
+    <!-- Paypal Payment Gateway  End-->
+
+    <!-- OCBC SG Payment Gateway  -->
+    <form method='post' name='ocbc_sg' id='ocbc_sg' action='https://erp.cal4care.com/erp/payment_transaction.php'>
+      <input name='transaction_data' value='ocbc_sg_payment' type='hidden'>
+      <input name='currency_code' value='{{datalist.Customer_data.currency_name}}' type='hidden'>
+      <input type='hidden' name='order_id' class='invoice_id' value='{{invoice_id}}'>
+      <input type='hidden' name='credit_data' class='credit_data' value='{{credit_data}}'>
+      <input type='hidden' name='payment_from' value='portal_license_key'>
+    </form>
+
+
+    <!-- OCBC SG Payment Gateway End  -->
+
+
+
+    <!-- Offline Payment  -->
+
+    <form method='post' name='licenseKeyGenerate' id='licenseKeyGenerate'
+      action='https://erp.cal4care.com/cms/license_key_generate.php'>
+      <input type='hidden' name='billing_id' id='license_billing_id' class='invoice_id' value='{{invoice_id}}'>
+      <input type='hidden' name='credit_data' class='credit_data' value='{{credit_data}}'>
+      <input type='hidden' name='action' value='license_key_generate'>
+      <input type='hidden' name='payment_order' value='no'>
+      <input type='hidden' name='payment_from' value='portal_license_key'>
+
+
+    </form>
+    <!-- Offline Payment  End-->
+
+  </ion-card>
+
+
+  <ion-card [ngClass]="(addcarts) ? 'price-card' : 'cards'">
+    <ion-card-content style="padding: 15px;">
+      <div class="dividers">
+        <ion-label><strong>PRICE DETAILS </strong></ion-label>
+      </div>
+      <!-- <ion-item-divider>
+        <ion-label>
+          Basic Item Divider
+        </ion-label>
+      </ion-item-divider> -->
+      <div style="font-size: 14px; font-weight: 500;color:black;">
+        <ion-row>
+
+          <ion-col> Net Total ({{count}} items)</ion-col>
+          <ion-col class="right-side-value">{{total_price}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col> Discount Price <span *ngIf="discount_percentages">({{disc_percent}}%)</span> </ion-col>
+          <ion-col class="right-side-value">{{discount_percentages}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col> Tax Value <span *ngIf="total_tax != '0.00'">({{tax_discount_values}}%)</span></ion-col>
+          <ion-col class="right-side-value">{{total_tax}}</ion-col>
+        </ion-row>
+        <ion-row *ngIf="paynows">
+          <ion-col> Transaction Charge</ion-col>
+          <ion-col class="right-side-value">{{trans_amount}}</ion-col>
+        </ion-row>
+      </div>
+
+      <div class="grand-total">
+        <ion-row>
+          <ion-col> <strong>Grand Total</strong></ion-col>
+          <ion-col class="right-side-value"><strong>{{grand_total}}</strong></ion-col>
+        </ion-row>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card class="fixed-card" *ngIf="addcarts">
+    <ion-row>
+      <ion-col size="6" class="fixed-values">
+        {{grand_total}}
+      </ion-col>
+      <ion-col size="6">
+        <ion-button class="fixed-button" (click)="paynow()">
+          Place Order
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-card class="cards" *ngIf="paynows">
+    <ion-row>
+      <ion-col size="6" class="fixed-values">
+        <ion-button class="fixed-button" (click)="back()">
+          Back
+        </ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button class="fixed-button" (click)="submitpaymentangular()">
+          Submit
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+
+
+
+</ion-content>

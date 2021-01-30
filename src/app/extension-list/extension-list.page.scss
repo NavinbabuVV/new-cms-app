@@ -1,0 +1,60 @@
+.backpagebg{
+	--background : var(--ion-color-grey)  !important;
+}
+
+.head-paragraph{
+    font-size: 12px;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.extnno{
+    font-size:12px;
+    display: bloc !important;
+    text-align: left;
+}
+
+.extnbold{
+    font-size: 18px;
+    text-align: left;
+    display: block !important;
+}
+
+.paragraph{
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+
+// .newone{
+//     ion-item:nth-child(even) {background: #CCC}
+//     ion-item:nth-child(odd) {background: #FFF}
+// }
+
+.odd{
+    --ion-background-color: #ffffff;
+}
+  .even{
+    --ion-background-color: #cccccc;
+  }
+
+
+.cardbg{
+	/*ion-card{*/
+	background: #ffffff !important;
+		
+	/*}*/
+
+		.action{
+		display:flex !important;
+		img{
+			/*width: 10% !important;*/
+			/*margin-right:10px !important;*/
+    width: 15% !important;
+    
+    height: 15% !important;
+    padding-right: 10px !important;
+
+		}
+	}
+}

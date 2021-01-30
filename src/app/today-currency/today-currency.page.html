@@ -1,0 +1,116 @@
+<ion-header no-shadow>
+  <ion-toolbar align-title="center" class="header" color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Currency/Contact</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="backpagebg">
+
+  <ion-list >
+    <ion-item>
+      <ion-label style="text-align: center;font-weight: 600;"> {{today_dates}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Currency</ion-label>
+      <ion-select  placeholder="EUR" interface="popover"  [(ngModel)]="curr_values"  (ionChange) = "currency_values()">
+        <ion-select-option value="EUR">EUR</ion-select-option>
+        <ion-select-option value="INR">INR</ion-select-option>
+        <ion-select-option value="JPY">JPY</ion-select-option>
+        <ion-select-option value="MYR">MYR</ion-select-option>
+        <ion-select-option value="THB">THB</ion-select-option>
+        <ion-select-option value="SGD">SGD</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+  
+    <ion-card class="cards" *ngFor="let new of datas">
+      <ion-row>
+        <ion-col size="4">
+          <img class="imagess" src="{{new.flag_data}}" alt="">
+        </ion-col>
+        <ion-col class="currency-values" size="4">
+          {{new.name}}
+        </ion-col>
+        <ion-col class="currency-values" size="4">
+          {{new.values}}
+        </ion-col>
+      </ion-row>
+    </ion-card>
+    <!-- <ion-card class="cards">
+      <ion-row>
+        <ion-col size="4">
+          <img class="imagess" src="https://restcountries.eu/data/sgp.svg" alt="">
+        </ion-col>
+        <ion-col class="currency-values" size="4">
+          INR
+        </ion-col>
+        <ion-col class="currency-values" size="4">
+          90.158
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  
+    <ion-card class="cards">
+      <ion-row>
+        <ion-col size="4">
+          <img class="imagess" src="https://restcountries.eu/data/sgp.svg" alt="">
+        </ion-col>
+        <ion-col class="currency-values" size="4">
+          JPY
+        </ion-col>
+        <ion-col class="currency-values" size="4">
+          127.0075
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  
+    <ion-card class="cards">
+      <ion-row>
+        <ion-col size="4">
+          <img class="imagess" src="https://restcountries.eu/data/sgp.svg" alt="">
+        </ion-col>
+        <ion-col class="currency-values" size="4">
+          MYR
+        </ion-col>
+        <ion-col class="currency-values" size="4">
+          4.9627
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  
+    <ion-card class="cards">
+      <ion-row>
+        <ion-col size="4">
+          <img class="imagess" src="https://restcountries.eu/data/sgp.svg" alt="">
+        </ion-col>
+        <ion-col class="currency-values" size="4">
+          SGD
+        </ion-col>
+        <ion-col class="currency-values" size="4">
+          1.6448
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  
+    <ion-card class="cards">
+      <ion-row>
+        <ion-col size="4">
+          <img class="imagess" src="https://restcountries.eu/data/sgp.svg" alt="">
+        </ion-col>
+        <ion-col class="currency-values" size="4">
+          THB
+        </ion-col>
+        <ion-col class="currency-values" size="4">
+          36.9191
+        </ion-col>
+      </ion-row>
+    </ion-card> -->
+  
+  </ion-list>
+</ion-content>

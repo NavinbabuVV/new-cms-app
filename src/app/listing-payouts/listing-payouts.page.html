@@ -1,0 +1,192 @@
+<ion-header no-shadow>
+  <ion-toolbar align-title="center" class="header" color="primary">
+    <!-- <ion-buttons slot="start">
+      <ion-back-button [routerLink]="['/support-ticket']"></ion-back-button>
+    </ion-buttons> -->
+    <ion-title>Reseller Dashboard</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<!-- <ion-content class="backpagebg">
+  <ion-grid>
+    <ion-card class="cardbg">
+      <ion-item>
+        <ion-label class="header">Referral Details</ion-label>
+      </ion-item>
+      <ion-card-content>
+
+     
+        <ion-row class="" *ngFor="let py of values">
+          <ion-col class="table-col-green" size="5">
+            {{py.date_month_name}} {{py.date_year}}
+          </ion-col>
+          <ion-col class="table_key_green" size="6">
+            <strong>708.3</strong>
+          </ion-col>
+        </ion-row>
+
+      </ion-card-content>
+    </ion-card>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-card class="cardbg">
+      <ion-item>
+        <ion-label class="header">Payouts Details</ion-label>
+      </ion-item>
+      <ion-card-content>
+        <ion-row class="" *ngFor="let py of values">
+          <ion-col class="table-col" size="5">
+            {{py.date_month_name}} 
+            {{py.date_year}}
+          </ion-col>
+          <ion-col class="table_key" size="6">
+            <strong>1856.25</strong>
+          </ion-col>
+        </ion-row>
+
+      </ion-card-content>
+    </ion-card>
+  </ion-grid>
+
+</ion-content> -->
+
+
+
+<ion-content>
+
+  <ion-grid>
+    <ion-card>
+      <ion-row class="table-head">
+        <ion-col size="3">
+          Currency
+        </ion-col>
+        <ion-col size="3">
+          Paid
+        </ion-col>
+        <ion-col size="3">
+          Unpaid
+        </ion-col>
+        <ion-col size="3" style="padding:5px 0px">
+          DCurr({{currency_name}})
+        </ion-col>
+      </ion-row>
+
+
+      <ion-row class="row-data" *ngFor="let list of table_listing">
+        <ion-col size="3" class="col-align">
+          <strong> {{list.currency_name}} </strong>
+        </ion-col>
+        <ion-col size="3" class="paid col-align">
+          {{list.paid_amt}}
+        </ion-col>
+        <ion-col size="3" class="unpaid col-align">
+          {{list.unpaid_amt}}
+        </ion-col>
+        <ion-col size="3" class="def-currency col-align">
+          <strong> {{list.total_val}}</strong>
+        </ion-col>
+      </ion-row>
+
+      <!-- <ion-row class="row-data">
+        <ion-col size="3" class="col-align">
+
+        </ion-col>
+        <ion-col size="3" class="paid col-align">
+
+        </ion-col>
+        <ion-col size="3" class="unpaid col-align">
+         <strong style="color: black;"> Total</strong>
+        </ion-col>
+        <ion-col size="3" class="def-currency col-align">
+         <strong style="color: black;"> 1,4014.2</strong>
+        </ion-col>
+      </ion-row> -->
+
+    </ion-card>
+  </ion-grid>
+
+  
+
+  <ion-grid>
+
+    <ion-row>
+
+      <ion-col>
+        <ion-item style="padding-bottom: 20px;">
+          <ion-label class="header">Referral({{currency_name}}) </ion-label>
+        </ion-item>
+        <ion-row class="" *ngFor="let py of values" style="margin-left: 23px;">
+          <ion-col class="table-col-green" size="4">
+            {{py.date_month_name}} {{py.date_year}}
+          </ion-col>
+          <ion-col class="table_key_green" size="6">
+            <strong>{{py.referral_amt | number:'1.2-2'}}</strong>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+
+
+      <ion-col>
+        <ion-item style="padding-bottom: 20px;">
+          <ion-label class="header">Payouts({{currency_name}}) </ion-label>
+        </ion-item>
+        <ion-row class="" *ngFor="let py of values" style="margin-left: 23px;">
+          <ion-col class="table-col" size="4">
+            {{py.date_month_name}}
+            {{py.date_year}}
+          </ion-col>
+          <ion-col class="table_key" size="6">
+            <strong>{{py.payout_amt | number:'1.2-2'}}</strong>
+          </ion-col>
+        </ion-row>
+
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+
+   <ion-grid>
+      <ion-card>
+        <ion-row class="table-head">
+          <ion-col size="4">
+            Year
+          </ion-col>
+          <ion-col size="4">
+            Paid
+          </ion-col>
+          <ion-col size="4">
+            Unpaid
+          </ion-col>
+        </ion-row>
+  
+  
+        <ion-row class="row-data" *ngFor="let ypay of yearly_payment">
+          <ion-col size="4" class="col-align">
+            <strong> {{ypay.year}} </strong>
+          </ion-col>
+          <ion-col size="4" class="paid col-align">
+            {{ypay.paid_amt}}
+          </ion-col>
+          <ion-col size="4" class="unpaid col-align">
+            {{ypay.unpaid_amt}}
+          </ion-col>
+         </ion-row>
+  
+  
+      </ion-card>
+    </ion-grid>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button size="small" [routerLink]="['/dashboard']">
+      <ion-icon name="arrow-forward"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+</ion-content>

@@ -1,0 +1,46 @@
+<!-- <ion-header no-shadow>
+	<ion-toolbar align-title="center" class="header" color="primary">
+		<ion-buttons slot="start" >
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>Terms</ion-title>
+		<ion-buttons slot="end">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header> -->
+
+
+<ion-fab vertical="start" horizontal="start" edge slot="fixed">
+		<ion-fab-button color="danger" size="small" (click)="hello()">
+			<ion-icon name="call"></ion-icon>
+	
+		</ion-fab-button>
+		
+		<ion-fab-list side="bottom" id="slidedown">
+			<ion-card style="background: white;width: 180px;margin: 0;padding: 10px;">
+				<div class="rows">
+					<div class="sub-div"> <span><img class="dropdown-img" src="../../assets/imgs/callus/money-blue.svg"
+								alt=""></span>
+						<span style="margin-left: 10px;"><strong>Finance Support</strong></span>
+					</div>
+				</div>
+				<div class="rows">
+					<div class="sub-div"><span> <img class="dropdown-img" src="../../assets/imgs/sale.svg"
+								alt=""></span>
+						<span style="margin-left: 10px;"><strong>Sales</strong></span>
+					</div>
+				</div>
+				<div class="rows">
+					<div class="sub-div"><span> <img class="dropdown-img" src="../../assets/imgs/callus/phone-call.svg"
+								alt=""></span>
+						<span style="margin-left: 10px;"><strong>License Support</strong></span>
+					</div>
+				</div>
+			</ion-card>
+
+
+	
+		</ion-fab-list>
+	</ion-fab>
+

@@ -1,0 +1,135 @@
+<ion-header no-shadow>
+	<ion-toolbar align-title="center" class="header" color="primary">
+	<!-- 	<ion-buttons slot="start" >
+			<ion-back-button></ion-back-button>
+		</ion-buttons> -->
+		<ion-title>License Key Search</ion-title>
+		<!-- <ion-buttons slot="end" style="margin: 0px 10px;">
+			<ion-button icon-only>
+				<ion-icon name="search"></ion-icon>
+			</ion-button>
+		 </ion-buttons> -->
+		<ion-buttons slot="start">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="list-page grey-bg">
+	<div class="inner-content-wrapper">
+		<div class="block">
+			<form  #form="ngForm" (ngSubmit)="searchLK('')">
+				<ion-searchbar name="searchString" value="{{s_licence_key}}" placeholder="Search" (ionChange)="getItems($event)"></ion-searchbar>
+				<ion-row>
+					<ion-col>
+						<ion-list *ngIf="isItemAvailable">
+							<ion-item *ngFor="let item of items" (click)="searchLK(item)">{{ item }}</ion-item>
+						</ion-list>
+					</ion-col>
+				</ion-row>
+			
+			</form>
+			<ion-card class="card" *ngIf="isKeyAvail">
+				<ion-card-content>
+					<ion-grid no-padding>
+						<ion-row>
+							<ion-col size="6"><p>Customer Name</p></ion-col>
+							<ion-col size="6"><p><strong> {{customer_name}} </strong></p></ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col size="6"><p>Partner ID</p></ion-col>
+							<ion-col size="6"><p><strong> {{reseller_id}} </strong></p></ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col size="6"><p>Currency</p></ion-col>
+							<ion-col size="6"><p><strong> {{currency}} </strong></p></ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col size="6"><p>Edition</p></ion-col>
+							<ion-col size="6"><p><strong>{{edition}} </strong></p></ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col size="6"><p>Key Type</p></ion-col>
+							<ion-col size="6"><p><strong>{{key_type}} </strong></p></ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col size="6"><p>Price</p></ion-col>
+							<ion-col size="6"><p><strong>{{price}} </strong></p></ion-col>
+						</ion-row>
+
+						<ion-row>
+							<ion-col size="6"><p>Concurrent</p></ion-col>
+							<ion-col size="6"><p><strong>{{concurrent}} </strong></p></ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col><p>Date</p></ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col><p><strong>{{date}} </strong></p></ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col size="6"><p>Error Message</p></ion-col>
+							<ion-col size="6"><p><strong>{{err_msg}} </strong></p></ion-col>
+						</ion-row>
+
+
+					</ion-grid>
+				</ion-card-content>
+			</ion-card>
+
+			<ion-card class="card" >
+				<ion-card-content>
+					<ion-grid no-padding>
+
+						<!-- <ion-row>
+							<div class="form form-group">			
+								<div class="small-title">Pre order currency</div>
+								<ion-item>
+									<ion-label>Select Edition</ion-label>
+									<ion-select placeholder="Select One"  [(ngModel)]="selected_price">
+										<ion-select-option selected value="SGD">SGD</ion-select-option>
+										<ion-select-option value="USD">USD</ion-select-option>
+										<ion-select-option value="MYR">MYR</ion-select-option>
+										<ion-select-option value="INR">INR</ion-select-option>
+										<ion-select-option value="EUR">EUR</ion-select-option>
+										<ion-select-option value="JPY">JPY</ion-select-option>
+										<ion-select-option value="BAHT">BAHT</ion-select-option>
+										<ion-select-option value="AUD">AUD</ion-select-option>
+									</ion-select>
+								</ion-item>
+							</div>
+						</ion-row> -->
+						<ion-row>
+							<ion-col>
+								<div class="btn-panel">
+									<ion-button class="btn" (click)="preOrder()" color="primary" expand="full" shape="round"><ion-icon name="cash"></ion-icon> Pre orders</ion-button>
+								</div> 
+							</ion-col>
+						</ion-row>
+					</ion-grid>
+				</ion-card-content>
+			</ion-card>
+
+
+
+
+			<!-- <div class="btn-panel">
+				<ion-row>
+					<ion-col>
+						<ion-button class="btn"  href="\order-license" color="light" expand="full" shape="round"><ion-icon name="arrow-round-back"></ion-icon>
+						Back</ion-button>
+					</ion-col>
+					<ion-col>
+						<ion-button class="btn"  href="\order-license" color="success" expand="full" shape="round"><ion-icon name="add-circle"></ion-icon>
+						Add</ion-button>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col>
+						<ion-button class="btn" href="\order-success" color="primary" expand="full" shape="round"><ion-icon name="cash"></ion-icon> Proceed to Payment</ion-button>
+					</ion-col>
+				</ion-row>
+			</div> -->
+		</div>
+	</div>
+</ion-content>

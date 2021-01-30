@@ -1,0 +1,49 @@
+<ion-content class="loginpage">
+	<div class="colorlogo">
+
+		<div text-center class="logowhite">
+			<img src="../../assets/imgs/logo-white.png">
+		</div>
+
+	</div>
+
+	<div class="logindiv">
+		<form #form="ngForm" (ngSubmit)="login(form)">
+			<ion-row color="light" justify-content-center>
+				<ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+					<!-- <div text-center class="logo">
+						<img src="../../assets/imgs/logo-white.png">
+					</div> -->
+					<div class="form-group persons">
+						<ion-item>
+							<ion-icon name="person"></ion-icon>
+							<!-- <ion-icon name="arrow-forward" slot="end"></ion-icon> -->
+							<!-- <ion-icon name="arrow-forward-circle"></ion-icon> -->
+							<ion-input name="name" [(ngModel)]="userData.username" type="text"
+								placeholder="Enter Username" ngModel required></ion-input>
+
+						</ion-item>
+						<!-- <ion-item>
+							<ion-icon name="lock"></ion-icon>
+							<ion-input name="password" [(ngModel)]="userData.password" type="password" placeholder="Password" ngModel required></ion-input>
+						</ion-item> -->
+
+						<div class="btn-panel">
+							<ion-row>
+								<ion-col>
+									<ion-button type="submit" class="btn btnalign" color="" expand="full" shape="round">
+										Submit</ion-button>
+								</ion-col>
+							</ion-row>
+						</div>
+						<!-- div class="fl forgot-pwd" padding>
+							<p routerLink="/forgot-password"><strong>Forgot Password? </strong></p>
+						</div> -->
+
+					</div>
+				</ion-col>
+			</ion-row>
+		</form>
+	</div>
+
+</ion-content>

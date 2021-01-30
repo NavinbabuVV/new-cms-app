@@ -1,0 +1,121 @@
+<ion-header no-shadow>
+	<ion-toolbar class="header" color="primary">
+		<ion-buttons slot="start" >
+			<ion-back-button defaultHref="/"></ion-back-button>
+		</ion-buttons>
+		<ion-title>DID Number</ion-title>
+		<ion-buttons slot="end">
+			<ion-button icon-only [routerLink]="['/global-search']">
+				<ion-icon name="search"></ion-icon>
+			</ion-button>
+		 </ion-buttons>
+		<ion-buttons slot="end">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+<ion-content class="list-page grey-bg">
+	<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+		<ion-refresher-content></ion-refresher-content>
+	</ion-refresher>
+	<div class="inner-content-wrapper">
+		<div class="block">
+
+			<ion-card class="card"   *ngFor="let did of didnumbers; let i = index" [attr.data-index]="i" >
+				<ion-card-content>
+					<ion-grid no-padding>
+						<ion-row>
+							<ion-col><ion-badge color="primary">{{did['tic_no']}}</ion-badge> &nbsp;&nbsp;&nbsp; <ion-badge color="warning" [ngStyle]="{'background-color': did['colorcode']}"> {{did['billercode']}}</ion-badge></ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col><p>Customer / Vendor</p></ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col><p><strong>{{did['customerName']}}</strong></p></ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col><p>Transactions Type</p></ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col><p><strong>{{did['type_of_trans_name']}}</strong></p></ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col><p>Description</p></ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col><p><strong>{{did['description']}}</strong></p></ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col size="4"><p>Requester</p></ion-col>
+							<ion-col size="8"><figure class="user-icons"><img src="{{did['img_path']}}" /></figure></ion-col>
+							<ion-col size="4"><p></p></ion-col>
+							<ion-col size="8"><ion-badge color="warning">{{did['requesterName']}}</ion-badge></ion-col>
+						</ion-row>
+						<div class="cart-footer">
+							<ion-row>
+								<ion-col class="approve" (click)="approve(did['transaction_approval_id'])"><ion-icon name="checkmark-circle"></ion-icon></ion-col>
+								<ion-col class="close" (click)="reject(did['transaction_approval_id'])"><ion-icon name="close"></ion-icon></ion-col>
+							</ion-row>
+						</div>
+					</ion-grid>
+				</ion-card-content>
+			</ion-card>
+
+			
+		</div>
+
+
+
+		<div class="block">
+			<div class="accord">
+				<ion-card class="card" (click)="oldQutation(this.isOldQuotation)">
+					<ion-card-content>
+					<p><strong>Show Approved Records</strong></p>
+					 <ion-icon name="arrow-{{this.isAccord}}"></ion-icon>
+				</ion-card-content>
+				</ion-card>
+			</div>
+			<div *ngIf="isOldQuotation" >
+				<ion-card class="card approved"   *ngFor="let did of didnumbers_approved; let i = index" [attr.data-index]="i" >
+					<ion-card-content>
+						<ion-grid no-padding>
+							<ion-row>
+								<ion-col><ion-badge color="primary">{{did['tic_no']}}</ion-badge> &nbsp;&nbsp;&nbsp; <ion-badge color="warning" [ngStyle]="{'background-color': did['colorcode']}"> {{did['billercode']}}</ion-badge></ion-col>
+							</ion-row>
+							<ion-row>
+								<ion-col><p>Customer / Vendor</p></ion-col>
+							</ion-row>
+							<ion-row>
+								<ion-col><p><strong>{{did['customerName']}}</strong></p></ion-col>
+							</ion-row>
+							<ion-row>
+								<ion-col><p>Transactions Type</p></ion-col>
+							</ion-row>
+							<ion-row>
+								<ion-col><p><strong>{{did['type_of_trans_name']}}</strong></p></ion-col>
+							</ion-row>
+							<ion-row>
+								<ion-col><p>Description</p></ion-col>
+							</ion-row>
+							<ion-row>
+								<ion-col><p><strong>{{did['description']}}</strong></p></ion-col>
+							</ion-row>
+							<ion-row>
+								<ion-col size="4"><p>Requester</p></ion-col>
+								<ion-col size="8"><figure class="user-icons"><img src="{{did['img_path']}}" /></figure></ion-col>
+								<ion-col size="4"><p></p></ion-col>
+								<ion-col size="8"><ion-badge color="warning">{{did['requesterName']}}</ion-badge></ion-col>
+							</ion-row>
+							<!-- <div class="cart-footer">
+								<ion-row>
+									<ion-col class="approve"><ion-icon name="checkmark-circle"></ion-icon></ion-col>
+									<ion-col class="close" (click)="reject(quotation['transaction_approval_id'])"><ion-icon name="close"></ion-icon></ion-col>
+								</ion-row>
+							</div> -->
+						</ion-grid>
+					</ion-card-content>
+				</ion-card>
+		</div>
+		</div>
+	</div>
+</ion-content>

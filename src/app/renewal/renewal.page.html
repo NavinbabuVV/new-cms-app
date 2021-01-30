@@ -1,0 +1,64 @@
+<ion-header no-shadow>
+  <ion-toolbar align-title="center" class="header" color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button (click)="goToTestPage()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Renewal List</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="backpagebg">
+  <!-- <ion-card *ngFor="let rn of renewals" class="cards"> -->
+    <!-- <ion-card-content> -->
+      <!-- 
+      biller_id: "18"
+      biller_name: "Cal4care (Thailand) Co., Ltd."
+      company_name: "Jayakumar"
+      customer_id: "4805"
+      date: "2021-01-12"
+      enduser: "adas"
+      expiry_dt: "2021-01-09"
+      license: ""
+      renew_id: "38" -->
+
+      <ion-searchbar (ionChange)="searchbars($event)" animated></ion-searchbar>
+
+      <ion-grid>
+        <ion-row class="table-head">
+          <ion-col size="3">
+            Exp Date
+          </ion-col>
+          <ion-col size="6">
+            Licence
+          </ion-col>
+          <ion-col size="3">
+            User Name
+          </ion-col>
+        </ion-row>
+
+        <ion-row *ngFor="let rn of renewals; let i = index;" [ngClass]="(i % 2 == 0) ? 'odd row-data' : 'even row-data'">
+          <ion-col class="tno_align" size="3">
+            {{rn.expiry_dt}}
+          </ion-col>
+          <ion-col size="6">
+            {{rn.license}}
+          </ion-col>
+          <ion-col class="dept_align" size="3">
+            {{rn.enduser}}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    <!-- </ion-card-content> -->
+  <!-- </ion-card> -->
+
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>

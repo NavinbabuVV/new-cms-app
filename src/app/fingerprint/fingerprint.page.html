@@ -1,0 +1,80 @@
+<ion-content class="loginpage">
+	<div class="colorlogo">
+
+<div text-center class="logowhite">
+						<img src="../../assets/imgs/logo-white.png">
+					</div>
+
+		</div>
+
+<div class="logindiv">
+	
+	  <ion-row color="light" justify-content-center *ngIf="userData.logintype == 'fingerprintlogin'">
+				<ion-col  align-self-center size-md="6" size-lg="5" size-xs="12">
+				
+						
+						
+						<div class="btn-panel">
+							<ion-row>
+								<ion-col style="text-align: center !important;" >
+ 
+ 
+    
+<img (click)="loginWithFingerprint()" class="" src="assets/imgs/faceid.png" >
+
+				
+								</ion-col>
+							</ion-row>
+
+
+						<div class="fl forgot-pwd" padding>
+							<p (click)="loginWithotp()"><strong>Email OTP Login</strong></p>
+						</div> 
+
+						</div>
+					
+			
+				</ion-col>
+			</ion-row>  
+	
+
+			
+<ion-row color="light" justify-content-center *ngIf="userData.logintype == 'qrcodelogin'">
+				<ion-col  align-self-center size-md="6" size-lg="5" size-xs="12">
+				
+						
+						
+						<div class="btn-panel">
+							<ion-row>
+								<ion-col style="text-align: center !important;" >
+ 
+ 
+    
+<img (click)="loginWithQrcode()" class="" src="assets/imgs/qrcode.png" >
+
+				
+								</ion-col>
+							</ion-row>
+
+
+						<div class="fl forgot-pwd" padding>
+							<p (click)="loginWithotp()"><strong>Email OTP Login</strong></p>
+						</div> 
+
+						</div>
+					
+			
+				</ion-col>
+			</ion-row>
+
+
+
+		</div>
+
+</ion-content>
+<ion-footer>
+	
+	
+<!-- <script src="assets/js/chat.js"></script> -->
+	
+	</ion-footer>

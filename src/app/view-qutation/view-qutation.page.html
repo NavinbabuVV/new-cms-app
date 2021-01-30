@@ -1,0 +1,66 @@
+<ion-header no-shadow>
+	<ion-toolbar class="header" color="primary">
+		<ion-buttons slot="start" >
+			<ion-back-button defaultHref="/"></ion-back-button>
+		</ion-buttons>
+		<ion-title>Transaction Approval Management</ion-title>
+		<ion-buttons slot="end">
+			<ion-button icon-only [routerLink]="['/global-search']">
+				<ion-icon name="search"></ion-icon>
+			</ion-button>
+		 </ion-buttons>
+		<ion-buttons slot="end">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+	</ion-toolbar>
+	<!-- <div class="block grey-bg">
+		<div class="header-widget">
+			<h6>Transaction Approval Management</h6>
+		</div>
+	</div> -->
+</ion-header>
+
+<ion-content class="list-page grey-bg">
+	<div class="inner-content-wrapper">
+		<div class="block">
+			<!-- <ion-searchbar placeholder="Search"></ion-searchbar> -->
+		<ion-card class="card"   >
+				<ion-card-content>
+					<ion-grid no-padding>
+						<ion-row>
+							<ion-col><ion-badge color="primary">{{quotation['tic_no']}}</ion-badge> &nbsp;&nbsp;&nbsp; <ion-badge color="warning" [ngStyle]="{'background-color': quotation['colorcode']}">{{quotation['billsercode']}}</ion-badge></ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col><p>Biller Name</p></ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col><p><strong>{{this.billerName}}</strong></p></ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col><p>Transaction Date</p></ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col><p ><strong>{{this.transaction_date}}</strong></p></ion-col>
+            </ion-row>
+            <ion-row>
+							<ion-col><p>Priority</p></ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col><p><strong>{{this.priority}}</strong></p></ion-col>
+						</ion-row>
+						<div class="cart-footer">
+							<ion-row>
+								
+                <ion-col class="approve"><ion-icon name="checkmark-circle" (click)="approve(this.quotation)" ></ion-icon></ion-col>
+                  <ion-col class="close"><ion-icon name="close" (click)="reject(this.quotation)"></ion-icon></ion-col>
+							</ion-row>
+						</div>
+					</ion-grid>
+				</ion-card-content>
+			</ion-card>
+
+		</div>
+
+	
+	</div>
+</ion-content>

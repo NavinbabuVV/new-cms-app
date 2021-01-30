@@ -1,0 +1,260 @@
+<ion-header no-shadow>
+  <ion-toolbar align-title="center" class="header" color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button [routerLink]="['/support-ticket']"></ion-back-button>
+    </ion-buttons>
+    <ion-title>View Tickets</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="backpagebg">
+  <ion-card class="card1_style">
+    <ion-item>
+
+      <ion-label class="ticket-header">Ticket #{{ticket_num}}</ion-label>
+    </ion-item>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col class="card-one-heading-col" size="5">
+            Status
+          </ion-col>
+          <ion-col size="7" class="card-one-values-col">
+            <ion-badge class="badge">{{tic_status}}</ion-badge>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="5" class="card-one-heading-col">
+            Priority
+          </ion-col>
+          <ion-col size="7" class="card-one-values-col">
+            {{tic_priority}}
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="5" class="card-one-heading-col">
+            Department
+          </ion-col>
+          <ion-col size="7" class="card-one-values-col">
+            {{tic_dept}}
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="5" class="card-one-heading-col">
+            Create Date
+          </ion-col>
+          <ion-col size="7" class="card-one-values-col">
+            {{tic_create_time}}
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="5" class="card-one-heading-col">
+            User
+          </ion-col>
+          <ion-col size="7" class="card-one-values-col">
+            {{tic_username}}
+          </ion-col>
+        </ion-row>
+
+
+        <ion-row>
+          <ion-col size="5" class="card-one-heading-col">
+            Email
+          </ion-col>
+          <ion-col size="7" class="card-one-values-col">
+            {{tic_user_email}}
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="5" class="card-one-heading-col">
+            Source
+          </ion-col>
+          <ion-col size="7" class="card-one-values-col">
+            {{tic_source}}
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="5" class="card-one-heading-col">
+            Customer
+          </ion-col>
+          <ion-col size="7" class="card-one-values-col">
+
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="blue_card_style">
+    <!-- <ion-item>
+      <ion-label class="ticket-header">Ticket #115226</ion-label>
+    </ion-item> -->
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="5" class="blue-heading-col">
+            Assigned To
+          </ion-col>
+          <ion-col size="7" class="value_col">
+            {{tic_assigned_to}}
+          </ion-col>
+        </ion-row>
+
+
+
+        <ion-row>
+          <ion-col size="5" class="blue-heading-col">
+            SLA Plan
+          </ion-col>
+          <ion-col size="7" class="value_col">
+            Default SLA
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="5" class="blue-heading-col">
+            Due Date
+          </ion-col>
+          <ion-col size="7" class="value_col">
+            {{tic_due_time}}
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="5" class="blue-heading-col">
+            Help Topic
+          </ion-col>
+          <ion-col size="7" class="value_col">
+            {{tic_help_topic}}
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="5" class="blue-heading-col">
+            Last Message
+          </ion-col>
+          <ion-col size="7" class="value_col">
+            {{last_msg_time}}
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="5" class="blue-heading-col">
+            Last Response:
+          </ion-col>
+          <ion-col size="7" class="value_col">
+            {{last_reponsed_time}}
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  <!-- ============================== CARD LEFT =========================== -->
+  <div *ngFor="let l of datalist">
+    <div class="chat-whole-div" *ngIf="l.model.type == 'R' ">
+
+      <!-- <div class="profile-div">
+        <img src="/assets/imgs/admin.png" alt="" class="profile-images">
+      </div> -->
+      <div class="profile-div" [innerHtml]="staff_img">  </div>
+
+        <div class="card-div">
+          <ion-card class="chat_card_style">
+            <ion-item>
+              <ion-label class="chat-label"><span class="chat-title"> {{l.model.poster}} </span> posted
+                {{l.model.created}}
+              </ion-label>
+            </ion-item>
+            <ion-card-content>
+              <!-- <label>asfnojaes</label>
+            <p>Hi Michelle,
+
+              As per your requested done the setting, please monitor any calls that will come and let me know the
+              status.
+
+              Tks,
+              JN.</p> -->
+              <div class="card-body" [innerHtml]="l.model.body">
+
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </div>
+    
+
+    </div>
+
+    <div class="chat-whole-div" *ngIf="l.model.type == 'M' ">
+
+
+      <div class="card-div">
+        <ion-card class="chat_card_style">
+          <ion-item>
+            <ion-label class="chat-label"><span class="chat-title"> {{l.model.poster}} </span> posted
+              {{l.model.created}}
+            </ion-label>
+          </ion-item>
+          <ion-card-content>
+            <!-- <label>asfnojaes</label>
+            <p>Hi Michelle,
+
+              As per your requested done the setting, please monitor any calls that will come and let me know the
+              status.
+
+              Tks,
+              JN.</p> -->
+            <div class="card-body" [innerHtml]="l.model.body">
+
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </div>
+
+      <!-- <div class="profile-div-right">
+        <img src="/assets/imgs/admin.png" alt="" class="profile-images">
+      </div> -->
+      <div class="profile-div-right" [innerHtml]="user_img"></div>
+
+    </div>
+
+  </div>
+
+
+</ion-content>
+
+
+<ion-footer *ngIf="tic_status == 'Open'">
+  <ion-toolbar>
+    <ion-textarea style="width: 85%;" maxRows="1" [(ngModel)]="replaymessage" placeholder="Write a message"></ion-textarea>
+    <figure class="">
+      <!-- <img style="width: 70px;height: 65px;"  src="{{images}}" alt=""> -->
+      <div class="inner">
+        <input class="inputfile" type="file" name="pic" accept="image/*" (change)="changeListener($event)">
+        <ion-icon class="iconss" name="camera"></ion-icon>
+      </div>
+    </figure>
+    <!-- <span class="round-send"> -->
+      <div style="font-size: 9px;
+      border-radius: 100%;
+      background-color: #5555ff;
+      width: 28px;
+      height: 30px;
+      border-radius: 100%;
+      position: absolute;
+      top: 20px;
+      color: white;
+      right: 8px">
+    <ion-icon name="paper-plane" slot="end" style="font-size:24px;width: 22px;height: 26px;" (click)="replyOldticket()"></ion-icon></div>
+    <!-- </span> -->
+  </ion-toolbar>
+</ion-footer>

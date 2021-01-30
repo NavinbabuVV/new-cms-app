@@ -1,0 +1,652 @@
+login.php file path = https://erp.cal4care.com/cms/api_cms/v1.0/services/application
+
+class.user.php file path = https://erp.cal4care.com/cms/api_cms/v1.0/services/controllers
+
+URL : https://erp.cal4care.com/cms/api_cms/v1.0/index.php
+
+Login API  =============> DONE <=============
+{
+    "operation": "curlData",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"login_validation",
+        "uname": "vaithees20@gmail.com",
+        "pwd": "!(kRxlw_%v",
+        "otp_from": "otp1",
+        "auth_from": "undefined"
+        }
+}
+
+OTP Validation API =============> DONE <=============
+{
+    "operation": "curlData",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"otp_validation_for_app",
+        "uname": "vaithees20@gmail.com",
+        "pwd": "!(kRxlw_%v",
+        "otp_from": "otp1",
+        "auth_from": "undefined",
+        "auth_code": "3041264"
+        }
+}        
+
+DashBoard List API:   =============> DONE <==================
+
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlcnAuY2FsNGNhcmUuY29tIiwiYXVkIjoiZXJwLmNhbDRjYXJlLmNvbSIsImlhdCI6MTYwMTAzMDQ1NywibmJmIjoxNjAxMDMwNDU3LCJleHAiOjE2MDEwNDg0NTcsImFjY2Vzc19kYXRhIjp7InRva2VuX2FjY2Vzc0lkIjpudWxsLCJ0b2tlbl9hY2Nlc3NOYW1lIjpudWxsLCJ0b2tlbl9hY2Nlc3NUeXBlIjpudWxsfX0.DO5AhlihljqX8RVsGTRLZYFhqsbFlvfMeiQuTSEIH7Y",
+    "operation": "curlDatas",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"dashboardCount",
+        "customer_id": "NDQ4MQ=="       
+        }
+}
+
+
+
+Invoice List API : =============> DONE <==================
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlcnAuY2FsNGNhcmUuY29tIiwiYXVkIjoiZXJwLmNhbDRjYXJlLmNvbSIsImlhdCI6MTYwMTAzMDQ1NywibmJmIjoxNjAxMDMwNDU3LCJleHAiOjE2MDEwNDg0NTcsImFjY2Vzc19kYXRhIjp7InRva2VuX2FjY2Vzc0lkIjpudWxsLCJ0b2tlbl9hY2Nlc3NOYW1lIjpudWxsLCJ0b2tlbl9hY2Nlc3NUeXBlIjpudWxsfX0.DO5AhlihljqX8RVsGTRLZYFhqsbFlvfMeiQuTSEIH7Y",
+    "operation": "curlDatas",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"invoice_list",
+        "customer_id": "MTI4OQ==",
+		"type":"paid",
+        "limit":"10",
+        "offset":"0"
+        }
+}
+
+
+
+License List API : =============> DONE <==================
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlcnAuY2FsNGNhcmUuY29tIiwiYXVkIjoiZXJwLmNhbDRjYXJlLmNvbSIsImlhdCI6MTYwMTAzMDQ1NywibmJmIjoxNjAxMDMwNDU3LCJleHAiOjE2MDEwNDg0NTcsImFjY2Vzc19kYXRhIjp7InRva2VuX2FjY2Vzc0lkIjpudWxsLCJ0b2tlbl9hY2Nlc3NOYW1lIjpudWxsLCJ0b2tlbl9hY2Nlc3NUeXBlIjpudWxsfX0.DO5AhlihljqX8RVsGTRLZYFhqsbFlvfMeiQuTSEIH7Y",
+    "operation": "curlDatas",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"license_list",
+        "customer_id": "80"
+        }
+}
+
+Credit Note List API :  =============> DONE <==================
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlcnAuY2FsNGNhcmUuY29tIiwiYXVkIjoiZXJwLmNhbDRjYXJlLmNvbSIsImlhdCI6MTYwMTAzMDQ1NywibmJmIjoxNjAxMDMwNDU3LCJleHAiOjE2MDEwNDg0NTcsImFjY2Vzc19kYXRhIjp7InRva2VuX2FjY2Vzc0lkIjpudWxsLCJ0b2tlbl9hY2Nlc3NOYW1lIjpudWxsLCJ0b2tlbl9hY2Nlc3NUeXBlIjpudWxsfX0.DO5AhlihljqX8RVsGTRLZYFhqsbFlvfMeiQuTSEIH7Y",
+    "operation": "curlDatas",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"credit_note",
+        "customer_id": "1806"
+        }
+}
+
+Prepaid Note List API  =============> DONE <==================
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlcnAuY2FsNGNhcmUuY29tIiwiYXVkIjoiZXJwLmNhbDRjYXJlLmNvbSIsImlhdCI6MTYwMTAzMDQ1NywibmJmIjoxNjAxMDMwNDU3LCJleHAiOjE2MDEwNDg0NTcsImFjY2Vzc19kYXRhIjp7InRva2VuX2FjY2Vzc0lkIjpudWxsLCJ0b2tlbl9hY2Nlc3NOYW1lIjpudWxsLCJ0b2tlbl9hY2Nlc3NUeXBlIjpudWxsfX0.DO5AhlihljqX8RVsGTRLZYFhqsbFlvfMeiQuTSEIH7Y",
+    "operation": "curlDatas",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"prepaid_note",
+        "customer_id": "3401"
+        }
+}
+
+Deal Registration List API  
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlcnAuY2FsNGNhcmUuY29tIiwiYXVkIjoiZXJwLmNhbDRjYXJlLmNvbSIsImlhdCI6MTYwMTAzMDQ1NywibmJmIjoxNjAxMDMwNDU3LCJleHAiOjE2MDEwNDg0NTcsImFjY2Vzc19kYXRhIjp7InRva2VuX2FjY2Vzc0lkIjpudWxsLCJ0b2tlbl9hY2Nlc3NOYW1lIjpudWxsLCJ0b2tlbl9hY2Nlc3NUeXBlIjpudWxsfX0.DO5AhlihljqX8RVsGTRLZYFhqsbFlvfMeiQuTSEIH7Y",
+    "operation": "curlDatas",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"deal_registration",
+        "customer_id": "5056"
+        }
+}
+
+
+Leads List API  
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlcnAuY2FsNGNhcmUuY29tIiwiYXVkIjoiZXJwLmNhbDRjYXJlLmNvbSIsImlhdCI6MTYwMTAzMDQ1NywibmJmIjoxNjAxMDMwNDU3LCJleHAiOjE2MDEwNDg0NTcsImFjY2Vzc19kYXRhIjp7InRva2VuX2FjY2Vzc0lkIjpudWxsLCJ0b2tlbl9hY2Nlc3NOYW1lIjpudWxsLCJ0b2tlbl9hY2Nlc3NUeXBlIjpudWxsfX0.DO5AhlihljqX8RVsGTRLZYFhqsbFlvfMeiQuTSEIH7Y",
+    "operation": "curlDatas",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"enquiry_leads",
+        "customer_id": "80"
+        }
+}
+
+Referral List API 
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlcnAuY2FsNGNhcmUuY29tIiwiYXVkIjoiZXJwLmNhbDRjYXJlLmNvbSIsImlhdCI6MTYwMTAzMDQ1NywibmJmIjoxNjAxMDMwNDU3LCJleHAiOjE2MDEwNDg0NTcsImFjY2Vzc19kYXRhIjp7InRva2VuX2FjY2Vzc0lkIjpudWxsLCJ0b2tlbl9hY2Nlc3NOYW1lIjpudWxsLCJ0b2tlbl9hY2Nlc3NUeXBlIjpudWxsfX0.DO5AhlihljqX8RVsGTRLZYFhqsbFlvfMeiQuTSEIH7Y",
+    "operation": "curlDatas",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"angular_referral",`
+        "customer_id": "ODA=",
+		"limit":"10",
+        "offset":"0"
+        }
+}
+
+User List API
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlcnAuY2FsNGNhcmUuY29tIiwiYXVkIjoiZXJwLmNhbDRjYXJlLmNvbSIsImlhdCI6MTYwMTAzMDQ1NywibmJmIjoxNjAxMDMwNDU3LCJleHAiOjE2MDEwNDg0NTcsImFjY2Vzc19kYXRhIjp7InRva2VuX2FjY2Vzc0lkIjpudWxsLCJ0b2tlbl9hY2Nlc3NOYW1lIjpudWxsLCJ0b2tlbl9hY2Nlc3NUeXBlIjpudWxsfX0.DO5AhlihljqX8RVsGTRLZYFhqsbFlvfMeiQuTSEIH7Y",
+    "operation": "curlDatas",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"cms_user",
+        "customer_id": "1830"
+        }
+}
+
+User menu permission list API
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlcnAuY2FsNGNhcmUuY29tIiwiYXVkIjoiZXJwLmNhbDRjYXJlLmNvbSIsImlhdCI6MTYwMTAzMDQ1NywibmJmIjoxNjAxMDMwNDU3LCJleHAiOjE2MDEwNDg0NTcsImFjY2Vzc19kYXRhIjp7InRva2VuX2FjY2Vzc0lkIjpudWxsLCJ0b2tlbl9hY2Nlc3NOYW1lIjpudWxsLCJ0b2tlbl9hY2Nlc3NUeXBlIjpudWxsfX0.DO5AhlihljqX8RVsGTRLZYFhqsbFlvfMeiQuTSEIH7Y",
+    "operation": "curlDatas",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"cms_user_details",
+        "customer_id": "5056"
+        }
+}
+
+User name validation API
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlcnAuY2FsNGNhcmUuY29tIiwiYXVkIjoiZXJwLmNhbDRjYXJlLmNvbSIsImlhdCI6MTYwMTAzMDQ1NywibmJmIjoxNjAxMDMwNDU3LCJleHAiOjE2MDEwNDg0NTcsImFjY2Vzc19kYXRhIjp7InRva2VuX2FjY2Vzc0lkIjpudWxsLCJ0b2tlbl9hY2Nlc3NOYW1lIjpudWxsLCJ0b2tlbl9hY2Nlc3NUeXBlIjpudWxsfX0.DO5AhlihljqX8RVsGTRLZYFhqsbFlvfMeiQuTSEIH7Y",
+    "operation": "curlDatas",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"cms_user_validation",
+        "customer_id": "5056",
+        "cms_user_name": "te@cal4care.com"
+        }
+}
+
+
+CMS User generation API
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlcnAuY2FsNGNhcmUuY29tIiwiYXVkIjoiZXJwLmNhbDRjYXJlLmNvbSIsImlhdCI6MTYwMTAzMDQ1NywibmJmIjoxNjAxMDMwNDU3LCJleHAiOjE2MDEwNDg0NTcsImFjY2Vzc19kYXRhIjp7InRva2VuX2FjY2Vzc0lkIjpudWxsLCJ0b2tlbl9hY2Nlc3NOYW1lIjpudWxsLCJ0b2tlbl9hY2Nlc3NUeXBlIjpudWxsfX0.DO5AhlihljqX8RVsGTRLZYFhqsbFlvfMeiQuTSEIH7Y",
+    "operation": "curlDatas",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"cms_user_insert",
+        "customer_id": "5056",
+        "cms_user_name": "ps",
+        "log_userName": "@cal4care.com",
+        "cus_permission": ""
+        }
+}
+
+
+CMS User Edit API
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlcnAuY2FsNGNhcmUuY29tIiwiYXVkIjoiZXJwLmNhbDRjYXJlLmNvbSIsImlhdCI6MTYwMTAzMDQ1NywibmJmIjoxNjAxMDMwNDU3LCJleHAiOjE2MDEwNDg0NTcsImFjY2Vzc19kYXRhIjp7InRva2VuX2FjY2Vzc0lkIjpudWxsLCJ0b2tlbl9hY2Nlc3NOYW1lIjpudWxsLCJ0b2tlbl9hY2Nlc3NUeXBlIjpudWxsfX0.DO5AhlihljqX8RVsGTRLZYFhqsbFlvfMeiQuTSEIH7Y",
+    "operation": "curlDatas",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"cms_user_edit",
+        "customer_id": "5056",
+        "cms_user_id": "88"
+        }
+}
+
+CMS User Delete API
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlcnAuY2FsNGNhcmUuY29tIiwiYXVkIjoiZXJwLmNhbDRjYXJlLmNvbSIsImlhdCI6MTYwMTAzMDQ1NywibmJmIjoxNjAxMDMwNDU3LCJleHAiOjE2MDEwNDg0NTcsImFjY2Vzc19kYXRhIjp7InRva2VuX2FjY2Vzc0lkIjpudWxsLCJ0b2tlbl9hY2Nlc3NOYW1lIjpudWxsLCJ0b2tlbl9hY2Nlc3NUeXBlIjpudWxsfX0.DO5AhlihljqX8RVsGTRLZYFhqsbFlvfMeiQuTSEIH7Y",
+    "operation": "curlDatas",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"cms_userdelete",
+        "customer_id": "5056",
+        "cms_user_id": "92"
+        }
+}
+
+Extension List API
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlcnAuY2FsNGNhcmUuY29tIiwiYXVkIjoiZXJwLmNhbDRjYXJlLmNvbSIsImlhdCI6MTYwMTAzMDQ1NywibmJmIjoxNjAxMDMwNDU3LCJleHAiOjE2MDEwNDg0NTcsImFjY2Vzc19kYXRhIjp7InRva2VuX2FjY2Vzc0lkIjpudWxsLCJ0b2tlbl9hY2Nlc3NOYW1lIjpudWxsLCJ0b2tlbl9hY2Nlc3NUeXBlIjpudWxsfX0.DO5AhlihljqX8RVsGTRLZYFhqsbFlvfMeiQuTSEIH7Y",
+    "operation": "curlDatas",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"viewall_extension",
+        "customer_id": "797"
+        }
+}
+
+Extension Add API
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlcnAuY2FsNGNhcmUuY29tIiwiYXVkIjoiZXJwLmNhbDRjYXJlLmNvbSIsImlhdCI6MTYwMTAzMDQ1NywibmJmIjoxNjAxMDMwNDU3LCJleHAiOjE2MDEwNDg0NTcsImFjY2Vzc19kYXRhIjp7InRva2VuX2FjY2Vzc0lkIjpudWxsLCJ0b2tlbl9hY2Nlc3NOYW1lIjpudWxsLCJ0b2tlbl9hY2Nlc3NUeXBlIjpudWxsfX0.DO5AhlihljqX8RVsGTRLZYFhqsbFlvfMeiQuTSEIH7Y",
+    "operation": "curlDatas",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"add_extension",
+        "customer_id": "797"
+		"extn_no": "",
+		"extn_name": ""
+        }
+}
+
+
+Extension Edit API
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlcnAuY2FsNGNhcmUuY29tIiwiYXVkIjoiZXJwLmNhbDRjYXJlLmNvbSIsImlhdCI6MTYwMTAzMDQ1NywibmJmIjoxNjAxMDMwNDU3LCJleHAiOjE2MDEwNDg0NTcsImFjY2Vzc19kYXRhIjp7InRva2VuX2FjY2Vzc0lkIjpudWxsLCJ0b2tlbl9hY2Nlc3NOYW1lIjpudWxsLCJ0b2tlbl9hY2Nlc3NUeXBlIjpudWxsfX0.DO5AhlihljqX8RVsGTRLZYFhqsbFlvfMeiQuTSEIH7Y",
+    "operation": "curlDatas",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"edit_extension",
+        "customer_id": "797",
+        "extn_name_id": "638"
+        }
+}
+
+Extension Update API
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlcnAuY2FsNGNhcmUuY29tIiwiYXVkIjoiZXJwLmNhbDRjYXJlLmNvbSIsImlhdCI6MTYwMTAzMDQ1NywibmJmIjoxNjAxMDMwNDU3LCJleHAiOjE2MDEwNDg0NTcsImFjY2Vzc19kYXRhIjp7InRva2VuX2FjY2Vzc0lkIjpudWxsLCJ0b2tlbl9hY2Nlc3NOYW1lIjpudWxsLCJ0b2tlbl9hY2Nlc3NUeXBlIjpudWxsfX0.DO5AhlihljqX8RVsGTRLZYFhqsbFlvfMeiQuTSEIH7Y",
+    "operation": "curlDatas",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"update_extension_info",
+        "customer_id_hd": "797",
+        "extn_name_id": "638",
+        "extn_no": "715",
+        "extn_name": "vaithee"
+        }
+}
+
+Online order API(edition dropdown api) ================> DONE <================
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlcnAuY2FsNGNhcmUuY29tIiwiYXVkIjoiZXJwLmNhbDRjYXJlLmNvbSIsImlhdCI6MTYwMTAzMDQ1NywibmJmIjoxNjAxMDMwNDU3LCJleHAiOjE2MDEwNDg0NTcsImFjY2Vzc19kYXRhIjp7InRva2VuX2FjY2Vzc0lkIjpudWxsLCJ0b2tlbl9hY2Nlc3NOYW1lIjpudWxsLCJ0b2tlbl9hY2Nlc3NUeXBlIjpudWxsfX0.DO5AhlihljqX8RVsGTRLZYFhqsbFlvfMeiQuTSEIH7Y",
+    "operation": "curlDatas",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"online_order",
+        "customer_id": "5056",
+        "product_sale_type": "new"
+        }
+}
+
+bYy12Q4VOsNhFzfESZZ7
+237633
+"Customer_3cx_data": {
+        "Billerid": "3",
+        "Resellerid": "237633",
+        "Apikey": "bYy12Q4VOsNhFzfESZZ7",
+        "Reseller_dis_per": "0",
+        "Customer_currency": "USD",
+        "Currency_symbol": "US $",
+        "Currency_value": "1"
+    },
+
+Simultaneous calls value API(purchase new license)  ================> DONE <================
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlcnAuY2FsNGNhcmUuY29tIiwiYXVkIjoiZXJwLmNhbDRjYXJlLmNvbSIsImlhdCI6MTYwMTAzMDQ1NywibmJmIjoxNjAxMDMwNDU3LCJleHAiOjE2MDEwNDg0NTcsImFjY2Vzc19kYXRhIjp7InRva2VuX2FjY2Vzc0lkIjpudWxsLCJ0b2tlbl9hY2Nlc3NOYW1lIjpudWxsLCJ0b2tlbl9hY2Nlc3NUeXBlIjpudWxsfX0.DO5AhlihljqX8RVsGTRLZYFhqsbFlvfMeiQuTSEIH7Y",
+    "operation": "curlDatas",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"edition_change",
+        "customer_id": "4481",
+        "edition_key": "3CXPSPROFENT",
+        "api_key": "bYy12Q4VOsNhFzfESZZ7",
+        "reseller_id": "237633",
+        "customer_currency": "USD",
+        "customer_currency_symbol": "US $",
+        "currency_value": "1"
+        }
+}
+
+
+get maintenance for existing API(purchase new license) ================> DONE <================
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlcnAuY2FsNGNhcmUuY29tIiwiYXVkIjoiZXJwLmNhbDRjYXJlLmNvbSIsImlhdCI6MTYwMTAzMDQ1NywibmJmIjoxNjAxMDMwNDU3LCJleHAiOjE2MDEwNDg0NTcsImFjY2Vzc19kYXRhIjp7InRva2VuX2FjY2Vzc0lkIjpudWxsLCJ0b2tlbl9hY2Nlc3NOYW1lIjpudWxsLCJ0b2tlbl9hY2Nlc3NUeXBlIjpudWxsfX0.DO5AhlihljqX8RVsGTRLZYFhqsbFlvfMeiQuTSEIH7Y",
+    "operation": "curlDatas",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"concurrent_license_change",
+        "customer_id": "4481",
+        "edition_key": "3CXPSPROFENT",
+        "api_key": "bYy12Q4VOsNhFzfESZZ7",
+        "reseller_id": "237633",
+        "customer_currency": "USD",
+        "customer_currency_symbol": "US $",
+        "currency_value": "1",
+        "simultaneous_call": "16/2173.00"
+        }
+}
+
+add to cart for product sale type(new) API  ================> DONE <================
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlcnAuY2FsNGNhcmUuY29tIiwiYXVkIjoiZXJwLmNhbDRjYXJlLmNvbSIsImlhdCI6MTYwMTAzMDQ1NywibmJmIjoxNjAxMDMwNDU3LCJleHAiOjE2MDEwNDg0NTcsImFjY2Vzc19kYXRhIjp7InRva2VuX2FjY2Vzc0lkIjpudWxsLCJ0b2tlbl9hY2Nlc3NOYW1lIjpudWxsLCJ0b2tlbl9hY2Nlc3NUeXBlIjpudWxsfX0.DO5AhlihljqX8RVsGTRLZYFhqsbFlvfMeiQuTSEIH7Y",
+    "operation": "curlDatas",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"insert_cart",
+        "customer_id": "4481",
+        "product_sale_type": "new",
+        "quantity": "1",
+        "maintenance": "0",
+        "simultaneous_call": "16",
+        "llicense_key": "",
+        "edition_key": "3CXPSPROFENT",
+        "dicountPercentage": "30",
+        "temp_price": "2173.00",
+        "actual_price": "2173.00",
+        "perpetual": "1",
+        "edition": "Enterprise",
+        "temp_maintenace_price": "598.00"
+        }
+}
+
+add to cart for product sale type(upgrade) API ================> DONE <================
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlcnAuY2FsNGNhcmUuY29tIiwiYXVkIjoiZXJwLmNhbDRjYXJlLmNvbSIsImlhdCI6MTYwMTAzMDQ1NywibmJmIjoxNjAxMDMwNDU3LCJleHAiOjE2MDEwNDg0NTcsImFjY2Vzc19kYXRhIjp7InRva2VuX2FjY2Vzc0lkIjpudWxsLCJ0b2tlbl9hY2Nlc3NOYW1lIjpudWxsLCJ0b2tlbl9hY2Nlc3NUeXBlIjpudWxsfX0.DO5AhlihljqX8RVsGTRLZYFhqsbFlvfMeiQuTSEIH7Y",
+    "operation": "curlDatas",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"insert_cart",
+        "customer_id": "4481",
+        "product_sale_type": "upgrade",
+        "quantity": "1",
+        "maintenance": "0",
+        "simultaneous_call": "64",
+        "license_key": "COX6-2AQO-9ZDR-7F93",
+        "edition_key": "3CXPSPROFENT",
+        "dicountPercentage": "30",
+        "temp_price": "1727.00",
+        "actual_price": "1727.00",
+        "perpetual": "1",
+        "edition": "Enterprise",
+        "temp_maintenace_price": "0"
+        }
+}
+
+
+add to cart for product sale type(maintenance) API
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlcnAuY2FsNGNhcmUuY29tIiwiYXVkIjoiZXJwLmNhbDRjYXJlLmNvbSIsImlhdCI6MTYwMTAzMDQ1NywibmJmIjoxNjAxMDMwNDU3LCJleHAiOjE2MDEwNDg0NTcsImFjY2Vzc19kYXRhIjp7InRva2VuX2FjY2Vzc0lkIjpudWxsLCJ0b2tlbl9hY2Nlc3NOYW1lIjpudWxsLCJ0b2tlbl9hY2Nlc3NUeXBlIjpudWxsfX0.DO5AhlihljqX8RVsGTRLZYFhqsbFlvfMeiQuTSEIH7Y",
+    "operation": "curlDatas",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"insert_cart",
+        "customer_id": "4481",
+        "product_sale_type": "maintenance",
+        "quantity": "1",
+        "maintenance": "1",
+        "simultaneous_call": "64",
+        "license_key": "COX6-2AQO-9ZDR-7F93",
+        "edition_key": "3CXPSPROF",
+        "dicountPercentage": "30",
+        "temp_price": "2240.00",
+        "actual_price": "2240.00",
+        "perpetual": "1",
+        "edition": "Professional",
+        "temp_maintenace_price": "0"
+        }
+}
+
+delete cart API  ================> DONE <================
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlcnAuY2FsNGNhcmUuY29tIiwiYXVkIjoiZXJwLmNhbDRjYXJlLmNvbSIsImlhdCI6MTYwMTAzMDQ1NywibmJmIjoxNjAxMDMwNDU3LCJleHAiOjE2MDEwNDg0NTcsImFjY2Vzc19kYXRhIjp7InRva2VuX2FjY2Vzc0lkIjpudWxsLCJ0b2tlbl9hY2Nlc3NOYW1lIjpudWxsLCJ0b2tlbl9hY2Nlc3NUeXBlIjpudWxsfX0.DO5AhlihljqX8RVsGTRLZYFhqsbFlvfMeiQuTSEIH7Y",
+    "operation": "curlDatas",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"remove_cart",
+        "customer_id": "4481",
+        "select_chk": "5294"
+        }
+}
+
+verify license key API(upgrade)   ================> DONE <================
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlcnAuY2FsNGNhcmUuY29tIiwiYXVkIjoiZXJwLmNhbDRjYXJlLmNvbSIsImlhdCI6MTYwMTAzMDQ1NywibmJmIjoxNjAxMDMwNDU3LCJleHAiOjE2MDEwNDg0NTcsImFjY2Vzc19kYXRhIjp7InRva2VuX2FjY2Vzc0lkIjpudWxsLCJ0b2tlbl9hY2Nlc3NOYW1lIjpudWxsLCJ0b2tlbl9hY2Nlc3NUeXBlIjpudWxsfX0.DO5AhlihljqX8RVsGTRLZYFhqsbFlvfMeiQuTSEIH7Y",
+    "operation": "curlDatas",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"price_information_upgrade",
+        "customer_id": "4481",
+        "product_sale_type": "upgrade",
+        "license_key": "COX6-2AQO-9ZDR-7F93",
+        "customer_currency": "USD",
+        "customer_currency_symbol": "US $",
+        "currency_value": "1"
+        }
+}
+
+
+verify license key API(maintenance)
+
+{
+    "access_token":"MTI4OSMjIzhkYzEwZGFkYjExYjdjOGNjMTgy",
+    "operation":"curlDatas",
+    "moduleType":"login",
+    "api_type":"web",
+    "element_data":{
+        "action":"anual_renew_maintenance",
+        "customer_id":"NDgwNQ==",
+        "product_sale_type":"maintenance",
+        "license_key":"COX6-2AQO-9ZDR-7F93",
+        "customer_currency": "SGD",
+        "customer_currency_symbol": "S$",
+        "currency_value": "1.3461"
+
+    }
+}
+
+simultaneous call change API (upgrade)   ================> DONE <================
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlcnAuY2FsNGNhcmUuY29tIiwiYXVkIjoiZXJwLmNhbDRjYXJlLmNvbSIsImlhdCI6MTYwMTAzMDQ1NywibmJmIjoxNjAxMDMwNDU3LCJleHAiOjE2MDEwNDg0NTcsImFjY2Vzc19kYXRhIjp7InRva2VuX2FjY2Vzc0lkIjpudWxsLCJ0b2tlbl9hY2Nlc3NOYW1lIjpudWxsLCJ0b2tlbl9hY2Nlc3NUeXBlIjpudWxsfX0.DO5AhlihljqX8RVsGTRLZYFhqsbFlvfMeiQuTSEIH7Y",
+    "operation": "curlDatas",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"simultaneous_call_change",
+        "customer_id": "4481",
+        "product_sale_type": "upgrade",
+        "license_key": "COX6-2AQO-9ZDR-7F93",
+        "edition": "3CXPSPROFENT/Enterprise",
+        "simultaneous_call": "64/1727.00",
+        "actual_price": "1727.00",
+        "temp_price": "1727.00",
+        "perpetual": "1",
+        "maintenance": "0",
+        "quantity": "1",
+        "temp_maintenace_price": "0",
+        "customer_currency": "USD",
+        "customer_currency_symbol": "US $",
+        "currency_value": "1"
+        }
+}
+
+License List API :  =============> DONE <==================
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlcnAuY2FsNGNhcmUuY29tIiwiYXVkIjoiZXJwLmNhbDRjYXJlLmNvbSIsImlhdCI6MTYwMTAzMDQ1NywibmJmIjoxNjAxMDMwNDU3LCJleHAiOjE2MDEwNDg0NTcsImFjY2Vzc19kYXRhIjp7InRva2VuX2FjY2Vzc0lkIjpudWxsLCJ0b2tlbl9hY2Nlc3NOYW1lIjpudWxsLCJ0b2tlbl9hY2Nlc3NUeXBlIjpudWxsfX0.DO5AhlihljqX8RVsGTRLZYFhqsbFlvfMeiQuTSEIH7Y",
+    "operation": "curlDatas",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"license_list",
+        "customer_id": "ODA=",
+		"limit":"10",
+        "offset":"0"
+        }
+}
+
+Credit Note List API :  =============> DONE <==================
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlcnAuY2FsNGNhcmUuY29tIiwiYXVkIjoiZXJwLmNhbDRjYXJlLmNvbSIsImlhdCI6MTYwMTAzMDQ1NywibmJmIjoxNjAxMDMwNDU3LCJleHAiOjE2MDEwNDg0NTcsImFjY2Vzc19kYXRhIjp7InRva2VuX2FjY2Vzc0lkIjpudWxsLCJ0b2tlbl9hY2Nlc3NOYW1lIjpudWxsLCJ0b2tlbl9hY2Nlc3NUeXBlIjpudWxsfX0.DO5AhlihljqX8RVsGTRLZYFhqsbFlvfMeiQuTSEIH7Y",
+    "operation": "curlDatas",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"credit_note",
+        "customer_id": "ODA=",
+		"limit":"10",
+        "offset":"0"
+        }
+}
+
+Prepaid Note List API   =============> DONE <==================
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlcnAuY2FsNGNhcmUuY29tIiwiYXVkIjoiZXJwLmNhbDRjYXJlLmNvbSIsImlhdCI6MTYwMTAzMDQ1NywibmJmIjoxNjAxMDMwNDU3LCJleHAiOjE2MDEwNDg0NTcsImFjY2Vzc19kYXRhIjp7InRva2VuX2FjY2Vzc0lkIjpudWxsLCJ0b2tlbl9hY2Nlc3NOYW1lIjpudWxsLCJ0b2tlbl9hY2Nlc3NUeXBlIjpudWxsfX0.DO5AhlihljqX8RVsGTRLZYFhqsbFlvfMeiQuTSEIH7Y",
+    "operation": "curlDatas",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"prepaid_note",
+        "customer_id": "ODA=",
+		"limit":"10",
+        "offset":"0"
+        }
+}
+
+Deal Registration List API
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlcnAuY2FsNGNhcmUuY29tIiwiYXVkIjoiZXJwLmNhbDRjYXJlLmNvbSIsImlhdCI6MTYwMTAzMDQ1NywibmJmIjoxNjAxMDMwNDU3LCJleHAiOjE2MDEwNDg0NTcsImFjY2Vzc19kYXRhIjp7InRva2VuX2FjY2Vzc0lkIjpudWxsLCJ0b2tlbl9hY2Nlc3NOYW1lIjpudWxsLCJ0b2tlbl9hY2Nlc3NUeXBlIjpudWxsfX0.DO5AhlihljqX8RVsGTRLZYFhqsbFlvfMeiQuTSEIH7Y",
+    "operation": "curlDatas",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"deal_registration",
+        "customer_id": "ODA=",
+		"limit":"10",
+        "offset":"0"
+        }
+}
+
+Leads List API
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlcnAuY2FsNGNhcmUuY29tIiwiYXVkIjoiZXJwLmNhbDRjYXJlLmNvbSIsImlhdCI6MTYwMTAzMDQ1NywibmJmIjoxNjAxMDMwNDU3LCJleHAiOjE2MDEwNDg0NTcsImFjY2Vzc19kYXRhIjp7InRva2VuX2FjY2Vzc0lkIjpudWxsLCJ0b2tlbl9hY2Nlc3NOYW1lIjpudWxsLCJ0b2tlbl9hY2Nlc3NUeXBlIjpudWxsfX0.DO5AhlihljqX8RVsGTRLZYFhqsbFlvfMeiQuTSEIH7Y",
+    "operation": "curlDatas",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"enquiry_leads",
+        "customer_id": "ODA=",
+		"limit":"10",
+        "offset":"0"
+        }
+}
+
+
+Call Balance List API
+
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlcnAuY2FsNGNhcmUuY29tIiwiYXVkIjoiZXJwLmNhbDRjYXJlLmNvbSIsImlhdCI6MTYwMTAzMDQ1NywibmJmIjoxNjAxMDMwNDU3LCJleHAiOjE2MDEwNDg0NTcsImFjY2Vzc19kYXRhIjp7InRva2VuX2FjY2Vzc0lkIjpudWxsLCJ0b2tlbl9hY2Nlc3NOYW1lIjpudWxsLCJ0b2tlbl9hY2Nlc3NUeXBlIjpudWxsfX0.DO5AhlihljqX8RVsGTRLZYFhqsbFlvfMeiQuTSEIH7Y",
+    "operation": "curlDatas",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"call_balance",
+        "customer_id": "MTI4OQ=="
+        }
+}
+
+News Letter Events API
+
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlcnAuY2FsNGNhcmUuY29tIiwiYXVkIjoiZXJwLmNhbDRjYXJlLmNvbSIsImlhdCI6MTYwMTAzMDQ1NywibmJmIjoxNjAxMDMwNDU3LCJleHAiOjE2MDEwNDg0NTcsImFjY2Vzc19kYXRhIjp7InRva2VuX2FjY2Vzc0lkIjpudWxsLCJ0b2tlbl9hY2Nlc3NOYW1lIjpudWxsLCJ0b2tlbl9hY2Nlc3NUeXBlIjpudWxsfX0.DO5AhlihljqX8RVsGTRLZYFhqsbFlvfMeiQuTSEIH7Y",
+    "operation": "curlDatas",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"news_events",
+        "customer_id": "NDQ4MQ==",
+        "limit": "10",
+        "offset": "0"
+        }
+}
+
+
+Support ticket dasboard count API
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlcnAuY2FsNGNhcmUuY29tIiwiYXVkIjoiZXJwLmNhbDRjYXJlLmNvbSIsImlhdCI6MTYwMTAzMDQ1NywibmJmIjoxNjAxMDMwNDU3LCJleHAiOjE2MDEwNDg0NTcsImFjY2Vzc19kYXRhIjp7InRva2VuX2FjY2Vzc0lkIjpudWxsLCJ0b2tlbl9hY2Nlc3NOYW1lIjpudWxsLCJ0b2tlbl9hY2Nlc3NUeXBlIjpudWxsfX0.DO5AhlihljqX8RVsGTRLZYFhqsbFlvfMeiQuTSEIH7Y",
+    "operation": "curlDatas",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"ticket_count",
+        "customer_id": "NDQ4MQ=="
+        }
+}
+
+Open ticket list API
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlcnAuY2FsNGNhcmUuY29tIiwiYXVkIjoiZXJwLmNhbDRjYXJlLmNvbSIsImlhdCI6MTYwMTAzMDQ1NywibmJmIjoxNjAxMDMwNDU3LCJleHAiOjE2MDEwNDg0NTcsImFjY2Vzc19kYXRhIjp7InRva2VuX2FjY2Vzc0lkIjpudWxsLCJ0b2tlbl9hY2Nlc3NOYW1lIjpudWxsLCJ0b2tlbl9hY2Nlc3NUeXBlIjpudWxsfX0.DO5AhlihljqX8RVsGTRLZYFhqsbFlvfMeiQuTSEIH7Y",
+    "operation": "curlDatas",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"open_ticket",
+        "customer_id": "NDQ4MQ==",
+        "limit": "10",
+        "offset": "0"
+        }
+}
+
+Closed ticket list API
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlcnAuY2FsNGNhcmUuY29tIiwiYXVkIjoiZXJwLmNhbDRjYXJlLmNvbSIsImlhdCI6MTYwMTAzMDQ1NywibmJmIjoxNjAxMDMwNDU3LCJleHAiOjE2MDEwNDg0NTcsImFjY2Vzc19kYXRhIjp7InRva2VuX2FjY2Vzc0lkIjpudWxsLCJ0b2tlbl9hY2Nlc3NOYW1lIjpudWxsLCJ0b2tlbl9hY2Nlc3NUeXBlIjpudWxsfX0.DO5AhlihljqX8RVsGTRLZYFhqsbFlvfMeiQuTSEIH7Y",
+    "operation": "curlDatas",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"closed_ticket",
+        "customer_id": "NDQ4MQ==",
+        "limit": "10",
+        "offset": "0"
+        }
+}
+
+
+View Tickets API
+{
+    {
+        "access_token":"MjIzOCMjIzhkYzEwZGFkYjExYjdjOGNjMTgy",
+        "operation":"ticket",
+        "moduleType":"ticket",
+        "api_type":"web",
+        "element_data":{"action":"getTicketInfo","ticket_id":"159062"}
+    }
+} 
+
+viewcartlist API
+
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlcnAuY2FsNGNhcmUuY29tIiwiYXVkIjoiZXJwLmNhbDRjYXJlLmNvbSIsImlhdCI6MTYwMTAzMDQ1NywibmJmIjoxNjAxMDMwNDU3LCJleHAiOjE2MDEwNDg0NTcsImFjY2Vzc19kYXRhIjp7InRva2VuX2FjY2Vzc0lkIjpudWxsLCJ0b2tlbl9hY2Nlc3NOYW1lIjpudWxsLCJ0b2tlbl9hY2Nlc3NUeXBlIjpudWxsfX0.DO5AhlihljqX8RVsGTRLZYFhqsbFlvfMeiQuTSEIH7Y",
+    "operation": "curlDatas",
+    "moduleType": "login",
+    "api_type": "web",
+    "element_data":{
+        "action":"viewcartlist",
+        "customer_id": "NDQ4MQ=="
+        }
+}

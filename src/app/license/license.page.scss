@@ -1,0 +1,21 @@
+.backpagebg{
+	--background : var(--ion-color-grey)  !important;
+}
+.cardbg{
+	/*ion-card{*/
+	--background: #ffffff;
+		/**/
+	/*}*/
+	.action{
+		display:flex !important;
+		img{
+			/*width: 10% !important;*/
+			/*margin-right:10px !important;*/
+			 width: 15% !important;
+    
+    height: 15% !important;
+    padding-right: 10px !important;
+			
+		}
+	}
+}

@@ -1,0 +1,25 @@
+.table-head{
+    // background: #1abb9c;
+    background:#f0cd61;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+}
+.rows-green{
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #d6d6d6;
+}
+
+.create-gcc{
+    width: 30px;
+    height: 30px;
+    --background:red;
+}
+
+.create-icons{
+    font-size: 45px;
+    font-weight: 900;
+}

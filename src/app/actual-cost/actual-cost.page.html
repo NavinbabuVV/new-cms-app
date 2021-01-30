@@ -1,0 +1,111 @@
+
+<ion-header no-shadow>
+	<ion-toolbar class="header" color="primary">
+		<ion-buttons slot="start" >
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>Quotation</ion-title>
+		<ion-buttons slot="end" style="margin: 0px 10px;">
+			<ion-button icon-only [routerLink]="['/global-search']">
+				<ion-icon name="search"></ion-icon>
+			</ion-button>
+		 </ion-buttons>
+		<ion-buttons slot="end">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+<ion-content class="grey-bg">
+	<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+		<ion-refresher-content></ion-refresher-content>
+	</ion-refresher>
+	<div class="inner-content-wrapper">
+		<div class="block">
+			<ion-card class="card" *ngFor="let item of products">
+
+				<ion-card-content>
+					<ion-grid no-padding>
+						<ion-row>
+							<ion-col>
+								<p>Product Name</p>
+								<p><strong>{{item.productName}}</strong></p>
+							</ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col>
+								<p>Product Desc</p>
+								<p><strong>{{item.productDesc}}</strong></p>
+							</ion-col>
+						</ion-row>
+
+						<div class="table">
+							<ion-row no-padding>
+								<ion-col no-padding><p class="text-left table-row"><span>Price</span><br /> <strong>{{item.price}}</strong></p></ion-col>
+								<ion-col no-padding><p class="text-right table-row"><span>Qty</span><br /> <strong>{{item.qty}}</strong></p></ion-col>
+							</ion-row>
+							<ion-row no-padding>
+								<ion-col no-padding><p class="text-left table-row"><span>Net Total</span><br /> <strong>{{item.net_total}}</strong></p>
+								</ion-col>
+								<ion-col no-padding><p class="text-right table-row"><span>Amount</span><br /> <strong>{{item.net_total}}</strong></p></ion-col>
+							</ion-row>
+							<ion-row no-padding>
+								<ion-col no-padding><p class="text-left table-row"><span>Percentage</span><br /> <strong>{{item.actual_percentage}}</strong></p>
+								</ion-col>
+								<ion-col no-padding><p class="text-right table-row"><span>Actual Price</span><br /> <strong>{{item.actual_price}}</strong></p></ion-col>
+							</ion-row>
+							<ion-row no-padding>
+								<ion-col no-padding><p class="text-left table-row"><span>Actual Net Total</span><br /> <strong>{{item.actual_net_total}}</strong></p>
+								</ion-col>
+								<ion-col no-padding><p class="text-right table-row"><span>Actual Diff Amt</span><br /> <strong><ion-badge color="warning">{{item.act_diff_amt}}</ion-badge></strong></p></ion-col>
+							</ion-row>
+						</div>
+
+						<div class="cart-footer">
+							<ion-row>
+								<ion-col class="close" ><ion-icon name="trash" (click)="removeCart(item.cart_deatils_id)"></ion-icon></ion-col>
+							</ion-row>
+						</div>
+					</ion-grid>
+				</ion-card-content>
+			</ion-card>
+
+
+			<ion-card  no-padding class="card total-card">
+				<ion-card-content>
+					<ion-grid no-padding>
+						<ion-row>
+							<ion-col col-4><p>Net Total (SGD)</p></ion-col>
+							<ion-col col-8><p><strong>{{total_net_total}}</strong></p></ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col col-5><p>Actual Price</p></ion-col>
+							<ion-col col-7><p><strong>{{total_actual_price}}</strong></p></ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col col-5><p>Actual Net Total</p></ion-col>
+							<ion-col col-7><p><strong>{{total_actual_net_total}}</strong></p></ion-col>
+						</ion-row>
+					</ion-grid>
+				</ion-card-content>
+			</ion-card>
+
+			<!-- <div class="btn-panel">
+				<ion-row>
+					<ion-col>
+						<ion-button class="btn"  (click)="goback()" color="light" expand="full" shape="round"><ion-icon name="arrow-round-back"></ion-icon>
+						Back</ion-button>
+					</ion-col>
+					<ion-col>
+						<ion-button class="btn" (click)="goback()" color="success" expand="full" shape="round"><ion-icon name="add-circle"></ion-icon>
+						Add</ion-button>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col>
+						<ion-button class="btn" href="\order-success" color="primary" expand="full" shape="round"><ion-icon name="cash"></ion-icon> Proceed to Payment</ion-button>
+					</ion-col>
+				</ion-row> 
+			</div> -->
+		</div>
+	</div>
+</ion-content>

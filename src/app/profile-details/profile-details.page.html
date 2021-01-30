@@ -1,0 +1,184 @@
+<ion-header no-shadow no-border>
+  <ion-toolbar class="header" color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button [routerLink]="['/dashboard']"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="text-align: center;">Profile Details</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content fullscreen>
+
+  <div class="background-work">
+    <!-- <ion-toolbar class="header">
+      <ion-icon style="font-size: 30px;padding: 0 8px;" slot="start" (click)="backmenu()" name="arrow-back"></ion-icon>
+
+      <ion-title style="text-align: center;">Profile</ion-title>
+      <ion-buttons slot="end">
+        <ion-menu-button style="color:white;"></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar> -->
+
+    <div class="alignments">
+      <div class="centering">
+        <figure class="">
+          <!-- <img style="width: 70px;height: 65px;"  src="{{images}}" alt=""> -->
+          <img style="    width: 75px;
+          height: 70px;
+          border-radius: 50%;
+          object-fit: cover;
+          background:white;
+          border: 3px solid white;" src="{{images}}" alt="">
+          <div class="inner">
+            <input class="inputfile" type="file" name="pic" accept="image/*" (change)="changeListener($event)">
+            <ion-icon class="iconss" name="camera"></ion-icon>
+          </div>
+        </figure>
+        <!-- <input type="file" accept="image/*" capture="camera" (change)="onFileSelected($event)" id="fileInput" />
+        <label for="fileInput" icon-only ion-button>
+          <ion-icon name="camera"></ion-icon>
+        </label> -->
+        <h6 style="color:white;text-align: center;margin:0;">{{profile.customer_code}}</h6>
+        <h2 style="text-align: center;margin:0;">{{profile.contact_person}}</h2>
+      </div>
+      <!-- <input type="file" accept="image/*" capture="camera" (change)="onFileSelected($event)" id="fileInput"/>
+<label for="fileInput" icon-only ion-button>
+    <ion-icon name="camera"></ion-icon>
+</label> -->
+
+    </div>
+  </div>
+  <!-- <form action=""> -->
+  <ion-card>
+    <ion-card-content style="padding: 0 20px;">
+
+
+
+      <ion-list>
+        <ion-item class="items">
+          <ion-label color="primary" class="labeling" position="floating">Company Name *</ion-label>
+          <ion-input [(ngModel)]="profile.company_name" autocorrect="on" autofocus="on" clearInput="true"
+            clearOnEdit="true" color="primary" inputmode="text" required="true" [ngModelOptions]="{standalone: true}"  readonly>
+          </ion-input>
+          <ion-icon name="people" slot="end" class="icons-style"></ion-icon>
+        </ion-item>
+
+        <ion-item class="items">
+          <ion-label color="primary" class="labeling" position="floating">Phone No *</ion-label>
+          <ion-input [(ngModel)]="profile.phone_no" autocorrect="on" autofocus="on" clearInput="true" clearOnEdit="true"
+            color="primary" inputmode="text" required="true"></ion-input>
+          <ion-icon name="call" slot="end" class="icons-style"></ion-icon>
+        </ion-item>
+        <ion-item class="items">
+          <ion-label color="primary" class="labeling" position="floating">Google authenticator *</ion-label>
+          <ion-input [(ngModel)]="profile.google_auth" autocorrect="on" autofocus="on" clearInput="true"
+            clearOnEdit="true" color="primary" inputmode="text" required="true"></ion-input>
+          <ion-icon name="lock-closed" slot="end" class="icons-style"></ion-icon>
+        </ion-item>
+        <ion-item class="items">
+          <ion-label color="primary" class="labeling" position="floating">Address 1 *</ion-label>
+          <ion-input [(ngModel)]="profile.address1" autocorrect="on" autofocus="on" clearInput="true" clearOnEdit="true"
+            color="primary" inputmode="text" required="true"></ion-input>
+          <ion-icon name="business" slot="end" class="icons-style"></ion-icon>
+        </ion-item>
+        <ion-item class="items">
+          <ion-label color="primary" class="labeling" position="floating">Address 2</ion-label>
+          <ion-input [(ngModel)]="profile.address2" autocorrect="on" autofocus="on" clearInput="true" clearOnEdit="true"
+            color="primary" inputmode="text" required="true"></ion-input>
+          <ion-icon name="business" slot="end" class="icons-style"></ion-icon>
+        </ion-item>
+        <ion-item class="items">
+          <ion-label color="primary" class="labeling" position="floating">City</ion-label>
+          <ion-input [(ngModel)]="profile.city" autocorrect="on" autofocus="on" clearInput="true" clearOnEdit="true"
+            color="primary" inputmode="text" required="true"></ion-input>
+          <ion-icon name="city" slot="end" class="icons-style"></ion-icon>
+        </ion-item>
+        <ion-item class="items">
+          <ion-label color="primary" class="labeling" position="floating">State</ion-label>
+          <ion-input [(ngModel)]="profile.state" autocorrect="on" autofocus="on" clearInput="true" clearOnEdit="true"
+            color="primary" inputmode="text" required="true"></ion-input>
+          <ion-icon name="state" slot="end" class="icons-style"></ion-icon>
+        </ion-item>
+        <ion-item class="items">
+          <ion-label color="primary" class="labeling" position="floating">Country</ion-label>
+          <ion-input [(ngModel)]="profile.country" autocorrect="on" autofocus="on" clearInput="true" clearOnEdit="true"
+            color="primary" inputmode="text" required="true"></ion-input>
+          <ion-icon name="globe" slot="end" class="icons-style"></ion-icon>
+        </ion-item>
+        <ion-item class="items">
+          <ion-label color="primary" class="labeling" position="floating">Phone</ion-label>
+          <ion-input [(ngModel)]="profile.phone2" autocorrect="on" autofocus="on" clearInput="true" clearOnEdit="true"
+            color="primary" inputmode="text" required="true"></ion-input>
+          <ion-icon name="call" slot="end" class="icons-style"></ion-icon>
+        </ion-item>
+        <ion-item class="items">
+          <ion-label color="primary" class="labeling" position="floating">Mobile Phone</ion-label>
+          <ion-input [(ngModel)]="profile.mobile" autocorrect="on" autofocus="on" clearInput="true" clearOnEdit="true"
+            color="primary" inputmode="text" required="true"></ion-input>
+          <ion-icon name="phone-portrait" slot="end" class="icons-style"></ion-icon>
+        </ion-item>
+        <ion-item class="items">
+          <ion-label color="primary" class="labeling" position="floating">Fax</ion-label>
+          <ion-input [(ngModel)]="profile.fax" autocorrect="on" autofocus="on" clearInput="true" clearOnEdit="true"
+            color="primary" inputmode="text" required="true"></ion-input>
+          <ion-icon name="person" slot="end" class="icons-style"></ion-icon>
+        </ion-item>
+        <ion-item class="items">
+          <ion-label color="primary" class="labeling" position="floating">Contact Person</ion-label>
+          <ion-input [(ngModel)]="profile.contact_person" autocorrect="on" autofocus="on" clearInput="true"
+            clearOnEdit="true" color="primary" inputmode="text" required="true"></ion-input>
+          <ion-icon name="person-circle" slot="end" class="icons-style"></ion-icon>
+        </ion-item>
+        <!-- <ion-item class="items">
+          <ion-label color="primary" class="labeling" position="floating">Bank Account Name</ion-label>
+          <ion-input [(ngModel)]="profile.bank_acc_name" autocorrect="on" autofocus="on" clearInput="true"
+            clearOnEdit="true" color="primary" inputmode="text" required="true"></ion-input>
+          <ion-icon name="person" slot="end" class="icons-style"></ion-icon>
+        </ion-item>
+        <ion-item class="items">
+          <ion-label color="primary" class="labeling" position="floating">Bank Account Number</ion-label>
+          <ion-input [(ngModel)]="profile.bank_acc_num" autocorrect="on" autofocus="on" clearInput="true"
+            clearOnEdit="true" color="primary" inputmode="text" required="true"></ion-input>
+          <ion-icon name="card" slot="end" class="icons-style"></ion-icon>
+        </ion-item> -->
+        <ion-item class="items">
+          <ion-label color="primary" class="labeling" position="floating">Reset Passoword</ion-label>
+          <ion-input [(ngModel)]="profile.reset_password" autocorrect="on" autofocus="on" clearInput="true"
+            clearOnEdit="true" color="primary" inputmode="text" required="true"></ion-input>
+          <ion-icon name="lock-closed" slot="end" class="icons-style"></ion-icon>
+        </ion-item>
+        <ion-item class="items">
+          <ion-label color="primary" class="labeling" position="floating">Credit Limit</ion-label>
+          <ion-input [(ngModel)]="profile.credit" autocorrect="on" autofocus="on" clearInput="true" clearOnEdit="true"
+            color="primary" inputmode="text" required="true" readonly></ion-input>
+          <ion-icon name="person" slot="end" class="icons-style"></ion-icon>
+        </ion-item>
+        <!-- <ion-item class="items">
+          <ion-label color="primary" class="labeling" position="floating">Bill Code</ion-label>
+          <ion-input [(ngModel)]="profile.bill_code" autocorrect="on" autofocus="on" clearInput="true"
+            clearOnEdit="true" color="primary" inputmode="text" required="true"></ion-input>
+          <ion-icon name="person" slot="end" class="icons-style"></ion-icon>
+        </ion-item> -->
+        <!-- <ion-item class="items">
+          <ion-label class="labeling">Customer Status</ion-label>
+          <ion-badge color="danger" slot="end">{{profile.customer_status}}</ion-badge>
+        </ion-item> -->
+        <!-- <ion-item class="items">
+          <ion-label class="labeling">Show PBX User Name</ion-label>
+          <ion-checkbox slot="end" [(ngModel)]="profile.cms_vs_pbx_dispaly"></ion-checkbox>
+        </ion-item>
+        <ion-item class="items">
+          <ion-label class="labeling">Show VS PBX</ion-label>
+          <ion-checkbox slot="end" [(ngModel)]="profile.cms_username_dispaly"></ion-checkbox>
+        </ion-item> -->
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button color="success" expand="block" (click)="postprofile()">Submit</ion-button>
+  <!-- </form> -->
+</ion-content>

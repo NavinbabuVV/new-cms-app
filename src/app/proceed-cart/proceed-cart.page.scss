@@ -1,0 +1,115 @@
+.backpagebg{
+	--background : var(--ion-color-grey)  !important;
+}
+
+.cards{
+    margin: 10px 0;
+    background: white;
+    border-radius: 0px;
+}
+
+.cards-top{
+    margin: 0 0 10px 0;
+    background: white;
+    border-radius: 0px;
+}
+
+.price-card{
+    margin-top: 10px;
+    margin-right: 0;
+    margin-bottom: 80px;
+    margin-left: 0;
+    background: white;
+    border-radius: 0px;
+}
+
+.right-side-value{
+    text-align: right;
+}
+
+.head1{
+    font-size: 16px;
+    font-weight: 600;
+    padding-bottom: 7px;
+    color:steelblue;
+    }
+
+.sub-head{
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.dividers{
+    border-bottom: 2px solid #e4e4e4;
+    margin-bottom: 10px;
+    padding: 10px 5px;
+    color: #929090;
+}
+
+.grand-total{
+    border-top: 2px dashed #b8b7b7;
+    margin-top: 10px;
+    font-size: 14px; 
+    color: black;
+}
+
+.product-detail{
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.values{
+    text-align: right;
+}
+.values-discount{
+    text-align: right;
+    color: #1abb9c;
+    font-weight: 900;
+}
+.values-total{
+    text-align: right;  
+    font-size: 15px;
+    font-weight: 900;
+}
+
+.fixed-card{
+    position: fixed;
+    bottom: 0;
+    background: white;
+    width: 100%;
+    padding: 0;
+    margin: 10px 0 0 0;
+    border-radius: 0;
+}
+
+.fixed-values{
+    text-align: center;
+    font-size: 21px;
+    font-weight: 900;
+    /* justify-content: center; */
+    margin: auto 0;
+}
+
+.fixed-button{
+    --background: #ff7f50;
+    --border-radius: 7px;
+    float: right;
+    width: 180px;
+    font-weight: 800;
+    padding-right: 10px;
+}
+
+.img-figure{
+    width: 75px;
+    margin: 0;   
+}
+
+.pay-list-head{
+    font-weight: 900;
+    font-size: 14px;
+}
+
+.labels{
+    font-size: 13px;
+    font-weight: 600;
+}

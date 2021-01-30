@@ -1,0 +1,213 @@
+<!-- <ion-content  class="bg-image login no-scroll">
+
+	<form  #form="ngForm" (ngSubmit)="login(form)">
+		<ion-icon name="chevron-back-outline"></ion-icon>
+		<ion-grid>
+			<ion-row color="light" justify-content-center>
+				<ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+					<div text-center class="logo">
+						<img src="../../assets/imgs/logo-white.png">
+					</div>
+					<div class="form-group">
+						<ion-item>
+							<ion-icon name="lock"></ion-icon>
+							<ion-input name="otp" [(ngModel)]="userData.otp" type="number" placeholder="Enter your OTP" ngModel required></ion-input>
+						</ion-item>
+						
+						<div class="btn-panel">
+							<ion-row>
+								<ion-col>
+									<ion-button type="submit" class="btn" color="light" expand="full" shape="round">Submit OTP</ion-button>
+								</ion-col>
+							</ion-row>
+						</div>
+						<div class="fl forgot-pwd" padding>
+							<p><strong>Resend OTP </strong></p>
+						</div>
+					
+					</div>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+	</form>
+</ion-content> -->
+
+<ion-content class="loginpage">
+
+	<div class="colorlogo">
+		<ion-icon *ngIf="showotp" (click)="passwordpage()" name="arrow-back"></ion-icon>
+		<!-- <ion-icon *ngIf="!showotp" (click)="backClicked()" name="arrow-back" ></ion-icon> -->
+		<div text-center class="logowhite">
+
+			<img src="../../assets/imgs/logo-white.png">
+		</div>
+
+	</div>
+
+	<div class="logindiv">
+		<div *ngIf="!showotp">
+			<form #form="ngForm" (ngSubmit)="sendotp(form)">
+				<ion-row color="light" justify-content-center>
+					<ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+						<div class="segmentclass">
+							<ion-segment [(ngModel)]="select" name="select" style="margin-bottom:10px;">
+								<ion-segment-button value="psw" class="border0">
+									<ion-label>Password Login</ion-label>
+								</ion-segment-button>
+								<ion-segment-button value="qr" class="border0">
+									<ion-label>QR Code Login</ion-label>
+								</ion-segment-button>
+							</ion-segment>
+						</div>
+						<div class="form-group" *ngIf='select == "psw"'>
+
+							<div class="pass">
+
+								<ion-item style="border-bottom: 1px solid #2A3F54">
+									<ion-icon name="person"></ion-icon>
+
+									<ion-input name="name" [(ngModel)]="userData.username" type="text"
+										placeholder=" Username" ngModel required></ion-input>
+
+								</ion-item>
+
+
+								<ion-item style="border-bottom: 1px solid #2A3F54">
+									<ion-icon name="lock"></ion-icon>
+									<ion-input name="password" [(ngModel)]="userData.password" type="password"
+										placeholder="Password" ngModel required></ion-input>
+								</ion-item>
+							</div>
+
+
+
+							<ion-item style="padding-top: 4% !important">
+
+								<ion-label>Allow FingerPrint Login</ion-label>
+
+								<ion-checkbox name="isallow" slot="start" [(ngModel)]="userData.isallow"
+									(ionChange)="checkvalues('finger',$event.detail.checked)" ngModel></ion-checkbox>
+
+							</ion-item>
+
+							<!-- <ion-item style="padding-top: 4% !important">
+
+								<ion-label>Allow Qrcode Login</ion-label>
+
+
+								<ion-checkbox name="isallow2" slot="start" [(ngModel)]="userData.isallow2"
+									(ionChange)="checkvalues('qrcode',$event.detail.checked)" ngModel></ion-checkbox>
+
+							</ion-item> -->
+
+
+
+							<div class="btn-panel">
+								<ion-row>
+									<ion-col>
+										<ion-button type="submit" class="btn btnalign" color="" expand="full"
+											shape="round">Send OTP</ion-button>
+									</ion-col>
+								</ion-row>
+							</div>
+
+
+							<div class="fl forgot-pwd" padding>
+								<p routerLink="/forgot-password"><strong>Forgot Password? </strong></p>
+							</div>
+
+						</div>
+
+						<div *ngIf='select == "qr"'>
+							<ion-row>
+								<ion-col style="text-align: center !important;">
+									<img (click)="loginWithQrcode()" class="" src="assets/imgs/qrmobile.jpeg"
+										style="width: 80%;">
+									<p style="color:#fff !important">No more remembering passwords! Click image to scan
+									</p>
+								</ion-col>
+							</ion-row>
+						</div>
+
+
+					</ion-col>
+				</ion-row>
+			</form>
+		</div>
+
+
+
+
+		<div *ngIf="showotp">
+			<form #form="ngForm" (ngSubmit)="submitotp(form)">
+				<ion-row color="light" justify-content-center>
+					<ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+
+						<div class="form-group">
+							<ion-item style="border-bottom: 1px solid #2A3F54">
+								<ion-icon name="lock"></ion-icon>
+								<ion-input name="otp" [(ngModel)]="userData.otp" type="number"
+									placeholder="Enter your otp" ngModel required></ion-input>
+							</ion-item>
+
+
+							<div class="btn-panel">
+								<ion-row>
+									<ion-col>
+										<ion-button type="submit" class="btn btnalign" color="" expand="full"
+											shape="round">Login</ion-button>
+									</ion-col>
+								</ion-row>
+							</div>
+
+
+							<div class="fl forgot-pwd" padding>
+								<p (click)="sendotp('')"><strong>Resend OTP</strong></p>
+							</div>
+
+
+
+						</div>
+					</ion-col>
+				</ion-row>
+			</form>
+
+
+		</div>
+
+
+
+
+	</div>
+
+</ion-content>
+
+
+
+
+
+
+
+
+
+
+<!-- <table  class="app-link" style="display: flex;justify-content: center;">
+    <tr style="display: flex;">
+		<p style="text-align: left;font-size: 20px;margin-bottom: 10px;font-weight: bold;color:#3d77a7;font-style:italic">Go mobile !  Download   Cal4care Customer/Reseller CMS Mobile Apps.</p>
+		<p> <span>  <a href="https://apps.apple.com/us/app/cal4care-cms-customer/id1521608417">Apple Store </a> </span> OR <span>  <a href="https://play.google.com/store/apps/details?id=com.erpcustomer">Google Play</a> </span></p>
+      <td style="margin-right: 20px;list-style: none;display: inline-block;">
+        <a href="https://apps.apple.com/us/app/cal4care-cms-customer/id1521608417">
+            <figure style="width: 120px;margin: 20px 0px;transition: .5s ease;">
+              <img style="width: 200px;height: auto;transition: .5s ease;" src="http://umbrellapro.xyz/cms_angular/assets/img/custom-images/app-store.png">
+            </figure>
+        </a>
+      </td>  
+      <td style="list-style: none;display: inline-block;">
+        <a href="https://play.google.com/store/apps/details?id=com.erpcustomer">
+            <figure style="width: 120px;margin: 20px 0px;transition: .5s ease;">
+              <img style="width: 200px;height: auto;transition: .5s ease;" src="http://umbrellapro.xyz/cms_angular/assets/img/custom-images/play-store.png">
+            </figure>
+        </a>    
+      </td>  
+    </tr>  
+  </table> -->

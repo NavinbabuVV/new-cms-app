@@ -1,0 +1,76 @@
+<ion-header no-shadow>
+	<ion-toolbar class="header" color="primary">
+		<ion-buttons slot="start" >
+			<ion-back-button defaultHref="/enquiry-management"></ion-back-button>
+		</ion-buttons>
+		<ion-title>Enquiry ticket Assign</ion-title>
+		<ion-buttons slot="end">
+			<ion-button icon-only [routerLink]="['/global-search']">
+				<ion-icon name="search"></ion-icon>
+			</ion-button>
+		 </ion-buttons>
+		<ion-buttons slot="end">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+	</ion-toolbar>
+
+</ion-header>
+
+<ion-content class="list-page grey-bg">
+	<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+		<ion-refresher-content></ion-refresher-content>
+	</ion-refresher>
+	<div class="inner-content-wrapper">
+		<div class="block">
+			<!-- <ion-searchbar placeholder="Search"></ion-searchbar> -->
+			<ion-card class="card">
+				<ion-card-content>
+					<ion-grid no-padding>
+						<ion-row>
+							<ion-col><ion-badge color="success">{{this.enqury}}</ion-badge></ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col size="4"><p>Customer</p></ion-col>
+							<ion-col size="8"><p><strong>{{this.enquiry_cust_name}}</strong></p></ion-col>
+						</ion-row>
+
+						<ion-row>
+							<div class="form full-width">			
+								<div class="small-title">Dept.</div>
+								<ion-item>
+									<ion-label>Select Dept</ion-label>
+									<ion-select placeholder="Select Dept" [(ngModel)]="department"  (ionChange)="departmentAgent(department)">
+										<ion-select-option  *ngFor="let item of department_list" value="{{ item.depart_id }},{{ item.email }}">{{ item.name }}</ion-select-option>
+									</ion-select>
+								</ion-item>
+							</div>
+						</ion-row>
+						
+						<ion-row>
+							<div class="form full-width">			
+								<div class="small-title">Agent</div>
+								<ion-item>
+									<ion-label>Select Agent</ion-label>
+									<ion-select placeholder="Select Agent" [(ngModel)]="agent" >
+											<ion-select-option  *ngFor="let item of agents" value="{{ item.agent_key }}">{{ item.firstname }}</ion-select-option>
+									</ion-select>
+								</ion-item>
+							</div>
+						</ion-row>
+
+						<ion-row>
+							<ion-col>
+								<ion-button routerLink="/enquiry-management" type="button" class="btn" color="secondary" expand="block" shape="round">Cancel</ion-button>
+							</ion-col>
+							<ion-col>
+								<ion-button type="button" class="btn" color="success" expand="block" shape="round" (click)="assignAgent()">Create</ion-button>
+							</ion-col>
+						</ion-row>
+						
+					</ion-grid>
+				</ion-card-content>
+			</ion-card>
+		</div>
+
+	</div>
+</ion-content>

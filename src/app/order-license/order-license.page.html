@@ -1,0 +1,163 @@
+<ion-header no-shadow>
+	<ion-toolbar class="header" color="primary">
+		<ion-buttons slot="start">
+			<ion-back-button (click)="goToTestPage()"></ion-back-button>
+		</ion-buttons>
+		<ion-title>Order 3CX License</ion-title>
+		<ion-buttons slot="end">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+	</ion-toolbar>
+	<!-- <div class="block grey-bg">
+		<div class="header-widget">
+			<h6>Select to Order</h6>
+		</div>
+	</div> -->
+</ion-header>
+<ion-content class="grey-bg">
+	<div class="block">
+		<ion-list class="form">
+			<div class="form-group">
+				<div class="small-title">I would like to</div>
+				<ion-item>
+					<ion-label style="color: black !important">Choose Order</ion-label>
+					<ion-select placeholder="Select One" [(ngModel)]="order_type" (ionChange)="orderType(order_type)">
+						<ion-select-option selected value="I would like to" [disabled]="true">I would like to
+						</ion-select-option>
+						<ion-select-option value="new">Purchase a new license</ion-select-option>
+						<ion-select-option value="upgrade">Upgrade an existing license</ion-select-option>
+
+						<ion-select-option value="maintenance">Maintenance(Annual/Perpetual)</ion-select-option>
+					</ion-select>
+				</ion-item>
+			</div>
+
+			<div class="form-group" *ngIf="isNewLicense">
+				<div class="small-title">Select Edition</div>
+				<ion-item>
+					<ion-label>Select Edition</ion-label>
+					<ion-select placeholder="Select One" [(ngModel)]="edition_type"
+						(ionChange)="editionType(edition_type)">
+
+
+						<ion-select-option *ngFor="let cx of phones" value="{{cx.value}}">{{cx.option_value}}
+						</ion-select-option>
+
+
+					</ion-select>
+				</ion-item>
+			</div>
+
+			<div class="form-group" *ngIf="isNewLicense">
+				<div class="small-title">Concurrent License</div>
+				<ion-item>
+					<ion-label>Select Edition</ion-label>
+					<ion-select placeholder="Select One" [(ngModel)]="concurrent_licence_select"
+						(ionChange)="conLicence(concurrent_licence_select)">
+						<ion-select-option selected value="I would like to" [disabled]="true">Concurrent License
+						</ion-select-option>
+						<ion-select-option *ngFor="let item of consurrent_license"
+							value="{{item.value}}:::{{item.discount}}:::{{item.price_value}}:::{{item.option_value}}">
+							{{item.option_value}}
+						</ion-select-option>
+					</ion-select>
+				</ion-item>
+			</div>
+
+
+
+			<div class="form-group" *ngIf="isNewLicense">
+				<div class="small-title">Quantity</div>
+				<ion-item>
+					<ion-input type="number" [(ngModel)]="quantity" value="{{ quantity }}"></ion-input>
+
+				</ion-item>
+				<!-- 					<ion-input type="hidden" [(ngModel)]="perpetual" value="{{ perpetual }}"></ion-input>
+					<ion-input type="hidden" [(ngModel)]="edition" value="{{ edition }}"></ion-input> -->
+			</div>
+
+			<div class="form-group" *ngIf="isNewLicense">
+				<div class="small-title">Add Maintenance</div>
+				<ion-item>
+					<ion-input type="number" [(ngModel)]="maintenance" value="{{ maintenance }}"></ion-input>
+				</ion-item>
+			</div>
+
+			<div class="form-group" *ngIf="!isNewLicense && isChange">
+				<div class="small-title">License Key</div>
+				<ion-item>
+					<ion-input type="text" [(ngModel)]="l_key_main" value="{{ l_key_main }}"></ion-input>
+				</ion-item>
+				<ion-col>
+					<ion-button class="btn" color="warning verfiy" expand="full" shape="round"
+						(click)="verifyLicence()">
+						<ion-icon name="checkmark-circle-outline"></ion-icon>Verify
+					</ion-button>
+				</ion-col>
+			</div>
+
+			<div class="form-group" *ngIf="isRenew">
+				<div class="small-title">{{price_data}}</div>
+				<!-- <div class="small-title">Year</div> -->
+				<ion-item>
+					<ion-input type="text" [(ngModel)]="l_r_price" value="{{ l_r_price }}"></ion-input>
+				</ion-item>
+			</div>
+
+
+			<div class="form-group" *ngIf="isUpgrade">
+				<div class="small-title">Edition</div>
+				<ion-item>
+					<ion-label>Select Edition</ion-label>
+					<ion-select placeholder="Select One" [(ngModel)]="l_edition_options_edition"
+						(ionChange)="upLicenceEditition(l_edition_options_edition)">
+						<ion-select-option *ngFor="let item of l_options_edition"
+							value="{{ item.value }},{{ item.values }},{{item.edition}}">{{ item.edition }}
+						</ion-select-option>
+					</ion-select>
+				</ion-item>
+			</div>
+
+
+
+			<div class="form-group" *ngIf="isUpgrade">
+				<div class="small-title">Simultaneouscall</div>
+				<ion-item>
+					<ion-label>Simultaneouscall</ion-label>
+					<ion-select placeholder="Select One" [(ngModel)]="l_edition_options_simultaneouscall"
+						(ionChange)="upLicenceSimult(l_edition_options_simultaneouscall)">
+						<ion-select-option *ngFor="let item of l_options_simultaneouscall"
+							value="{{ item.value }},{{ item.price_value }},{{ item.option_value }},{{item.discount}},{{item.prices_value}}">
+							{{ item.option_value }}</ion-select-option>
+					</ion-select>
+				</ion-item>
+			</div>
+
+
+
+			<div class="center-title">{{price_message}}</div>
+			<div class="btn-panel">
+				<ion-row>
+					<ion-col>
+						<ion-button routerLink="/license-key-search" class="btn" color="light" expand="full"
+							shape="round">
+							<ion-icon name="log-out"></ion-icon>Back
+						</ion-button>
+					</ion-col>
+					<ion-col>
+						<ion-button routerLink="/view-cart" class="btn views" color="success" expand="full" shape="round">
+							<ion-icon name="eye"></ion-icon> View Cart
+						</ion-button>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col>
+						<ion-button class="btn" color="primary" expand="full" shape="round" (click)="addtoCart()">
+							<ion-icon name="cart"></ion-icon> Add to Cart
+						</ion-button>
+					</ion-col>
+				</ion-row>
+			</div>
+		</ion-list>
+	</div>
+</ion-content>
